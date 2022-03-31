@@ -1,0 +1,39 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "description": "WebSite Aplication",
+  "engines": {
+    "node": "14.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "stop": "stop"
+  },
+  "author": "JFelipeAB",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.2",
+    "bootstrap": "^5.1.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "jquery": "^3.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.3",
+    "socket.io": "^4.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/den-silva/Rpg-Republic"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

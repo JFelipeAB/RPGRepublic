@@ -1,0 +1,97 @@
+<head>
+    <style>
+        .messages {
+            width: 90%;
+            height: 400px;
+            margin: 20px 0;
+            border: 1px solid rgb(42, 1, 119);
+            padding: 20px;
+            background-color: rgb(219, 218, 221);
+            align-items: left;
+        }
+
+        #chat {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .borda {
+            border: 1px solid rgb(18, 13, 27);
+        }
+    </style>
+    <title>
+        <%- title %>
+    </title>
+    <script src="./content/adicional/sala.js"></script>
+</head>
+
+<body class="text-center bodyImage3">
+    <div id="menuLateral"></div>
+    <div id="modal" class="modal">
+        <div style="text-align: center;">
+            <h2>Carregando</h2>
+        </div>
+        <div class="loader">
+            <img src="content/images/loading.gif" alt="">
+        </div>
+    </div>
+
+    <div>
+        <br /><br /><br />
+        <div class="container">
+            <div class="row">
+                <h1 style="align-items: center;" id="NomeSala">Sala #022</h1>
+            </div>
+            <div class="row form-signin">
+                <div class="col-4  borda">
+                    <div class="col-12">
+                        <br />
+                        <button class="form-control" type="button" onclick="sala.dados()">
+                       🎲 Dados 🎲</button>
+                    </div>
+                    <div class="col-12">
+                        <br />
+                        <br />
+                        <h1> Chat</h1>
+                        <form id="chat">
+                            <div class="messages"></div>
+                            <input id="txtText" type="text" style="width: 90%;" name="username"
+                                placeholder="digite sua mensagem">
+                            <br />
+                            <button class="form-control" type="button" onclick="sala.adicionarMensagem()">
+                                Enviar</button>
+                            </input>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-8 borda" style="background-color: white;">
+                    <div class="col-2"> &nbsp &nbsp</div>
+                    <div class="col-11">
+                        <br />
+                        <div class="row">
+                            <img src="./content/images/medieval-shield-png.png" height="20px" width="20px">
+                            &nbsp
+                            &nbsp
+
+                            <p style="text-align:left">Sala #001 - Sala Medieval</p>
+                        </div>
+
+                        <div class="col-6">
+                            <input id="txtSala" class="form-control" placeholder="Código da sala" required=""
+                                autofocus="" width="">
+                            <br />
+                            <a id="btnEntrarSala" class="btn btn-lg btn-block btn-primary"
+                                onclick="home.validaEntrarSala()">Entrar</a>
+                            <br />
+                            <a id="btnCriarSala" class="btn btn-lg btn-block btn-primary"
+                                onclick="home.criarSala()">Criar Sala</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
