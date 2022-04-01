@@ -5,11 +5,7 @@
   "engines": {
     "node": "14.x"
   },
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "stop": "stop"
-  },
+  "main": "server.js",  
   "author": "JFelipeAB",
   "license": "ISC",
   "dependencies": {
