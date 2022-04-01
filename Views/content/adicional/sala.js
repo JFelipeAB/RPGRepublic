@@ -30,16 +30,28 @@ var sala = function () {
 
     var dados = function () {
         $.ajax({
-            url: "server/modalDados",
-            contentType: 'aplication/json',            
+            url: "modalDados",
+            contentType: 'aplication/json',  
+            dataType: 'HTML',          
             method: 'POST',
             async: true
-        }).done(function (retorno) {
-            return true;
+        }).done(function (partial_view) {
+            if(partial_view)
+             MontarModal(partial_view)
         }).fail(function () {
             alert("Falha na conexão com servidor");
         });
 
+    }
+
+    var MontarModal = function(partial_view){
+        
+        $('#ModalBody').html(partial_view);
+
+        var modal = new bootstrap.Modal(document.getElementById('ModalDados'), {
+            keyboard: false
+        })
+        modal.show('slow');
     }
 
     var adicionarMensagem = function () {

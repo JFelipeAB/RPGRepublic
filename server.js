@@ -67,7 +67,7 @@ router.get('/sala', function(req,res){
 
 })
 
-app.post('/salvarUsuario', (req, res) => {
+router.post('/salvarUsuario', (req, res) => {
 
     //DESTRUCT, EXTRAIR PROPRIEDADE DE UM OBJETO PARA VARIÁVEIS
     const { dto } = req.body;
@@ -95,12 +95,16 @@ app.post('/salvarUsuario', (req, res) => {
     })
     
     res.send("Método post USUARIOS funcionando corretamente");
-
 })
 
-app.use(express.static( __dirname + '/dice/'));
-app.use(express.static( __dirname + '/dice/dice/'));
+router.post('/modalDados', function(req, res){
+    res.render(path.join(__dirname + '/Views/dice/dice/game.ejs'), { title: 'Dados', layout: './layoutModal.ejs' })   
+})
+
+
 app.use(express.static( __dirname + '/views/'));
+// app.use(express.static( __dirname + '/views/dice/'));
+// app.use(express.static( __dirname + '/views/dice/dice/'));
 
 
 const server = require('http').createServer(app);

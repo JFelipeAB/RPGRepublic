@@ -29,7 +29,7 @@
     "url": "https://github.com/JFelipeAB/RPGRepublicSystem"
   },
   "keywords": [
-    "node",    
+    "node",
     "express"
   ],
   "devDependencies": {
