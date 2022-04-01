@@ -98,7 +98,7 @@ router.post('/salvarUsuario', (req, res) => {
 })
 
 router.post('/modalDados', function(req, res){
-    res.render(path.join(__dirname + '/Views/dice/dice/game.ejs'), { title: 'Dados', layout: './layoutModal.ejs' })   
+    res.render(path.join(__dirname + '/views/dice/dice/game.ejs'), { title: 'Dados', layout: './layoutModal.ejs' })   
 })
 
 

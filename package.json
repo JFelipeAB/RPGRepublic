@@ -5,7 +5,7 @@
   "engines": {
     "node": "14.x"
   },
-  "main": "server.js",  
+  "main": "server.js",
   "author": "JFelipeAB",
   "license": "ISC",
   "dependencies": {

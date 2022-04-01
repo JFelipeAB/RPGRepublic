@@ -176,7 +176,7 @@ footer{
 }
 
 .center_field {
-
+    position: 'absolute',
     text-align: center;
     height: 100%;
     width: 100%;
