@@ -31,21 +31,21 @@ var sala = function () {
     var dados = function () {
         $.ajax({
             url: "modalDados",
-            contentType: 'aplication/json',  
-            dataType: 'HTML',          
+            contentType: 'aplication/json',
+            dataType: 'HTML',
             method: 'POST',
             async: true
         }).done(function (partial_view) {
-            if(partial_view)
-             MontarModal(partial_view)
+            if (partial_view)
+                MontarModal(partial_view)
         }).fail(function () {
             alert("Falha na conexão com servidor");
         });
 
     }
 
-    var MontarModal = function(partial_view){
-        
+    var MontarModal = function (partial_view) {
+
         $('#ModalBody').html(partial_view);
 
         var modal = new bootstrap.Modal(document.getElementById('ModalDados'), {
@@ -54,17 +54,18 @@ var sala = function () {
         modal.show('slow');
     }
 
-    var adicionarMensagem = function () {
-        debugger
-        $(".messages").append('<div ><strong>' + 'Usuario123' + '</strong>: ' + GetMensagem() + '</div><hr>')
-
+    var adicionarMensagem = function (text) {
+        if (text)
+            $("#divChat").append('<div ><strong>' + 'Usuario123' + '</strong>: ' + text + '</div><hr>')
+        else
+            $("#divChat").append('<div ><strong>' + 'Usuario123' + '</strong>: ' + GetMensagem() + '</div><hr>')
+        var objDiv = document.getElementById("divChat");
+        objDiv.scrollTop = objDiv.scrollHeight;
 
     };
 
     var GetMensagem = function () {
-        var texto = $("#txtText").val();
-        $("#txtText").val('');
-        return texto;
+        return $("#txtText").val();
     };
 
     return {

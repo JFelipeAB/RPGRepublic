@@ -101,6 +101,10 @@ router.post('/modalDados', function(req, res){
     res.render(path.join(__dirname + '/views/dice/dice/game.ejs'), { title: 'Dados', layout: './layoutModal.ejs' })   
 })
 
+router.get('/Dados', function(req, res){
+    res.render(path.join(__dirname + '/views/dice/dice/game.ejs'), { title: 'Dados', layout: './layoutHome.ejs' })   
+})
+
 
 app.use(express.static( __dirname + '/views/'));
 // app.use(express.static( __dirname + '/views/dice/'));

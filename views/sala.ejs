@@ -55,17 +55,19 @@
                     <div class="col-12">
                         <br />
                         <br />
-                        <h1> Chat</h1>
+                        <h1 style="text-align: center;"> Chat</h1>
                         <form id="chat">
-                            <div class="messages"></div>
-                            <input id="txtText" type="text" style="width: 90%;" name="username"
+                            <!-- <div class="messages"></div> -->
+                            <div style="text-align: left; font-size: medium;" id="divChat" class="overflow-auto form-control messages" >                              
+                            </div>
+                            <input class="form-control" id="txtText" type="text" style="width: 95%;" name="username"
                                 placeholder="digite sua mensagem">
                             <br />
                             <button class="form-control" type="button" onclick="sala.adicionarMensagem()">
                                 Enviar</button>
                             </input>
                         </form>
-                    </div>
+                    </div>                    
                 </div>
                 <div class="col-8 borda" style="background-color: white;">
                     <div class="col-2"> &nbsp &nbsp</div>
