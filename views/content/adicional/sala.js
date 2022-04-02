@@ -1,3 +1,5 @@
+var usurName = 'Usuario123';
+var usurIcon = '<img class="avatarUserIcon" src="https://avatars.dicebear.com/api/avataaars/uash.svg" alt="user">'
 var sala = function () {
 
     var idUsuario;
@@ -56,9 +58,9 @@ var sala = function () {
 
     var adicionarMensagem = function (text) {
         if (text)
-            $("#divChat").append('<div ><strong>' + 'Usuario123' + '</strong>: ' + text + '</div><hr>')
+            $("#divChat").append('<div >'+usurIcon +' <strong>' + usurName + '</strong>: ' + text + '</div><hr>')
         else
-            $("#divChat").append('<div ><strong>' + 'Usuario123' + '</strong>: ' + GetMensagem() + '</div><hr>')
+            $("#divChat").append('<div >'+usurIcon +' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>')
         var objDiv = document.getElementById("divChat");
         objDiv.scrollTop = objDiv.scrollHeight;
 
