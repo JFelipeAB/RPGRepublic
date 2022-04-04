@@ -1,11 +1,12 @@
-
-<head>   
-    <title><%- title %></title>
+<head>
+    <title>
+        <%- title %>
+    </title>
     <script src="./content/adicional/home.js"></script>
 </head>
 
 <body class="text-center bodyImage1">
-    <div id="menuLateral"></div>       
+    <div id="menuLateral"></div>
     <div id="modal" class="modal">
         <div style="text-align: center;">
             <h2>Carregando</h2>
@@ -13,42 +14,112 @@
         <div class="loader">
             <img src="./content/images/loading.gif" alt="">
         </div>
-    </div>    
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div id="bodyContent" class="jumbotron">
-                    <h1 class="display-4">RPG REPUBLIC</h1>
-                    <br /><br /><br />
+                    <h1 class="display-5">RPG REPUBLIC</h1>
+                    <br />
                     <div class="row">
-                        <div class="col-6">
-                            <img src="./content/images/Logo_Entrar.gif" width="500px">
-                            <br /><br />
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-md-3">
                             <div class="row">
-                                <div class="col-3"></div>
+                                <img src="./content/images/Logo_Entrar.gif" width="500px">
+                                <br /><br />
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-md-12 align-items">
+                                    <button style="width: 50%;" id="btnCriarSala" class="btn btn-primary"
+                                    data-bs-toggle="modal" data-bs-target="#mdlCriarSala">
+                                        Criar Sala
+                                    </button>
+                                    
+                                </div>
                             </div>
                         </div>
-                        <div class="col-4  ">
-                            <div class="col-2"> &nbsp  &nbsp</div>
-                            <h1>Opções</h1>
-                            <button onclick="self.location='./sala'">Escolher Salas</button>
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-md-9  ">
+                            <h2>Salas</h2>
+                            <input class="form-control" id="PesquisarSala" type="text"
+                                placeholder="Busque as salas pelo nome ou usuario Mestre...">
                             <br>
-                            <button>Sons do Usuário</button>
-                            <br>
-                            <button>Personagens/Fichas</button>
-                            <br>
-                            <button>Itens</button>
-                            <br>
-                            <button>Loja</button>
-                            <br>
-                            <button>Recompensas</button>
+                            <table id="tblSalas" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Entrar</th>
+                                        <th>Sala</th>
+                                        <th>Mestre</th>
+                                        <th>Privada</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTable">
+                                    <tr>
+                                        <td>🚪</td>
+                                        <td>Sala_1</td>
+                                        <td>Usuario123</td>
+                                        <td>🔒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>🚪</td>
+                                        <td>RPGDosBacanas</td>
+                                        <td>Moe</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>🚪</td>
+                                        <td>Sala_18</td>
+                                        <td>Dooley</td>
+                                        <td>🔒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>🚪</td>
+                                        <td>Anja</td>
+                                        <td>Ravendale123</td>
+                                        <td>🔒</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>   
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="mdlCriarSala" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Criar Sala</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-md-6">
+                            <input type="text" id="txtSalaNome" class="form-control " placeholder="Nome da Sala">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-md-6">
+                            <input type="text" id="txtSalaSenha" class="form-control " placeholder="Senha">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" onclick="self.location='./sala'" class="btn btn-primary">Criar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </body>
-
-
+<script>
+    $(document).ready(function () {
+        $("#PesquisarSala").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>

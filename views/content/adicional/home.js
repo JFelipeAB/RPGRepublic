@@ -1,3 +1,4 @@
+
 var home = function () {
     var controles = function () {
         return {
@@ -27,9 +28,13 @@ var home = function () {
     };
 
     var criarSala = function () {
-        debugger;
+        
         window.location.href = "/sala.html";
     };
+
+    var modalNovaSala = function(){
+        
+    }
 
     return {
         criarSala: criarSala,
