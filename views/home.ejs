@@ -30,10 +30,10 @@
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-md-12 align-items">
                                     <button style="width: 50%;" id="btnCriarSala" class="btn btn-primary"
-                                    data-bs-toggle="modal" data-bs-target="#mdlCriarSala">
+                                        data-bs-toggle="modal" data-bs-target="#mdlCriarSala">
                                         Criar Sala
                                     </button>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -44,38 +44,26 @@
                             <br>
                             <table id="tblSalas" class="table table-bordered table-striped">
                                 <thead>
-                                    <tr>
-                                        <th>Entrar</th>
+                                    <tr>                                        
                                         <th>Sala</th>
                                         <th>Mestre</th>
                                         <th>Privada</th>
                                     </tr>
                                 </thead>
-                                <tbody id="myTable">
-                                    <tr>
-                                        <td>🚪</td>
-                                        <td>Sala_1</td>
-                                        <td>Usuario123</td>
-                                        <td>🔒</td>
-                                    </tr>
-                                    <tr>
-                                        <td>🚪</td>
-                                        <td>RPGDosBacanas</td>
-                                        <td>Moe</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>🚪</td>
-                                        <td>Sala_18</td>
-                                        <td>Dooley</td>
-                                        <td>🔒</td>
-                                    </tr>
-                                    <tr>
-                                        <td>🚪</td>
-                                        <td>Anja</td>
-                                        <td>Ravendale123</td>
-                                        <td>🔒</td>
-                                    </tr>
+                                <tbody id="myTable" class="trSelect">
+                                    <% table.map(function(sala){ %>
+                                        <tr  onclick="home.entrarSala(<%- sala.idSala %>,<%- sala.senha %>)">                                            
+                                                <td>
+                                                    <%- sala.descricao %>
+                                                </td>
+                                                <td>
+                                                    <%- sala.usuario.nome %>
+                                                </td>
+                                                <td>
+                                                    <%- sala.senha==null ? "" : "🔒" %>
+                                                </td>                                            
+                                        </tr>
+                                        <% })%>
                                 </tbody>
                             </table>
                         </div>
@@ -87,7 +75,7 @@
     </div>
     <!-- Modal -->
     <div class="modal fade" id="mdlCriarSala" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" >
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Criar Sala</h5>
@@ -111,7 +99,7 @@
             </div>
         </div>
     </div>
-    
+
 </body>
 <script>
     $(document).ready(function () {

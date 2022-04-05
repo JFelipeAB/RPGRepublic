@@ -117,6 +117,10 @@ body{
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.trSelect :hover{
+    background-color: #0b4a30;
+}
+
 .loader-content {
     margin: 0 auto !important;
     background-color: rgba(0, 0, 0, 0.4);

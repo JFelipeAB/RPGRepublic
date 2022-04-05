@@ -36,7 +36,17 @@ var home = function () {
         
     }
 
+    var entrarSala = function(idSala, senha)
+    {
+        debugger;
+        if(!senha)
+            window.location='./Sala?idSala='+ idSala;
+             
+
+    }
+
     return {
+        entrarSala: entrarSala,
         criarSala: criarSala,
         validaEntrarSala: validaEntrarSala
     };
