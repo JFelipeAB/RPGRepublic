@@ -101,7 +101,7 @@ router.get('/game', function (req, res) {
 
 })
 
-router.get('/sala:id', function (req, res) {
+router.get('/sala', function (req, res) {
 //query parametrers
 var idSala = req.params.id
 res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', idSala: idSala})
