@@ -30,6 +30,8 @@ app.use(expressLayouts)
 //app.set('layout', './layouts/layoutHome.ejs')
 app.set('view engine', 'ejs')
 
+// var query = require('url').parse(req.url,true).query;
+
 var table = [{
     idSala: 5,
     descricao: "Sala1",
@@ -99,9 +101,12 @@ router.get('/game', function (req, res) {
 
 })
 
-router.get('/sala', function (req, res) {
+router.get('/sala:id', function (req, res) {
+//query parametrers
+var idSala = req.params.id
+res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', idSala: idSala})
 
-    res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs' })
+
 
 })
 
