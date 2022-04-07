@@ -40,7 +40,7 @@ var home = function () {
     {
         debugger;
         if(!senha)
-            window.location='./sala?id='+ idSala;
+            window.location='./sala/'+ idSala;
              
 
     }

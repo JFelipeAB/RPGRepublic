@@ -3,6 +3,12 @@
         <%- title %>
     </title>
     <script src="./content/adicional/home.js"></script>
+    <style>
+        .table-responsive {
+            max-height: 50%;
+            overflow: auto;
+        }
+    </style> -->
 </head>
 
 <body class="text-center bodyImage1">
@@ -38,21 +44,29 @@
                             </div>
                         </div>
                         <div class="col-xl-8 col-lg-8 col-md-8 col-md-9  ">
-                            <h2>Salas</h2>
-                            <input class="form-control" id="PesquisarSala" type="text"
-                                placeholder="Busque as salas pelo nome ou usuario Mestre...">
+                            <div class="row justify-content-between">
+                                <div class="col-xl-2 col-lg-3 col-md-3 col-md-3  ">
+                                    <h2>Salas</h2>
+                                </div>
+                                <div class="col-xl-7 col-lg-7 col-md9 col-md-12  ">
+                                    <input class="form-control" id="PesquisarSala" type="text"
+                                        placeholder="🔎 Busque as salas pelo nome ou usuario Mestre...">
+                                        
+                                </div>
+                            </div>
                             <br>
-                            <table id="tblSalas" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>                                        
-                                        <th>Sala</th>
-                                        <th>Mestre</th>
-                                        <th>Privada</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="myTable" class="trSelect">
-                                    <% table.map(function(sala){ %>
-                                        <tr  onclick="home.entrarSala(<%- sala.idSala %>,<%- sala.senha %>)">                                            
+                            <div class="table-responsive">
+                                <table id="tblSalas" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Sala</th>
+                                            <th>Mestre</th>
+                                            <th>Privada</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="myTable" class="trSelect">
+                                        <% listaSalas.map(function(sala){ %>
+                                            <tr onclick="home.entrarSala(<%- sala.idSala %>,<%- sala.senha %>)">
                                                 <td>
                                                     <%- sala.descricao %>
                                                 </td>
@@ -61,11 +75,12 @@
                                                 </td>
                                                 <td>
                                                     <%- sala.senha==null ? "" : "🔒" %>
-                                                </td>                                            
-                                        </tr>
-                                        <% })%>
-                                </tbody>
-                            </table>
+                                                </td>
+                                            </tr>
+                                            <% })%>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

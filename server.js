@@ -26,53 +26,100 @@ const schemaUsuario = require('./src/models/Usuario')
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+
 app.use(expressLayouts)
 //app.set('layout', './layouts/layoutHome.ejs')
 app.set('view engine', 'ejs')
 
 // var query = require('url').parse(req.url,true).query;
 
-var table = [{
-    idSala: 5,
-    descricao: "Sala1",
-    usuario: {
-        idUsuario: "1",
-        nome:"Usuario123"
-    },
-    senha: "123"
-},
-{
-    idSala: 3,
-    descricao: "Sala12",
-    usuario: {
-        idUsuario: "1",
-        nome:"Usuario123"
-    },
-    senha: "123"
-},
-{
-    idSala: 2,
-    descricao: "RPGFriends",
-    usuario: {
-        idUsuario: "2",
-        nome:"Moe"
-    },
-    senha: null
-},
-{
-    idSala: 1,
-    descricao: "RPGTeste",
-    usuario: {
-        idUsuario: "1",
-        nome:"Usuario123"
-    },
-    senha: "123"
-},
-];
+//CLASSES
+
+var salas = function () {
+    var listaSalas = function () {
+        return [{
+            idSala: 5,
+            descricao: "Sala1",
+            usuario: {
+                idUsuario: "1",
+                nome: "Usuario123"
+            },
+            senha: "123"
+        },
+        {
+            idSala: 3,
+            descricao: "Sala12",
+            usuario: {
+                idUsuario: "1",
+                nome: "Usuario123"
+            },
+            senha: "123"
+        },
+        {
+            idSala: 2,
+            descricao: "RPGFriends",
+            usuario: {
+                idUsuario: "2",
+                nome: "Moe"
+            },
+            senha: null
+        },
+        {
+            idSala: 1,
+            descricao: "RPGTeste",
+            usuario: {
+                idUsuario: "1",
+                nome: "Usuario123"
+            },
+            senha: null
+        },
+        {
+            idSala: 3,
+            descricao: "Sala12",
+            usuario: {
+                idUsuario: "1",
+                nome: "Usuario123"
+            },
+            senha: "123"
+        },
+        {
+            idSala: 2,
+            descricao: "RPGdeTerror",
+            usuario: {
+                idUsuario: "2",
+                nome: "Moe"
+            },
+            senha: null
+        },
+        {
+            idSala: 1,
+            descricao: "RPGSalaJogo",
+            usuario: {
+                idUsuario: "1",
+                nome: "Usuario123"
+            },
+            senha: null
+        },
+        ];
+    };
+
+    var getSala = function (idSalaPesquisa) {
+        return listaSalas().find(sala => sala.idSala == idSalaPesquisa)[0];
+    };
+
+
+    return {
+        listaSalas: listaSalas,
+        getSala: getSala,
+    }
+}();
+
+
+//ROTAS GET
 
 router.get('/', function (req, res) {
 
-    res.render(path.join(__dirname + '/views/home.ejs'), { title: 'Home', layout: './layoutHome.ejs', table: table })
+    res.render(path.join(__dirname + '/views/home.ejs'), { title: 'Home', layout: './layoutHome.ejs', listaSalas: salas.listaSalas() })
 
 })
 
@@ -102,11 +149,17 @@ router.get('/game', function (req, res) {
 })
 
 router.get('/sala', function (req, res) {
-//query parametrers
-var idSala = req.params.id
-res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', idSala: idSala})
+    //query parametrers
+    var idSala = req.params.id
+    res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', sala: sala.getSala(idSala) })
 
 
+})
+
+router.get('/sala/:id', function (req, res) {
+    //query parametrers
+    var idSala = req.params.id
+    res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', idSala: idSala })
 
 })
 
