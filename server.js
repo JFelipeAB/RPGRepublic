@@ -35,7 +35,7 @@ app.set('view engine', 'ejs')
 
 //CLASSES
 
-var salas = function () {
+var sala = function () {
     var listaSalas = function () {
         return [{
             idSala: 5,
@@ -115,11 +115,39 @@ var salas = function () {
 }();
 
 
+
+// var a ={
+//     ...usuario.getUsuario(),  //FUSAO DE OBJETOS
+// }
+
+var usuario = function (){
+    var getUsuario = function(){
+        return {
+            IdUsuario: 1,
+            Login: "Usuario123",
+            senha: "email",
+            Acesso:{
+
+            },
+            listaItens:[
+                {
+                    Descricao: "Icon|https://avatars.dicebear.com/api/avataaars/uash.svg"
+                },{
+
+                },{
+
+                }
+            ]
+
+        }
+    }
+}();
+
 //ROTAS GET
 
 router.get('/', function (req, res) {
 
-    res.render(path.join(__dirname + '/views/home.ejs'), { title: 'Home', layout: './layoutHome.ejs', listaSalas: salas.listaSalas() })
+    res.render(path.join(__dirname + '/views/home.ejs'), { title: 'Home', layout: './layoutHome.ejs', listaSalas: sala.listaSalas() })
 
 })
 
