@@ -1,7 +1,9 @@
 //DEPENDÊNCIAS
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb+srv://dev:aFj3UZRYSGifbeub@cluster0.mzipn.mongodb.net/RPG_Republic_PRD?retryWrites=true&w=majority')
+var connectionString = process.env.URLDataBaseConcetion;
+
+mongoose.connect(connectionString);
 
 //mongoose.Promise = global.Promise
 
