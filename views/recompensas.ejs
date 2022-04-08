@@ -2,6 +2,13 @@
     <title>
         <%- title %>
     </title>
+
+    <script src="./content/adicional/recompensa.js"></script>
+
+    <script>
+        debugger;
+        var listaItens = <%- lista %>;         
+    </script>
 </head>
 
 <body class="text-center bodyImage1">
@@ -21,7 +28,7 @@
                 <div id="bodyContent" class="jumbotron">
                     <h1 class="display-4">RECOMPENSAS</h1>
                     <br>
-                    <button class="btn btn-lg btn-block btn-primary">ABRIR CAIXA</button>
+                    <button class="btn btn-lg btn-block btn-primary" onClick="recompensa.random()">ABRIR CAIXA</button>
                 </div>
             </div>
         </div>

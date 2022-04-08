@@ -23,6 +23,10 @@ const app = express();
 const path = require('path');
 const router = express.Router();
 const schemaUsuario = require('./src/models/Usuario')
+const schemaItem = require('./src/models/item');
+const { default: mongoose } = require('mongoose');
+
+
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
@@ -66,6 +70,18 @@ router.get('/sala', function(req,res){
     res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs' })
 
 })
+
+async function getAllItems () {
+    let lista  = await schemaIten.find()
+    lista.count()    
+    res.render(path.join(__dirname + '/views/recompensas.ejs'), { title: 'Recompensas', layout: './layoutHome.ejs' , lista: lista})
+}
+
+
+//getAllItems()
+
+
+router.get('/recompensas', getAllItems)
 
 router.post('/salvarUsuario', (req, res) => {
 
@@ -119,6 +135,19 @@ io.on('connection', socket => {
 });
 
 app.use('/', router);
-app.listen(process.env.port || 3333);
+app.listen(process.env.port || 3333, () =>{
+    mongoose.connect('mongodb+srv://dev:aFj3UZRYSGifbeub@cluster0.mzipn.mongodb.net/RPG_Republic_PRD?retryWrites=true&w=majority')
+});
+
+
+
+
+schemaItem.count().then(items =>{
+    console.log(items)
+}).catch(err =>{console.log(err)})
+
+
+
+
 
 console.log("Server rodando, listening at http://localhost:3333")
