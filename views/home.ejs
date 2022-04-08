@@ -1,17 +1,25 @@
-<head>
-    <title>
-        <%- title %>
-    </title>
-    <script src="./content/adicional/home.js"></script>
-    <style>
-        .table-responsive {
-            max-height: 50%;
-            overflow: auto;
-        }
-    </style> -->
-</head>
+<title>
+    <%- title %>
+</title>
+<script src="./content/adicional/home.js"></script>
+<style>
+    .table-responsive {
+        max-height: 50%;
+        overflow: auto;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $("#PesquisarSala").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
 
-<body class="text-center bodyImage1">
+<div class="text-center bodyImage1">
     <div id="menuLateral"></div>
     <div id="modal" class="modal">
         <div style="text-align: center;">
@@ -51,7 +59,7 @@
                                 <div class="col-xl-7 col-lg-7 col-md9 col-md-12  ">
                                     <input class="form-control" id="PesquisarSala" type="text"
                                         placeholder="🔎 Busque as salas pelo nome ou usuario Mestre...">
-                                        
+
                                 </div>
                             </div>
                             <br>
@@ -87,42 +95,32 @@
             </div>
         </div>
     </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="mdlCriarSala" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Criar Sala</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-md-6">
-                            <input type="text" id="txtSalaNome" class="form-control " placeholder="Nome da Sala">
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-md-6">
-                            <input type="text" id="txtSalaSenha" class="form-control " placeholder="Senha">
-                        </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="mdlCriarSala" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Criar Sala</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-md-6">
+                        <input type="text" id="txtSalaNome" class="form-control " placeholder="Nome da Sala">
                     </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-md-6">
+                        <input type="text" id="txtSalaSenha" class="form-control " placeholder="Senha">
+                    </div>
+                </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" onclick="self.location='./sala'" class="btn btn-primary">Criar</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" onclick="self.location='./sala'" class="btn btn-primary">Criar</button>
             </div>
         </div>
     </div>
+</div>
 
-</body>
-<script>
-    $(document).ready(function () {
-        $("#PesquisarSala").on("keyup", function () {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
-</script>
+</div>

@@ -1,34 +1,31 @@
-<head>
-    <style>
-        .messages {
-            width: 90%;
-            height: 400px;
-            margin: 20px 0;
-            border: 1px solid rgb(42, 1, 119);
-            padding: 20px;
-            background-color: rgb(219, 218, 221);
-            align-items: left;
-        }
+<style>
+    .messages {
+        width: 90%;
+        height: 400px;
+        margin: 20px 0;
+        border: 1px solid rgb(42, 1, 119);
+        padding: 20px;
+        background-color: rgb(219, 218, 221);
+        align-items: left;
+    }
 
-        #chat {
+    #chat {
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 
-        .borda {
-            border: 1px solid rgb(18, 13, 27);
-        }
-    </style>
-    <title>
-        <%- title %>
-    </title>
-    <script src="./content/adicional/sala.js"></script>
-</head>
-
-<body class="text-center bodyImage3">
+    .borda {
+        border: 1px solid rgb(18, 13, 27);
+    }
+</style>
+<script src="./content/adicional/sala.js"></script>
+<title>
+    <%- title %>
+</title>
+<div class="text-center bodyImage3">
     <div id="menuLateral"></div>
     <div id="modal" class="modal">
         <div style="text-align: center;">
@@ -43,7 +40,8 @@
         <br /><br /><br />
         <div class="container">
             <div class="row">
-                <h1 style="align-items: center;" id="NomeSala">Sala: <%- sala.descricao %></h1>
+                <h1 style="align-items: center;" id="NomeSala">Sala: <%- sala.descricao %>
+                </h1>
             </div>
             <div class="row form-signin">
                 <div class="col-4  borda">
@@ -58,7 +56,8 @@
                         <h1 style="text-align: center;"> Chat</h1>
                         <form id="chat">
                             <!-- <div class="messages"></div> -->
-                            <div style="text-align: left; font-size: medium;" id="divChat" class="overflow-auto form-control messages" >                              
+                            <div style="text-align: left; font-size: medium;" id="divChat"
+                                class="overflow-auto form-control messages">
                             </div>
                             <input class="form-control" id="txtText" type="text" style="width: 95%;" name="username"
                                 placeholder="digite sua mensagem">
@@ -67,7 +66,7 @@
                                 Enviar</button>
                             </input>
                         </form>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="col-8 borda" style="background-color: white;">
                     <div class="col-2"> &nbsp &nbsp</div>
@@ -99,9 +98,9 @@
     <!-- Modal -->
     <div class="modal fade" id="ModalDados" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
-            <div class="modal-content">                
-                <div id="ModalBody" class="modal-body"></div>                
+            <div class="modal-content">
+                <div id="ModalBody" class="modal-body"></div>
             </div>
         </div>
     </div>
-</body>
+</div>

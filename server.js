@@ -22,7 +22,7 @@ const expressLayouts = require('express-ejs-layouts')
 const app = express();
 const path = require('path');
 const router = express.Router();
-const schemaUsuario = require('./src/models/Usuario')
+//const schemaUsuario = require('./src/models/Usuario')
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
@@ -105,12 +105,7 @@ var sala = function () {
         return retorno;
     };
 
-    var getSala = function (idSalaPesquisa) {
-        var teste = listaSalas();
-        console.log('TESTE: ' + teste[0].idSala);
-        console.log(idSalaPesquisa);
-        console.log(listaSalas().find(sala => sala.idSala == idSalaPesquisa));
-        //console.log('coisa: ' + listaSalas().find(sala => sala.idSala == idSalaPesquisa))
+    var getSala = function (idSalaPesquisa) {        
         return listaSalas().find(sala => sala.idSala == idSalaPesquisa);
     };
 
@@ -188,18 +183,13 @@ router.get('/game', function (req, res) {
 
 })
 
-router.get('/sala', function (req, res) {
-    //query parametrers
-    var idSala = req.params.id
-    res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', sala: sala.getSala(idSala) })
-
-
+router.get('/sala', function (req, res) {    
+    res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', sala: {descricao:"Demo"} })
 })
 
-router.get('/sala/:id', function (req, res) {
-    //query parametrers
+router.get('/sala:id', function (req, res) {    
     var idSala = req.params.id
-    res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', sala: sala.getSala(idSala)})
+    res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', sala: sala.getSala(idSala) })
 
 })
 
