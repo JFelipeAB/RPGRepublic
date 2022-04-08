@@ -28,7 +28,22 @@ var home = function () {
     };
 
     var criarSala = function () {
-        
+
+        $.ajax({
+            url: "criarSala",
+            contentType: 'aplication/json',
+            data: JSON.stringify(getDtoCriarSala()),
+            method: 'POST',
+            async: true
+        }).done(function (retorno) {
+            debugger;
+            self.location='./sala' + retorno.idSala
+        }).fail(function () {
+            alert("Falha na conexão com servidor");
+        }) 
+
+
+
         window.location.href = "/sala.html";
     };
 
@@ -44,6 +59,15 @@ var home = function () {
              
 
     }
+
+    var getDtoCriarSala = function () {
+        var dto = {
+            'nome': $('#txtSalaNome').val(),
+            'senha': $('#txtSalaSenha').val(),
+        };
+        debugger;
+        return dto;
+    };
 
     return {
         entrarSala: entrarSala,

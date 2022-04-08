@@ -37,7 +37,7 @@ app.set('view engine', 'ejs')
 
 var sala = function () {
     var listaSalas = function () {
-        return [{
+        var retorno = [{
             idSala: 5,
             descricao: "Sala1",
             usuario: {
@@ -83,7 +83,7 @@ var sala = function () {
             senha: "123"
         },
         {
-            idSala: 2,
+            idSala: 10,
             descricao: "RPGdeTerror",
             usuario: {
                 idUsuario: "2",
@@ -101,16 +101,28 @@ var sala = function () {
             senha: null
         },
         ];
+
+        return retorno;
     };
 
     var getSala = function (idSalaPesquisa) {
-        return listaSalas().find(sala => sala.idSala == idSalaPesquisa)[0];
+        var teste = listaSalas();
+        console.log('TESTE: ' + teste[0].idSala);
+        console.log(idSalaPesquisa);
+        console.log(listaSalas().find(sala => sala.idSala == idSalaPesquisa));
+        //console.log('coisa: ' + listaSalas().find(sala => sala.idSala == idSalaPesquisa))
+        return listaSalas().find(sala => sala.idSala == idSalaPesquisa);
+    };
+
+    var salvarSala = function (){
+
     };
 
 
     return {
         listaSalas: listaSalas,
         getSala: getSala,
+        salvarSala: salvarSala
     }
 }();
 
@@ -187,8 +199,16 @@ router.get('/sala', function (req, res) {
 router.get('/sala/:id', function (req, res) {
     //query parametrers
     var idSala = req.params.id
-    res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', idSala: idSala })
+    res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', sala: sala.getSala(idSala)})
 
+})
+
+router.post('/salvarSala', (req, res) => {
+    const {dto} = req.body;
+
+    if(!dto){
+        res.send("Dados da Sala Insuficientes!");
+    }
 })
 
 router.post('/salvarUsuario', (req, res) => {
