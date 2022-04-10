@@ -48,7 +48,7 @@
                     <div class="form-control">
                         <div class="col-12">
                             <br />
-                            <button class="form-control" type="button" onclick="sala.dados()">
+                            <button class="form-control" type="button"data-bs-toggle="modal" data-bs-target="#ModalDados">
                                 🎲 Dados 🎲</button>
                         </div>
                         <div class="col-12">
@@ -112,7 +112,35 @@
         <div class="modal fade" id="ModalDados" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <div id="ModalBody" class="modal-body"></div>
+                    <div id="ModalBody" class="modal-body">
+                        <div style="margin: 0">   
+    
+                            <div id="info_div" style="display: none">
+                                <div class="center_field">
+                                    <span id="label"></span>
+                                </div>
+                                <div class="center_field">
+                                    <div class="bottom_field">
+                                        <span id="labelhelp">Click para continuar ou role novamente!</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="selector_div" style="display: none">
+                                <div class="center_field">            
+                                </div>
+                                <div class="center_field">
+                                    <input type="text" id="set" value="4d6"></input><br/>            
+                                    <button style="margin-left: 0.6em" id="throw">Rolar</button>
+                                    <br/>
+                                </div>
+                            </div>
+                            <div id="canvas"></div>  
+                            <script type="text/javascript" defer="defer">
+                                dice_initialize(document.body);
+                            </script>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
