@@ -182,13 +182,14 @@ router.get('/game', function (req, res) {
     res.render(path.join(__dirname + '/dice/dice/game.ejs'), { title: 'Game', layout: './layoutHome.ejs' })
 
 })
-
+/*
 router.get('/sala', function (req, res) {    
     res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', sala: {descricao:"Demo"} })
-})
+})*/
 
-router.get('/sala:id', function (req, res) {    
-    var idSala = req.params.id
+router.get('/sala', function (req, res) {    
+    var idSala = req.query.id;
+    console.log(idSala);
     res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', sala: sala.getSala(idSala) })
 
 })

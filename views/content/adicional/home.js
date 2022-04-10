@@ -55,7 +55,7 @@ var home = function () {
     {
         debugger;
         if(!senha)
-            window.location='./sala'+ idSala;
+            window.location='./sala?id='+ idSala;
              
 
     }
