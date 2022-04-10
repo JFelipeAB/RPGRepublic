@@ -74,7 +74,7 @@
                                     </thead>
                                     <tbody id="myTable" class="trSelect">
                                         <% listaSalas.map(function(sala){ %>
-                                            <tr onclick="home.entrarSala(<%- sala.idSala %>,<%- sala.senha %>)">
+                                            <tr onclick="home.entrarSala(<%- sala.idSala %>,'<%- sala.descricao %>','<%- sala.senha %>')">
                                                 <td>
                                                     <%- sala.descricao %>
                                                 </td>
@@ -117,10 +117,35 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" onclick="self.location='./sala'" class="btn btn-primary">Criar</button>
+                <button type="button" onclick="home.criarSala();" class="btn btn-primary">Criar</button>
             </div>
         </div>
     </div>
 </div>
+<div class="modal fade" id="mdlEntrarSala" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Entrar Sala</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">      
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-md-6">
+                        <input type="text" id="txtEntrarSalaNome" class="form-control" readonly="true" placeholder="Nome da Sala">
+                    </div>   
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-md-6">
+                        <input type="password" id="txtEntrarSalaSenha" class="form-control " placeholder="Senha">
+                    </div>
+                    <input type="hidden" id="hdfEntrarSalaSenha" class="form-control " >
+                    <input type="hidden" id="hdfEntrarSalaId" class="form-control " >
+                </div>
 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" onclick="home.validaEntrarSala();" class="btn btn-primary">Entrar</button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -182,24 +182,21 @@ router.get('/game', function (req, res) {
     res.render(path.join(__dirname + '/dice/dice/game.ejs'), { title: 'Game', layout: './layoutHome.ejs' })
 
 })
-/*
-router.get('/sala', function (req, res) {    
-    res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', sala: {descricao:"Demo"} })
-})*/
 
 router.get('/sala', function (req, res) {    
-    var idSala = req.query.id;
-    console.log(idSala);
+    var idSala = req.query.id;    
     res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs', sala: sala.getSala(idSala) })
 
 })
 
 router.post('/salvarSala', (req, res) => {
-    const {dto} = req.body;
-
+    var dto = req.body;
+    console.log(dto);
     if(!dto){
-        res.send("Dados da Sala Insuficientes!");
+        res.send(null);
     }
+    res.send({ resultado: 2});
+    
 })
 
 router.post('/salvarUsuario', (req, res) => {
