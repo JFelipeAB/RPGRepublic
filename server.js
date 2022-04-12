@@ -24,7 +24,10 @@ const path = require('path');
 const router = express.Router();
 const schemaUsuario = require('./src/models/Usuario')
 const schemaItem = require('./src/models/item');
-const { default: mongoose } = require('mongoose');
+const mongoose = require('./src/database/index');
+const jwt = require('jsonwebtoken');
+
+//const { default: mongoose } = require('mongoose');
 
 
 app.use(express.json()) // for parsing application/json
@@ -43,6 +46,26 @@ router.get('/', function(req,res){
 router.get('/login', function(req,res){
 
     res.render(path.join(__dirname + '/views/login.ejs'), { title: 'Login', layout: './layoutHome.ejs' })
+
+})
+
+router.post('/entrar', async (req, res) =>{
+    const { eMail, Senha } = req.body
+
+    const usuario = await schemaUsuario.findOne({ eMail }).select('+Senha')
+    if (!usuario) {
+        res.status(400).send({ error: 'Usuário não encontrado' })
+    }
+
+    if (!await bcrypt.compare(Senha, usuario.Senha)) {
+        res.status(400).send({ error: 'Usuário ou senha inválidos! ' })
+    }
+
+    usuario.Senha = undefined
+
+    const token = jwt.sign({ id: usuario.id }, autenticacaoConfig.secret, { expiresIn: 86400 })
+
+    res.send({ usuario, token })
 
 })
 
@@ -72,8 +95,9 @@ router.get('/sala', function(req,res){
 })
 
 async function getAllItems () {
-    let lista  = await schemaIten.find()
-    lista.count()    
+    let lista  = await schemaItem.find()
+    let numeroItens = lista.count()
+    let item =floor(Math.random() * (numeroItens))
     res.render(path.join(__dirname + '/views/recompensas.ejs'), { title: 'Recompensas', layout: './layoutHome.ejs' , lista: lista})
 }
 
@@ -136,15 +160,19 @@ io.on('connection', socket => {
 
 app.use('/', router);
 app.listen(process.env.port || 3333, () =>{
-    mongoose.connect('mongodb+srv://dev:aFj3UZRYSGifbeub@cluster0.mzipn.mongodb.net/RPG_Republic_PRD?retryWrites=true&w=majority')
+    //mongoose.connect('mongodb+srv://dev:aFj3UZRYSGifbeub@cluster0.mzipn.mongodb.net/RPG_Republic_PRD?retryWrites=true&w=majority')
+    mongoose.connect('mongodb://localhost:27017/RPG_Republic_HMG_local')
+
 });
-
-
-
 
 schemaItem.count().then(items =>{
     console.log(items)
 }).catch(err =>{console.log(err)})
+
+
+/* schemaItem.count().then(items =>{
+    console.log(items)
+}).catch(err =>{console.log(err)}) */
 
 
 
