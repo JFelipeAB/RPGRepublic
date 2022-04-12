@@ -2,33 +2,7 @@ var usurName = 'Usuario123';
 var usurIcon = '<img class="avatarUserIcon" src="https://avatars.dicebear.com/api/avataaars/uash.svg" alt="user">'
 var sala = function () {
 
-    var idUsuario;
-
-    var controles = function () {
-        return {
-            DivChat: ".messages",
-            txtTexto: "#txtText",
-        };
-    };
-
-    var CriaSalas = function () {
-        return Math.floor((Math.random() * 10) + 1); //cria salaAleatoria  
-
-        $.ajax({
-            data: idUsuario,
-            url: "sala/PesquisarFicha",
-            context: document.body
-        }).done(function (data) {
-            $(this).addClass("done");
-            preecheFicha(data);
-        }).fail(function () {
-            alert("Erro do servidor");
-        })
-    };
-
-    var preecheFicha = function (data) {
-
-    }
+    var idcomponenteFicha = 0;
 
     var dados = function () {
         $.ajax({
@@ -58,22 +32,54 @@ var sala = function () {
 
     var adicionarMensagem = function (text) {
         if (text)
-            $("#divChat").append('<div >'+usurIcon +' <strong>' + usurName + '</strong>: ' + text + '</div><hr>')
+            $("#divChat").append('<div >' + usurIcon + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>')
         else
-            $("#divChat").append('<div >'+usurIcon +' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>')
+            $("#divChat").append('<div >' + usurIcon + ' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>')
         var objDiv = document.getElementById("divChat");
         objDiv.scrollTop = objDiv.scrollHeight;
 
     };
 
     var GetMensagem = function () {
-        return $("#txtText").val();
+        let mensagem = $("#txtText").val();
+        $("#txtText").val("");
+        return mensagem;
     };
 
+    var adicionarFicha = function (label) {               
+        labelId = label + idcomponenteFicha++;
+        if (label) {
+            let componente = 
+            "<div id='div"+labelId+"' class='col-xl-3 col-lg-3 col-md-6 col-md-6 '>" +
+            "<label for='txtAtributoFicha"+labelId+"' class='form-label'>"+label+"</label>" +
+            "<div class='input-group mb-3'>" +
+            "   <input type='text' id='txtAtributoFicha"+labelId+"' class='form-control' placeholder='"+label+"'" +
+            "      aria-label='Recipient's username' aria-describedby='basic-addon2'>" +
+            " <div class='input-group-append'>" +
+            "    <button onclick='sala.excluirCampo(|"+labelId+"|)' class='btn btn-outline-secondary'" +
+            "       type='button'>❌</button>" +
+            "</div>" +
+            "</div>" +
+            "</div>";
+            $("#divFicha").append(componente.replaceAll('|','"'));
+        }
+    }
+    var addItem = function () {
+        adicionarFicha($("#txtItemFicha").val());
+        $("#txtItemFicha").val("");
+    };
+    var addAtributo = function () {
+        adicionarFicha($("#txtAtributoFicha").val());
+        $("#txtAtributoFicha").val("");
+    };
+    var excluirCampo = function(label){        
+        $('#div'+label).remove();
+    }
+
     return {
-        controles: controles,
         adicionarMensagem: adicionarMensagem,
-        CriaSalas: CriaSalas,
-        dados: dados
+        addAtributo: addAtributo,
+        addItem: addItem,
+        excluirCampo: excluirCampo,
     };
 }();
