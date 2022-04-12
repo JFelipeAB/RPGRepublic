@@ -3,17 +3,8 @@ const routes = require('./routes');
 const bodyParser = require('body-parser')
 //require('./database');
 
-const app = express();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended : false}))
-app.use(routes);
-
 require('./controllers/autenticacaoController')(app)
 
-
-app.listen(3333, ()=>{
-    console.log('Server no ar')
 }) */
 
 
@@ -29,6 +20,9 @@ const jwt = require('jsonwebtoken');
 
 //const { default: mongoose } = require('mongoose');
 
+// const bodyParser = require("body-parser")
+// app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.json())
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -37,8 +31,6 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use(expressLayouts)
 //app.set('layout', './layouts/layoutHome.ejs')
 app.set('view engine', 'ejs')
-
-// var query = require('url').parse(req.url,true).query;
 
 //CLASSES
 
@@ -159,35 +151,39 @@ var usuario = function (){
 
 //ROTAS GET
 
-router.get('/', function (req, res) {
+router.get('/home', function (req, res) {
 
     res.render(path.join(__dirname + '/views/home.ejs'), { title: 'Home', layout: './layoutHome.ejs', listaSalas: sala.listaSalas() })
 
 })
 
-router.get('/login', function (req, res) {
+router.get('/', function (req, res) {
 
-    res.render(path.join(__dirname + '/views/login.ejs'), { title: 'Login', layout: './layoutHome.ejs' })
+    res.render(path.join(__dirname + '/views/login.ejs'), { title: 'Login', layout: './layoutBase.ejs' })
 
 })
 
-router.post('/entrar', async (req, res) =>{
-    const { eMail, Senha } = req.body
+router.post('/entrar', async (req, res)  =>{
+    // let { teste}  = req.body;
+    
+    let eMail = "082170017@faculdade.cefsa.edu.br"
+    let Senha = "123"
 
-    const usuario = await schemaUsuario.findOne({ eMail }).select('+Senha')
+    const usuario = await schemaUsuario.findOne({ eMail }).exec();
+    console.log(usuario);
     if (!usuario) {
         res.status(400).send({ error: 'Usuário não encontrado' })
     }
 
-    if (!await bcrypt.compare(Senha, usuario.Senha)) {
-        res.status(400).send({ error: 'Usuário ou senha inválidos! ' })
-    }
+    // if (!await bcrypt.compare(Senha, usuario.Senha)) {
+    //     res.status(400).send({ error: 'Usuário ou senha inválidos! ' })
+    // }
 
-    usuario.Senha = undefined
+    // usuario.Senha = undefined
 
-    const token = jwt.sign({ id: usuario.id }, autenticacaoConfig.secret, { expiresIn: 86400 })
+    // const token = jwt.sign({ id: usuario.id }, autenticacaoConfig.secret, { expiresIn: 86400 })
 
-    res.send({ usuario, token })
+    res.send({ usuario })
 
 })
 
@@ -200,7 +196,7 @@ router.get('/sobre', function (req, res) {
 
 router.get('/registrar', function (req, res) {
 
-    res.render(path.join(__dirname + '/views/registrar.ejs'), { title: 'Registrar', layout: './layoutHome.ejs' })
+    res.render(path.join(__dirname + '/views/registrar.ejs'), { title: 'Registrar', layout: './layoutBase.ejs' })
 
 })
 
@@ -239,11 +235,10 @@ async function getAllItems () {
 
 router.get('/recompensas', getAllItems)
 
-router.post('/salvarUsuario', (req, res) => {
+app.post('/salvarUsuario', (req, res) => {
 
     //DESTRUCT, EXTRAIR PROPRIEDADE DE UM OBJETO PARA VARIÁVEIS
-    const { dto } = req.body;
-
+    const { dto } = req.body;    
     if (!dto) res.send("Dados insuficientes!");
 
     //CASO O NOME DA PROPRIEDADE DE CONSULTA SEJA IGUAL AO NOME DE UMA VARÍAVEL
@@ -293,21 +288,13 @@ io.on('connection', socket => {
 app.use('/', router);
 app.listen(process.env.port || 3333, () =>{
     //mongoose.connect('mongodb+srv://dev:aFj3UZRYSGifbeub@cluster0.mzipn.mongodb.net/RPG_Republic_PRD?retryWrites=true&w=majority')
-    mongoose.connect('mongodb://localhost:27017/RPG_Republic_HMG_local')
+    // mongoose.connect('mongodb://localhost:27017/RPG_Republic_HMG_local')
 
 });
 
 schemaItem.count().then(items =>{
     console.log(items)
 }).catch(err =>{console.log(err)})
-
-
-/* schemaItem.count().then(items =>{
-    console.log(items)
-}).catch(err =>{console.log(err)}) */
-
-
-
 
 
 console.log("Server rodando, listening at http://localhost:3333")

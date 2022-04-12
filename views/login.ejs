@@ -1,33 +1,23 @@
 <title>
   <%- title %>
 </title>
+<script src="./content/adicional/login.js"></script>
+
 
 <div class="text-center bodyImage2">
-  <div id="menuLateral"></div>
-  <div id="modal" class="modal">
-    <div style="text-align: center;">
-      <h2>Carregando</h2>
-    </div>
-    <div class="loader">
-      <img src="content/images/loading.gif" alt="">
-    </div>
-  </div>
-
-  <br /> <br />
-  <br /> <br />
-
+  
   <div class="container">
     <div class="row">
-      <div class="col-4"></div>
+      <div class="col-3"></div>
 
-      <form id="bodyContent" class="form-signin col-4">
+      <div id="bodyContent" class="form-signin col-6">
         <label style="font-size: 50px;">🎲</label>
         <div class="row justify-content-md-center">
           <div class="col-xl-8 col-lg-8 col-md-10 col-md-12 d-flex justify-content-center">
-            <input id="txtUserName" class="form-control" placeholder="Usuario">
+            <input id="txtUSerEmail" type="email" class="form-control" placeholder="E-mail">
           </div>
           <div class="col-xl-8 col-lg-8 col-md-10 col-md-12 d-flex justify-content-center">
-            <input type="password" id="txtUserId" class="form-control" placeholder="Senha" required="">
+            <input type="password" id="txtUserSenha" class="form-control" placeholder="Senha" required="">
           </div>
         </div>
         <br />
@@ -43,9 +33,9 @@
         <div class="row d-inline-flex">
           <a class="btn btn-lg btn-block btn-secondary" onclick="window.location = './registrar'">Cadastrar</a>
         </div>
-      </form>
+      </div>
 
-      <div class="col-4"></div>
+      <div class="col-3"></div>
     </div>
   </div>
 </div>
