@@ -179,7 +179,7 @@ router.get('/registrar', function (req, res) {
 
 router.get('/game', function (req, res) {
 
-    res.render(path.join(__dirname + '/dice/dice/game.ejs'), { title: 'Game', layout: './layoutHome.ejs' })
+    res.render(path.join(__dirname + '/views/dice/dice/game.ejs'), { title: 'Game', layout: './layoutHome.ejs' })
 
 })
 

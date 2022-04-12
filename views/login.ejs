@@ -1,5 +1,6 @@
-
-  <title>    <%- title %>  </title>
+<title>
+  <%- title %>
+</title>
 
 <div class="text-center bodyImage2">
   <div id="menuLateral"></div>
@@ -19,15 +20,29 @@
     <div class="row">
       <div class="col-4"></div>
 
-      <form id="bodyContent" class="form-signin col-4" action="home.html">
+      <form id="bodyContent" class="form-signin col-4">
         <label style="font-size: 50px;">🎲</label>
-        <input id="inputEmail" class="form-control" placeholder="Usuario" required="" autofocus="">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required="">
+        <div class="row justify-content-md-center">
+          <div class="col-xl-8 col-lg-8 col-md-10 col-md-12 d-flex justify-content-center">
+            <input id="txtUserName" class="form-control" placeholder="Usuario">
+          </div>
+          <div class="col-xl-8 col-lg-8 col-md-10 col-md-12 d-flex justify-content-center">
+            <input type="password" id="txtUserId" class="form-control" placeholder="Senha" required="">
+          </div>
+        </div>
         <br />
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-        <a class="btn btn-lg btn-block btn-secondary" href="registrar">Cadastrar</a>
-        <a class="btn btn-lg btn-block btn-secondary" href="registrar">Esqueci minha senha</a>
-        <p class="mt-5 mb-3 text-muted"></p>
+        <div class="row justify-content-md-center">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-md-6">
+            <button class="btn btn-lg btn-primary btn-block" onclick="login.logar();">Entrar</button>
+          </div>
+          <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-md-6">
+            <a class="btn btn-lg btn-block btn-secondary" href="registrar">Esqueci minha senha</a>
+          </div> -->
+        </div>
+        <br />
+        <div class="row d-inline-flex">
+          <a class="btn btn-lg btn-block btn-secondary" onclick="window.location = './registrar'">Cadastrar</a>
+        </div>
       </form>
 
       <div class="col-4"></div>

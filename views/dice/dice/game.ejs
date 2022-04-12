@@ -1,15 +1,74 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+   
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="keywords" content="DnD, dangeon and dragons, roleplay, dice, roller, 3D, RPG, wargame"/>
-<meta name="description" content="Online 3D dice roller"/>
+<!-- Button trigger modal -->
+<br>
+<br>
+<br>
+<br>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div style="margin: 0">
+                    <div id="info_div" style="display: none">
+                        <div class="center_field">
+                            <span id="label"></span>
+                        </div>
+                        <div class="center_field">
+                            <div class="bottom_field">
+                                <span id="labelhelp">Click para continuar ou role novamente!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="selector_div" style="display: none">
+                        <div class="center_field">
+                            <div id="sethelp">
+                                Escolha seu conjunto de dados clicando nos dados<br />
+                                Pressione o botão de arremesso ou arraste-os na tela para rolar!
+                            </div>
+                        </div>
+                        <div class="center_field">
+                            <input type="text" id="set" value="4d6"></input><br />
+                            <button id="clear">Limpar</button>
+                            <button style="margin-left: 0.6em" id="throw">Rolar</button>
+                        </div>
+                    </div>
+                    <div id="canvas"></div>
+                    <div id="canvas"></div>
 
-</head>
+                    <!-- <script src="../libs/three.min.js"></script>
+                    <script src="../libs/cannon.min.js"></script> -->
+                    <!--script type="text/javascript" src="https://drive.google.com/uc?id=0ByGeV2TiysmOelhLSnlUQ3ZMc2M"></script>
+                    <script type="text/javascript" src="https://drive.google.com/uc?id=0ByGeV2TiysmOczhfWW90OEV0dmM"></script-->
 
-<div style="margin: 0">   
+                    <!-- 
+                <script type="text/javascript" src="../teal.js"></script>
+                    <script type="text/javascript" src="dice.js"></script>
+                    <script type="text/javascript" src="main.js"></script>
+                    <script type="text/javascript" defer="defer"> -->
+
+                    <link rel="stylesheet" href="./dice/dice/dice.css">
+                    <script src="./dice/libs/three.min.js"></script>
+                    <script src="./dice/libs/cannon.min.js"></script>
+
+                    <script type="text/javascript" src="./dice/teal.js"></script>
+                    <script type="text/javascript" src="./dice/dice/dice.js"></script>
+                    <script type="text/javascript" src="./dice/dice/main.js"></script>
+                    <script type="text/javascript" defer="defer">
+                        dice_initialize(document.body);
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <body style="margin: 0">   
     
     <div id="info_div" style="display: none">
         <div class="center_field">
@@ -22,24 +81,31 @@
         </div>
     </div>
     <div id="selector_div" style="display: none">
-        <div class="center_field">            
+        <div class="center_field">
+            <div id="sethelp">
+                Escolha seu conjunto de dados clicando nos dados<br/>
+                Pressione o botão de arremesso ou arraste-os na tela para rolar!
+            </div>
         </div>
         <div class="center_field">
-            <input type="text" id="set" value="4d6"></input><br/>            
+            <input type="text" id="set" value="4d6"></input><br/>
+            <button id="clear">Limpar</button>
             <button style="margin-left: 0.6em" id="throw">Rolar</button>
-            <br/>
         </div>
     </div>
-    <div id="canvas"></div>    
+    <div id="canvas"></div>  
+    <div id="canvas"></div>
 
-    <!--  <script src="../libs/three.min.js"></script>
-    <script src="../libs/cannon.min.js"></script>   
+    <script src="../libs/three.min.js"></script>
+    <script src="../libs/cannon.min.js"></script> -->
+<!--script type="text/javascript" src="https://drive.google.com/uc?id=0ByGeV2TiysmOelhLSnlUQ3ZMc2M"></script>
+    <script type="text/javascript" src="https://drive.google.com/uc?id=0ByGeV2TiysmOczhfWW90OEV0dmM"></script-->
 
-   <script type="text/javascript" src="../teal.js"></script>
-    <script type="text/javascript" src="/dice.js"></script>
-    <script type="text/javascript" src="/main.js"></script>     -->
+
+<!-- <script type="text/javascript" src="../teal.js"></script>
+    <script type="text/javascript" src="dice.js"></script>
+    <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" defer="defer">
         dice_initialize(document.body);
     </script>
-</div>
-</html>
+</body> -->
