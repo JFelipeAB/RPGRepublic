@@ -1,42 +1,61 @@
-
 var home = function () {
-    var controles = function () {
-        return {
-            TxtSala: "#txtSala",
-        }
 
+    var criarSala = function () {        
+        $.ajax({
+            url: "salvarSala",
+            contentType: 'aplication/json',
+            data: JSON.stringify(getDtoCriarSala()),
+            method: 'POST',
+            async: true
+        }).done(function (retorno) {
+            debugger;
+            if (!retorno)
+                alert("Falha interna do servidor");
+            else {
+                self.location = './sala?id=' + retorno.resultado;
+            }
+        }).fail(function () {
+            alert("Falha na conexão com servidor");
+        })
     };
 
-    var validaEntrarSala = function () {
-        if (validaSala($("#txtSala").val())) {
-
-            window.location.href = "/sala.html";
-        }
+    var entrarSala = function (idSala, descricaoSala, senhaSala) {
+        if (!senhaSala)
+            window.location = './sala?id=' + idSala;
         else {
-            alert("Sala Inexistente");
+            var modal = new bootstrap.Modal($('#mdlEntrarSala'), {
+                keyboard: false
+            })
+            $('#hdfEntrarSalaSenha').val(senhaSala);
+            $('#hdfEntrarSalaId').val(idSala);
+            $('#txtEntrarSalaNome').val(descricaoSala);
+            $('#txtEntrarSalaSenha').val("");
+            modal.show('slow');
         }
-    };
-
-    var validaSala = function (sala) {
-        debugger;
-        if (sala ) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
-
-    var criarSala = function () {
-        
-        window.location.href = "/sala.html";
-    };
-
-    var modalNovaSala = function(){
-        
     }
 
+    var validaEntrarSala = function () {
+        debugger;
+        let senha = $('#hdfEntrarSalaSenha').val();
+        let senhaInserida = $('#txtEntrarSalaSenha').val();
+        let idSala = $('#hdfEntrarSalaId').val();
+        if (senha == senhaInserida)
+            window.location = './sala?id=' + idSala;
+        else {
+            alert("Senha incorreta!");
+        }
+    };
+
+    var getDtoCriarSala = function () {
+        var dto = {
+            'nome': $('#txtSalaNome').val(),
+            'senha': $('#txtSalaSenha').val(),
+        };        
+        return dto;
+    };
+
     return {
+        entrarSala: entrarSala,
         criarSala: criarSala,
         validaEntrarSala: validaEntrarSala
     };
