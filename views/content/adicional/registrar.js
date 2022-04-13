@@ -14,7 +14,7 @@ var registrar = function () {
         if (validaUsuario()) {
             $.ajax({
                 url: "salvarUsuario",
-                contentType: 'aplication/json',
+                contentType: 'application/json',
                 data: JSON.stringify(getDto()),
                 method: 'POST',
                 async: true

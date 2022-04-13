@@ -3,7 +3,7 @@ var home = function () {
     var criarSala = function () {        
         $.ajax({
             url: "salvarSala",
-            contentType: 'aplication/json',
+            contentType: 'application/json',
             data: JSON.stringify(getDtoCriarSala()),
             method: 'POST',
             async: true

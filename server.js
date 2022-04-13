@@ -6,8 +6,6 @@ const router = express.Router();
 const schemaUsuario = require('./src/models/Usuario')
 const schemaItem = require('./src/models/item');
 const mongoose = require('./src/database/index');
-// const jwt = require('jsonwebtoken');
-// const bcrypt = require('bcryptjs');
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -146,24 +144,17 @@ router.get('/', function (req, res) {
 })
 
 router.post('/entrar', async (req, res)  =>{
-    dto = req.body;
-    
+    dto = req.body;    
     let eMail = dto.email;
     let Senha = dto.senha;
     const usuario = await schemaUsuario.findOne({ eMail }).exec();
-    console.log(usuario);
+    
     if (!usuario ) {
         res.send({ error: "E-mail não encontrado!" });
-    }
-    
+    }    
     if (usuario.Senha != Senha ) {
         res.send({ error: "Usuário ou senha inválidos!" });
-    }
-    // if (!await bcrypt.compare(Senha, usuario.Senha)) {
-    //     res.send({ error: 'Usuário ou senha inválidos! ' })
-    // }
-    // const token = jwt.sign({ id: usuario.id }, autenticacaoConfig.secret, { expiresIn: 86400 })
-    // console.log(token);
+    }   
     
     res.send({ usuario });
 })
