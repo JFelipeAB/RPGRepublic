@@ -46,8 +46,9 @@ var sala = function () {
         return mensagem;
     };
 
-    var adicionarFicha = function (label) {               
-        labelId = label + idcomponenteFicha++;
+    var adicionarFicha = function (label) {          
+        debugger;      
+        labelId = (label + idcomponenteFicha++).removeAll(" ");
         if (label) {
             let componente = 
             "<div id='div"+labelId+"' class='col-xl-3 col-lg-3 col-md-6 col-md-6 '>" +
