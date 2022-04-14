@@ -1,13 +1,3 @@
-/* const express = require('express');
-const routes = require('./routes');
-const bodyParser = require('body-parser')
-//require('./database');
-
-require('./controllers/autenticacaoController')(app)
-
-}) */
-
-
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts')
 const app = express();
@@ -16,20 +6,10 @@ const router = express.Router();
 const schemaUsuario = require('./src/models/Usuario')
 const schemaItem = require('./src/models/item');
 const mongoose = require('./src/database/index');
-const jwt = require('jsonwebtoken');
-
-//const { default: mongoose } = require('mongoose');
-
-// const bodyParser = require("body-parser")
-// app.use(bodyParser.urlencoded({ extended: false }))
-// app.use(bodyParser.json())
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-
-
 app.use(expressLayouts)
-//app.set('layout', './layouts/layoutHome.ejs')
 app.set('view engine', 'ejs')
 
 //CLASSES
@@ -164,27 +144,19 @@ router.get('/', function (req, res) {
 })
 
 router.post('/entrar', async (req, res)  =>{
-    // let { teste}  = req.body;
-    
-    let eMail = "082170017@faculdade.cefsa.edu.br"
-    let Senha = "123"
-
+    dto = req.body;    
+    let eMail = dto.email;
+    let Senha = dto.senha;
     const usuario = await schemaUsuario.findOne({ eMail }).exec();
-    console.log(usuario);
-    if (!usuario) {
-        res.status(400).send({ error: 'Usuário não encontrado' })
-    }
-
-    // if (!await bcrypt.compare(Senha, usuario.Senha)) {
-    //     res.status(400).send({ error: 'Usuário ou senha inválidos! ' })
-    // }
-
-    // usuario.Senha = undefined
-
-    // const token = jwt.sign({ id: usuario.id }, autenticacaoConfig.secret, { expiresIn: 86400 })
-
-    res.send({ usuario })
-
+    
+    if (!usuario ) {
+        res.send({ error: "E-mail não encontrado!" });
+    }    
+    if (usuario.Senha != Senha ) {
+        res.send({ error: "Usuário ou senha inválidos!" });
+    }   
+    
+    res.send({ usuario });
 })
 
 
@@ -292,9 +264,9 @@ app.listen(process.env.port || 3333, () =>{
 
 });
 
-schemaItem.count().then(items =>{
-    console.log(items)
-}).catch(err =>{console.log(err)})
+// schemaItem.count().then(items =>{
+//     console.log(items)
+// }).catch(err =>{console.log(err)})
 
 
 console.log("Server rodando, listening at http://localhost:3333")

@@ -1,5 +1,5 @@
 const mongoose = require('../database')
-const bcrypt = require('bcryptjs')
+// const bcrypt = require('bcryptjs')
 
 const schemaUsuario = new mongoose.Schema({ 
    
@@ -10,8 +10,7 @@ const schemaUsuario = new mongoose.Schema({
 
     Senha: {
         type: String,
-        required: true,
-        select: false,  
+        required: true,        
     },
 
     Nivel: {

@@ -1,23 +1,24 @@
 var login = function(){
 
-    var logar = function(){
-        debugger;
+    var logar = function(){        
         if (validaUsuario()) {
             $.ajax({
                 url: "entrar",
-                contentType: 'aplication/json',
-                data: JSON.stringify({"teste": "teste"}),
+                contentType: 'application/json',
+                data: JSON.stringify(getDto()),
                 method: 'POST',
                 async: true
             }).done(function (retorno) {
                 debugger;
                 if(retorno.error)
                 {
-                    alert("Login invalido");
-                    return
+                    alert(retorno.error);
+                    $('#txtUSerEmail').val("");
+                    $('#txtUserSenha').val("");
+                    localStorage.removeItem('usuario');               
                 }
                 else{
-                    localStorage.removeItem('usuario')
+                    localStorage.removeItem('usuario');
                     localStorage.setItem('usuario', JSON.stringify(retorno.usuario));
                     self.location = './home';    
                 }
@@ -31,7 +32,7 @@ var login = function(){
         } 
     }
 
-    var getDto = function () {
+    var getDto = function () {       
         var dto = {
             'email': $('#txtUSerEmail').val(),
             'senha': $('#txtUserSenha').val(),    
