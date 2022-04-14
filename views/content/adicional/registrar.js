@@ -1,15 +1,5 @@
 var registrar = function () {
 
-    var controles = function () {
-
-        return {
-            txtUsuario: "#txtUsuario",
-            txtsenha: "#txtSenha",
-            txtconfirmaSenha: "#txtConfirmarSenha",
-            txtemail: "#txtEmail",
-        };
-    }();
-
     var registrar = function () {         
         if (validaUsuario()) {
             $.ajax({
@@ -37,9 +27,9 @@ var registrar = function () {
 
     var getDto = function () {
         var dto = {
-            'senha': $(controles.txtsenha).val(),
-            'usuario': $(controles.txtUsuario).val(),
-            'email': $(controles.txtemail).val(),
+            'senha': $('#txtUserSenha').val(),
+            'usuario': $('#txtUSerName').val(),
+            'email': $('#txtUSerEmail').val(),
         };
         debugger;
         return dto;
