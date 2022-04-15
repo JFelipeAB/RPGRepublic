@@ -10,7 +10,20 @@ var registrar = function () {
                 async: true
             }).done(function (retorno) {
                 debugger;
-                alert("Usuario Cirado com Sucesso" + retorno);
+                if(retorno.error)
+                {
+                    alert(retorno.error);
+                    $('#txtUSerEmail').val("");
+                    $('#txtUserSenha').val("");
+                    $('#txtUSerEmail').val("");
+                    $('#txtUserRepetirSenha').val("");
+                    localStorage.removeItem('usuario');               
+                }
+                else{
+                    localStorage.removeItem('usuario');
+                    localStorage.setItem('usuario', JSON.stringify(retorno.usuario));
+                    self.location = './home';    
+                }
             }).fail(function () {
                 alert("Falha na conexão com servidor");
             })                       

@@ -4,7 +4,7 @@ function dice_initialize(container) {
     $t.remove($t.id('loading_text'));
 
     var canvas = $t.id('canvas');
-    canvas.style.width = window.innerWidth - 270 + 'px';
+    canvas.style.width = $('#ModalBody').width() + 'px'; 
     canvas.style.height = window.innerHeight - 180 + 'px';
     var label = $t.id('label');
     var set = $t.id('set');
@@ -45,8 +45,8 @@ function dice_initialize(container) {
     var box = new $t.dice.dice_box(canvas, { w: 500, h: 300 });
     box.animate_selector = false;
 
-    $t.bind(window, 'resize', function() {
-        canvas.style.width = window.innerWidth - 270 + 'px';
+    $t.bind(window, 'resize', function() {        
+        canvas.style.width = $('#ModalBody').width() + 'px';
         canvas.style.height = window.innerHeight - 180 + 'px';
         box.reinit(canvas, { w: 500, h: 300 });
     });

@@ -51,7 +51,7 @@ var sala = function () {
         labelId = (label + idcomponenteFicha++).replaceAll(' ','');;
         if (label) {
             let componente = 
-            "<div id='div"+labelId+"' class='col-xl-3 col-lg-3 col-md-6 col-md-6 '>" +
+            "<div id='div"+labelId+"' class='col-xl-3 col-lg-3 col-md-6 col-sm-6 '>" +
             "<label for='txtAtributoFicha"+labelId+"' class='form-label'>"+label+"</label>" +
             "<div class='input-group mb-3'>" +
             "   <input type='text' id='txtAtributoFicha"+labelId+"' class='form-control' placeholder='"+label+"'" +
