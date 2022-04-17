@@ -72,19 +72,40 @@ router.get('/sobre', function (req, res) {
     });
 });
 
+router.get('/recompensa', function (req, res) {
+    res.render(path.join(__dirname + '/views/recompensa'), { 
+        title: 'Recompensa', 
+        layout: './layoutHome.ejs' 
+    });
+});
+
+router.get('/loja', function (req, res) {
+    res.render(path.join(__dirname + '/views/loja'), { 
+        title: 'Loja', 
+        layout: './layoutHome.ejs' 
+    });
+});
+
+router.get('/perfil', function (req, res) {
+    res.render(path.join(__dirname + '/views/perfil'), { 
+        title: 'Perfil', 
+        layout: './layoutHome.ejs' 
+    });
+});
+
+router.get('/ficha', function (req, res) {
+    res.render(path.join(__dirname + '/views/ficha'), { 
+        title: 'Fichas', 
+        layout: './layoutHome.ejs' 
+    });
+});
+
 router.post('/entrar', async (req, res) => {   
     const usuario = await usuarioBll.getUsuario(req.body.email);
     if (!usuario) res.send({ error: "E-mail não encontrado!" });    
     if (usuario.Senha != req.body.senha)res.send({ error: "Usuário ou senha inválidos!" }); 
     res.send({ usuario });
 });
-
-// router.get('/game', function (req, res) {
-//     res.render(path.join(__dirname + '/views/dice/dice/game.ejs'), { 
-//         title: 'Game', 
-//         layout: './layoutHome.ejs' 
-//     });
-// });
 
 router.post('/salvarSala', (req, res) => {
     var dto = req.body;

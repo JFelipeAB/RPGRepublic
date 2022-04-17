@@ -26,53 +26,47 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light ">
-            <a class="navbar-brand" href="/home" style="font-size: 20px;"> <span style="font-size: 25px;">🎲</span>
-                RPG Republic</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/home" style="font-size: 20px;"> <span style="font-size: 25px;">🎲</span>
+                    RPG Republic</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/loja">Loja</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/recompensas">Recompensas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/loja">Fichas</a>
-                    </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="login" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Login
-                        </a>
-                        <div id="navdropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="login">
-                                Logar
-                            </a>
-                            <a class="dropdown-item" href="registrar">Registrar</a>
-                        </div>
-                        <div id="navdropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="login">
-                                Sair
-                            </a>
-                            <a class="dropdown-item" href="#" onclick="home.LogOut()">Registrar</a>
-                        </div>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/sobre">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="/">Sair</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/loja">Loja</a>
                         </li>
-                </ul>
-                <a class="nav-link" href="perfil">
-                    <img class="avatarIcon" src="https://avatars.dicebear.com/api/avataaars/uash.svg" alt="user">
-                    Perfil
-                </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/recompensa">Recompensas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/sobre">Sobre</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a id="aUsuario" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img class="avatarIcon" style="font-size: 20px;"
+                                        src="https://avatars.dicebear.com/api/avataaars/uash.svg" alt="user">
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="/ficha">Fichas</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item " onclick="layoutHome.sair();">Sair</a></li>
+                                </ul>
+
+                            </li>
+                        </ul>                        
+                    </div>
+                </div>
             </div>
         </nav>
     </header>

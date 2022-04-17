@@ -22,8 +22,7 @@ var login = function(){
                     localStorage.setItem('usuario', JSON.stringify(retorno.usuario));
                     self.location = './home';    
                 }
-            }).fail(function () {
-                debugger;
+            }).fail(function () {               
                 alert("Falha na conexão com servidor");
             })                       
         }

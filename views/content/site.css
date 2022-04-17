@@ -33,7 +33,8 @@ nav {
     /* background-color: #6699cc;
     height: 45px; */
     background-color: black;
-    height: 55px;
+    height: 75px;
+    padding: 0%;
 }
 
 nav a{
@@ -41,9 +42,19 @@ nav a{
     font-weight: bold;
 }
 
+.dropdown-menu{
+background-color: black;
+border-color: gray;
+}
+
 #navdropdown a{
     color: black !important;
     font-weight: bold;
+    font-size: 30%;
+}
+
+.navbar-toggler{
+    background-color: white ;
 }
 
 body{   
@@ -175,7 +186,7 @@ footer{
      border-radius: 100%;
 }
 .avatarIcon {
-    width: 20%; 
+    width: 14%; 
     background-color: white;
     border-radius: 100%;
 }
