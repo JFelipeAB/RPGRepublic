@@ -1,29 +1,16 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const schemaItem = new mongoose.Schema({ 
     
-    Id_item : {
-        type: Number,
-        unique: true,
-    },
-
     Descricao: {
         type: String,
         required: true, 
-    },    
-
-    CreatAt : {
-        type: Date,
-        default: Date.now,
+        unique: true,
     },  
-    
-    AlterAt : {
-        type: Date,
-        default: Date.now,
-    } 
-})
-
-
-const Item = mongoose.model('item', schemaItem)
-
-module.exports = Item
+    tipo : {
+        type: String,
+        required: true,        
+    }
+});
+const item = mongoose.model('item', schemaItem);
+module.exports = item;

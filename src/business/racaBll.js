@@ -1,4 +1,4 @@
-const schemaraca = require('../models/item');
+const schemaraca = require('../models/raca');
 
 var raca = function () {
 

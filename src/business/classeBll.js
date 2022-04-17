@@ -1,4 +1,4 @@
-const schemaClasse = require('../models/item');
+const schemaClasse = require('../models/classe');
 
 var classe = function () {
 

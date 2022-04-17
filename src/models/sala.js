@@ -1,18 +1,16 @@
-const mongoose = require('../database')
+const mongoose = require('../database');
 
 const schemaSala = new mongoose.Schema({
-
-    nome: {
+    descricao: {
         type: String,
         required: true, 
-
-
+        unique: true,
     },
+    createdAt : {
+        type: Date,
+        default: Date.now,
+    }   
   
-})
-
-
-
-const sala = mongoose.model('sala', schemaSala)
-
-module.exports = sala
+});
+const sala = mongoose.model('sala', schemaSala);
+module.exports = sala;
