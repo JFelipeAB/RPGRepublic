@@ -2,17 +2,17 @@ const mongoose = require('../database')
 
 const schemaUsuario = new mongoose.Schema({ 
    
-    Login: {
+    login: {
         type: String,
         required: true, 
     },    
 
-    Senha: {
+    senha: {
         type: String,
         required: true,        
     },
 
-    Nivel: {
+    nivel: {
         type: Number,
         default: 1,
         
@@ -25,11 +25,11 @@ const schemaUsuario = new mongoose.Schema({
         lowercase: true,
     },
 
-    Moeda: {
+    moeda: {
         type: Number,
     },
 
-    Acesso: {
+    acesso: {
         type: Number,        
     },
 
@@ -39,6 +39,6 @@ const schemaUsuario = new mongoose.Schema({
     }    
 })
 
-const Usuario = mongoose.model('Usuario', schemaUsuario)
+const Usuario = mongoose.model('usuario', schemaUsuario)
 
 module.exports = Usuario

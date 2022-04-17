@@ -1,4 +1,4 @@
-const schemaUsuario = require('../models/Usuario');
+const schemaUsuario = require('../models/usuario');
 
 var usuario = function (){
     var getUsuario = async(eMail) =>{        

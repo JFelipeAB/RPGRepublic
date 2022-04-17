@@ -103,7 +103,7 @@ router.get('/ficha', function (req, res) {
 router.post('/entrar', async (req, res) => {   
     const usuario = await usuarioBll.getUsuario(req.body.email);
     if (!usuario) res.send({ error: "E-mail não encontrado!" });    
-    if (usuario.Senha != req.body.senha)res.send({ error: "Usuário ou senha inválidos!" }); 
+    if (usuario.senha != req.body.senha)res.send({ error: "Usuário ou senha inválidos!" }); 
     res.send({ usuario });
 });
 

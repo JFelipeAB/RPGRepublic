@@ -1,4 +1,4 @@
-const schemaSala = require('../models/room');
+const schemaSala = require('../models/sala');
 
 var sala = function () {
     var listaSala = function () {

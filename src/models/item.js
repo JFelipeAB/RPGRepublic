@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-//const bcrypt = require('bcryptjs')
 
 const schemaItem = new mongoose.Schema({ 
     
@@ -25,6 +24,6 @@ const schemaItem = new mongoose.Schema({
 })
 
 
-const Item = mongoose.model('Item', schemaItem)
+const Item = mongoose.model('item', schemaItem)
 
 module.exports = Item

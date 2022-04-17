@@ -1,6 +1,6 @@
 const mongoose = require('../database')
 
-const schemaRoom = new mongoose.Schema({
+const schemaSala = new mongoose.Schema({
 
     nome: {
         type: String,
@@ -13,6 +13,6 @@ const schemaRoom = new mongoose.Schema({
 
 
 
-const Room = mongoose.model('Room', schemaRoom)
+const sala = mongoose.model('sala', schemaSala)
 
-module.exports = Room
+module.exports = sala
