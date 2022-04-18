@@ -1,11 +1,11 @@
 const mongoose = require('../database');
 
-const schemaRaca = new mongoose.Schema({
+const schemaClasse = new mongoose.Schema({
     descricao: {
         type: String,
         required: true, 
         unique: true,
     }
 });
-const raca = mongoose.model('raca', schemaRaca);
-module.exports = raca;
+const classe = mongoose.model('classe', schemaClasse);
+module.exports = classe;
