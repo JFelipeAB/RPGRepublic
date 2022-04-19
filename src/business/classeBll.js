@@ -5,35 +5,33 @@ var classe = function () {
     var listaClasse = function () {
         var returno = [
             {
-                "descricao" : "Guerreiro"
+                "descricao": "Guerreiro"
             },
             {
-                "descricao" : "Arqueiro"
+                "descricao": "Arqueiro"
             },
             {
-                "descricao" : "Mago"
+                "descricao": "Mago"
             },
             {
-                "descricao" : "Assassino"
+                "descricao": "Assassino"
             },
             {
-                "descricao" : "Bruxo"
+                "descricao": "Bruxo"
             },
             {
-                "descricao" : "Ladino"
+                "descricao": "Ladino"
             },
             {
-                "descricao" : "Sacerdote"
+                "descricao": "Sacerdote"
             },
             {
-                "descricao" : "Paladino"
+                "descricao": "Paladino"
             },
             {
-                "descricao" : "Necromante"
+                "descricao": "Necromante"
             },
-            {
-                "descricao" : "Metamorfos"
-            }];
+        ];
         return returno
     };
 

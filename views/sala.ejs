@@ -35,36 +35,88 @@
             </div>
             <div class="row form-signin">
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
-                    <div class="form-control">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
-                                <br />
-                                <div class="input-group mb-3">
-                                    <input type="text" id="txtAtributoFicha" class="form-control" placeholder="Atributo"
-                                        aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button onclick="sala.addAtributo()" class="btn btn-outline-secondary"
-                                            type="button">➕</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                                <br />
-                                <div class="input-group mb-3">
-                                    <input type="text" id="txtItemFicha" placeholder="Item" class="form-control"
-                                        aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button onclick="sala.addItem()" class="btn btn-outline-secondary"
-                                            type="button">➕</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-control">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
                                 <div class="jumbotron jumbotron-fluid">
-                                    <h1 class="display-2">Ficha</h1>
-                                    <div id="divFicha" class="container row">
-                                        
+                                    <div class="row">
+                                        <h1 class="display-6">Adicionar</h1>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
+                                            <br />
+                                            <div class="input-group mb-3">
+                                                &nbsp;&nbsp;
+                                                <input type="text" id="txtAtributoFicha" class="form-control"
+                                                    placeholder="Atributo" aria-label="Recipient's username"
+                                                    aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <button onclick="sala.addAtributo()"
+                                                        class="btn btn-outline-secondary" type="button">➕</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                            <br />
+                                            <div class="input-group mb-3">
+                                                <input type="text" id="txtItemFicha" placeholder="Item"
+                                                    class="form-control" aria-label="Recipient's username"
+                                                    aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <button onclick="sala.addItem()" class="btn btn-outline-secondary"
+                                                        type="button">➕</button>
+                                                </div>
+                                                &nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
+                                <div class="jumbotron jumbotron-fluid">
+                                    <h1 class="display-6">Ficha</h1>
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                            <label for="txtFichaNome" class="form-label">Nome do Personagem</label>
+                                            <input id="txtFichaNome" type="text" class="form-control"
+                                                placeholder="Personagem">
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                            <label for="txtFicharaca" class="form-label">Raça</label>
+                                            <select id="sltFichaRaca" class="form-select"
+                                                aria-label="Default select example">
+                                                <option value="0">Selecione uma Raça</option>
+                                                <option value="1">Humanos</option>
+                                                <option value="2">Elfos</option>
+                                                <option value="3">Anões</option>
+                                                <option value="4">Orcs</option>
+                                                <option value="5">Goblin</option>
+                                                <option value="6">Metamorfos</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                            <label for="txtFichaClasse" class="form-label">Classe</label>
+                                            <select id="sltFichaClasse" class="form-select"
+                                                aria-label="Default select example">
+                                                <option value="0">Selecione uma Classe</option>
+                                                <option value="1">Guerreiro</option>
+                                                <option value="2">Arqueiro</option>
+                                                <option value="3">Mago</option>
+                                                <option value="4">Assassino</option>
+                                                <option value="5">Bruxo</option>
+                                                <option value="6">Ladino</option>
+                                                <option value="7">Sacerdote</option>
+                                                <option value="8">Paladino</option>
+                                                <option value="9">Necromante</option>
+                                                <option value="10">Druida</option>
+                                                <option value="11">Xamã</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -107,14 +159,14 @@
 <div class="modal fade" id="ModalDados" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div id="ModalBody" class="modal-body">               
+            <div id="ModalBody" class="modal-body">
                 <div style="margin: 0">
                     <div id="info_div" style="display: none">
                         <div class="center_field">
                             <span id="label"></span>
-                        </div>                        
+                        </div>
                     </div>
-                    <div id="selector_div" style="display: none">                       
+                    <div id="selector_div" style="display: none">
                         <div class="center_field">
                             <input type="text" id="set" value="4d6"></input><br />
                             <button style="margin-left: 0.6em" id="throw">Rolar</button>
@@ -122,7 +174,7 @@
                         </div>
                     </div>
                     <div id="canvas"></div>
-                    
+
                     <link rel="stylesheet" href="./dice/dice/dice.css">
                     <script src="./dice/libs/three.min.js"></script>
                     <script src="./dice/libs/cannon.min.js"></script>

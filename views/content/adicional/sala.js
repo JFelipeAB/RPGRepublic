@@ -1,5 +1,6 @@
+var usuario = JSON.parse(localStorage.getItem('usuario'));
 var usurName = 'Usuario123';
-var usurIcon = '<img class="avatarUserIcon" src="https://avatars.dicebear.com/api/avataaars/uash.svg" alt="user">'
+var usurIcon = '<img class="avatarUserIcon" src="' +usuario.icon +'" alt="user">';
 var sala = function () {
 
     var idcomponenteFicha = 0;
