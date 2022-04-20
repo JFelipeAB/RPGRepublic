@@ -1,8 +1,10 @@
 var usuario = JSON.parse(localStorage.getItem('usuario'));
 if (!usuario) self.location = './';
 
-$(document).ready(function () {     
-    $('#aUsuario').append(usuario.Login + ' Nvl ' + usuario.Nivel);
+$(document).ready(function () {  
+    debugger;   
+    $('#aUsuario').append(usuario.login + ' Nvl ' + usuario.nivel);
+    $('#imgIconMenu').attr("src",usuario.icon);
 });
 
 var layoutHome = function(){

@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true })) ;
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
+app.use(express.static(__dirname + '/src/'));
 app.use(express.static(__dirname + '/views/'));
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);

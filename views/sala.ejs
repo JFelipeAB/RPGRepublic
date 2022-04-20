@@ -1,26 +1,3 @@
-<style>
-    .messages {
-        width: 90%;
-        height: 400px;
-        margin: 20px 0;
-        border: 1px solid rgb(42, 1, 119);
-        padding: 20px;
-        background-color: rgb(219, 218, 221);
-        align-items: left;
-    }
-
-    #chat {
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .borda {
-        border: 1px solid rgb(18, 13, 27);
-    }
-</style>
 <script src="./content/adicional/sala.js"></script>
 <title>
     <%- title %>
@@ -78,14 +55,33 @@
                             <div class="card">
                                 <div class="jumbotron jumbotron-fluid">
                                     <h1 class="display-6">Ficha</h1>
-                                    <div class="row">
-                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                                            <label for="txtFichaNome" class="form-label">Nome do Personagem</label>
-                                            <input id="txtFichaNome" type="text" class="form-control"
-                                                placeholder="Personagem">
+                                    <div class="row align-items-center">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                            <label for="txtFichaNome" class="form-label">Personagem</label>
+                                            <div class="input-group input-group-lg">
+                                                <input id="txtFichaNome" type="text" class="form-control"
+                                                    aria-label="Large" placeholder="Personagem">
+                                            </div>
                                         </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                                            <label for="txtFicharaca" class="form-label">Raça</label>
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                                            <div class="row align-items-center">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6">
+                                                    <label for="txtFichaVida" class="form-label">Vida</label>
+                                                    <input id="txtFichaVida" type="number" class="form-control">
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6">
+                                                    <label for="txtFichaMana" class="form-label">Mana</label>
+                                                    <input id="txtFichaMana" type="number" class="form-control">
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                                            <img id="imgIconFicha" class="IconFicha" src="content/images/loading.gif" alt="user">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">                                            
                                             <select id="sltFichaRaca" class="form-select"
                                                 aria-label="Default select example">
                                                 <option value="0">Selecione uma Raça</option>
@@ -97,8 +93,7 @@
                                                 <option value="6">Metamorfos</option>
                                             </select>
                                         </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                                            <label for="txtFichaClasse" class="form-label">Classe</label>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">                                            
                                             <select id="sltFichaClasse" class="form-select"
                                                 aria-label="Default select example">
                                                 <option value="0">Selecione uma Classe</option>
@@ -115,11 +110,32 @@
                                                 <option value="11">Xamã</option>
                                             </select>
                                         </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                            <label for="txtFichaTentativa" class="form-label">Tentativas: </label>
+                                            <label class="radio-inline"><input type="radio" name="Tentativas" checked>1</label>
+                                            <label class="radio-inline"><input type="radio" name="Tentativas">2</label>
+                                            <label class="radio-inline"><input type="radio" name="Tentativas">3</label>
+                                        </div>
                                     </div>
-
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <div class="card">
+                                                <h4>Atributos</h1>
+                                                    <div id="divAtributo" class="row"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <div class="card">
+                                                <h4>Mochila</h1>
+                                                    <div id="divItem" class="row"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br>
                                 </div>
                             </div>
-                        </div>
+                        </div>                    
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">

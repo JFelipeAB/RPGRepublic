@@ -180,20 +180,47 @@ footer{
     color: white;
 }
 
-.avatar {
-    width: 100%; 
-    background-color: black;
-     border-radius: 100%;
-}
-.avatarIcon {
-    width: 14%; 
+
+.IconMenu {
+    width: 48px; 
     background-color: white;
     border-radius: 100%;
 }
-.avatarUserIcon{
+.IconMensage{
     width: 10%; 
     background-color: white;
     border-radius: 5%;
 }
+.IconUser{
+    width: 10%; 
+    background-color: white;
+    border-radius: 5%;
+}
+.IconFicha{
+    width: 180px; 
+    background-color: white;
+    border-radius: 5%;
+}
 
+.messages {
+    width: 90%;
+    height: 400px;
+    margin: 20px 0;
+    border: 1px solid rgb(42, 1, 119);
+    padding: 20px;
+    background-color: rgb(219, 218, 221);
+    align-items: left;
+}
+
+#chat {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.borda {
+    border: 1px solid rgb(18, 13, 27);
+}
 

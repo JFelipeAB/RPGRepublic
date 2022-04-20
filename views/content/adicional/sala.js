@@ -1,6 +1,11 @@
 var usuario = JSON.parse(localStorage.getItem('usuario'));
-var usurName = 'Usuario123';
-var usurIcon = '<img class="avatarUserIcon" src="' +usuario.icon +'" alt="user">';
+var usurName = usuario.login;
+var usurImg = '<img class="IconMensage" src="' +usuario.icon +'" alt="user">';
+
+$(document).ready(function () {         
+    $('#imgIconFicha').attr("src",usuario.icon);
+});
+
 var sala = function () {
 
     var idcomponenteFicha = 0;
@@ -33,9 +38,9 @@ var sala = function () {
 
     var adicionarMensagem = function (text) {
         if (text)
-            $("#divChat").append('<div >' + usurIcon + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>')
+            $("#divChat").append('<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>')
         else
-            $("#divChat").append('<div >' + usurIcon + ' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>')
+            $("#divChat").append('<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>')
         var objDiv = document.getElementById("divChat");
         objDiv.scrollTop = objDiv.scrollHeight;
 
@@ -47,12 +52,12 @@ var sala = function () {
         return mensagem;
     };
 
-    var adicionarFicha = function (label) {          
+    var adicionarFicha = function (label, div) {          
         debugger;      
         labelId = (label + idcomponenteFicha++).replaceAll(' ','');;
         if (label) {
             let componente = 
-            "<div id='div"+labelId+"' class='col-xl-3 col-lg-3 col-md-6 col-sm-6 '>" +
+            "<div id='div"+labelId+"' class='col-xl-4 col-lg-6 col-md-6 col-sm-12 '>" +
             "<label for='txtAtributoFicha"+labelId+"' class='form-label'>"+label+"</label>" +
             "<div class='input-group mb-3'>" +
             "   <input type='text' id='txtAtributoFicha"+labelId+"' class='form-control' placeholder='"+label+"'" +
@@ -62,16 +67,17 @@ var sala = function () {
             "       type='button'>❌</button>" +
             "</div>" +
             "</div>" +
-            "</div>";
-            $("#divFicha").append(componente.replaceAll('|','"'));
+            "</div>";            
+                $(div).append(componente.replaceAll('|','"'));
+                
         }
     }
     var addItem = function () {
-        adicionarFicha($("#txtItemFicha").val());
+        adicionarFicha($("#txtItemFicha").val(), "#divItem");
         $("#txtItemFicha").val("");
     };
     var addAtributo = function () {
-        adicionarFicha($("#txtAtributoFicha").val());
+        adicionarFicha($("#txtAtributoFicha").val(), "#divAtributo");
         $("#txtAtributoFicha").val("");
     };
     var excluirCampo = function(label){        
