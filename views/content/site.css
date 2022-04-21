@@ -185,6 +185,7 @@ footer{
     width: 48px; 
     background-color: white;
     border-radius: 100%;
+    max-width: 100%;
 }
 .IconMensage{
     width: 10%; 
@@ -200,6 +201,7 @@ footer{
     width: 180px; 
     background-color: white;
     border-radius: 5%;
+    max-width: 100%;
 }
 
 .messages {
