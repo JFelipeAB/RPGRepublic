@@ -1,9 +1,10 @@
 var usuario = JSON.parse(localStorage.getItem('usuario'));
 var usurName = usuario.login;
-var usurImg = '<img class="IconMensage" src="' +usuario.icon +'" alt="user">';
+var usurImg = '<img class="IconMensage" src="' + usuario.icon + '" alt="user">';
 
-$(document).ready(function () {         
-    $('#imgIconFicha').attr("src",usuario.icon);
+$(document).ready(function () {
+    $('#imgIconFicha').attr("src", usuario.icon);
+    sala.cronometro.inicio();
 });
 
 var sala = function () {
@@ -52,24 +53,24 @@ var sala = function () {
         return mensagem;
     };
 
-    var adicionarFicha = function (label, div) {          
-        debugger;      
-        labelId = (label + idcomponenteFicha++).replaceAll(' ','');;
+    var adicionarFicha = function (label, div) {
+        debugger;
+        labelId = (label + idcomponenteFicha++).replaceAll(' ', '');;
         if (label) {
-            let componente = 
-            "<div id='div"+labelId+"' class='col-xl-4 col-lg-6 col-md-6 col-sm-12 '>" +
-            "<label for='txtAtributoFicha"+labelId+"' class='form-label'>"+label+"</label>" +
-            "<div class='input-group mb-3'>" +
-            "   <input type='text' id='txtAtributoFicha"+labelId+"' class='form-control' placeholder='"+label+"'" +
-            "      aria-label='Recipient's username' aria-describedby='basic-addon2'>" +
-            " <div class='input-group-append'>" +
-            "    <button onclick='sala.excluirCampo(|"+labelId+"|)' class='btn btn-outline-secondary'" +
-            "       type='button'>❌</button>" +
-            "</div>" +
-            "</div>" +
-            "</div>";            
-                $(div).append(componente.replaceAll('|','"'));
-                
+            let componente =
+                "<div id='div" + labelId + "' class='col-xl-4 col-lg-6 col-md-6 col-sm-12 '>" +
+                "<label for='txtAtributoFicha" + labelId + "' class='form-label'>" + label + "</label>" +
+                "<div class='input-group mb-3'>" +
+                "   <input type='text' id='txtAtributoFicha" + labelId + "' class='form-control' placeholder='" + label + "'" +
+                "      aria-label='Recipient's username' aria-describedby='basic-addon2'>" +
+                " <div class='input-group-append'>" +
+                "    <button onclick='sala.excluirCampo(|" + labelId + "|)' class='btn btn-outline-secondary'" +
+                "       type='button'>❌</button>" +
+                "</div>" +
+                "</div>" +
+                "</div>";
+            $(div).append(componente.replaceAll('|', '"'));
+
         }
     }
     var addItem = function () {
@@ -80,14 +81,68 @@ var sala = function () {
         adicionarFicha($("#txtAtributoFicha").val(), "#divAtributo");
         $("#txtAtributoFicha").val("");
     };
-    var excluirCampo = function(label){        
-        $('#div'+label).remove();
-    }
+    var excluirCampo = function (label) {
+        $('#div' + label).remove();
+    };
+
+    var cronometro = function () {
+        var centesimas = 0;
+        var segundos = 0;
+        var minutos = 0;
+        function inicio() {
+            control = setInterval(cronometro, 10);
+        }
+        function reinicio() {
+            clearInterval(control);
+            centesimas = 0;
+            segundos = 0;
+            minutos = 0;
+            relSegundos.innerHTML = ":00";
+            relMinutos.innerHTML = ":00";
+            $("#divXpUp").hide();
+            $("#divCronometro").show();
+            inicio();
+        };
+        function cronometro() {
+            if (centesimas < 99) {
+                centesimas++;
+                if (centesimas < 10) { centesimas = "0" + centesimas }
+
+            }
+            if (centesimas == 99) {
+                centesimas = -1;
+            }
+            if (centesimas == 0) {
+                segundos++;
+                if (segundos < 10) { segundos = "0" + segundos }
+                relSegundos.innerHTML = ":" + segundos;
+            }
+            if (segundos == 59) {
+                segundos = -1;
+            }
+            if ((centesimas == 0) && (segundos == 0)) {
+                minutos++;
+                if (minutos < 10) { minutos = "0" + minutos }
+                relMinutos.innerHTML = minutos;
+            }
+            if (minutos == 2) {
+                minutos = -1;
+                clearInterval(control);
+                $("#divXpUp").show();
+                $("#divCronometro").hide();
+            }
+        }
+        return {
+            inicio: inicio,
+            reinicio: reinicio
+        }
+    }();
 
     return {
         adicionarMensagem: adicionarMensagem,
         addAtributo: addAtributo,
         addItem: addItem,
         excluirCampo: excluirCampo,
+        cronometro: cronometro,
     };
 }();

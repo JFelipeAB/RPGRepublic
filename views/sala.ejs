@@ -4,12 +4,30 @@
 </title>
 <div class="text-center bodyImage3">
     <div>
-        <br /><br /><br />
+        <br><br><br>
         <div class="container " style="background-color: white;">
             <div class="row">
-                <h1 style="align-items: center;" id="NomeSala">Sala: <%- sala.descricao %>
-                </h1>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="display-6" align="right" style="align-items: center;" id="NomeSala">
+                        Sala: <%-sala.descricao %>
+                    </div>
+                </div>
+                <div class="row-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="display-6" align="right" id="NomeSala">
+                        <div id="divXpUp" style="display: none;" class="inline">
+                            <img src="./content/images/BauOpen.gif" title="Ganhar XP" onclick="sala.cronometro.reinicio();" width="60px" >
+                            
+                        </div>
+                        <div id="divCronometro" style="display: block;" class="inline">
+                            ⏲
+                            <div class="inline" id="relMinutos">00</div>
+                            <div class="inline" id="relSegundos">:00</div>
+                            🧰
+                        </div>
+                    </div>
+                </div>
             </div>
+            <br>
             <div class="row form-signin">
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
                     <div class="row">
@@ -77,11 +95,12 @@
                                             <br>
                                         </div>
                                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-                                            <img id="imgIconFicha" class="IconFicha" src="content/images/loading.gif" alt="user">
+                                            <img id="imgIconFicha" class="IconFicha" src="content/images/loading.gif"
+                                                alt="user">
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">                                            
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
                                             <select id="sltFichaRaca" class="form-select"
                                                 aria-label="Default select example">
                                                 <option value="0">Selecione uma Raça</option>
@@ -93,7 +112,7 @@
                                                 <option value="6">Metamorfos</option>
                                             </select>
                                         </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">                                            
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
                                             <select id="sltFichaClasse" class="form-select"
                                                 aria-label="Default select example">
                                                 <option value="0">Selecione uma Classe</option>
@@ -112,7 +131,8 @@
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
                                             <label for="txtFichaTentativa" class="form-label">Tentativas: </label>
-                                            <label class="radio-inline"><input type="radio" name="Tentativas" checked>1</label>
+                                            <label class="radio-inline"><input type="radio" name="Tentativas"
+                                                    checked>1</label>
                                             <label class="radio-inline"><input type="radio" name="Tentativas">2</label>
                                             <label class="radio-inline"><input type="radio" name="Tentativas">3</label>
                                         </div>
@@ -135,7 +155,7 @@
                                     <br><br>
                                 </div>
                             </div>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
