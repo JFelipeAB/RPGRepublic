@@ -1,15 +1,21 @@
-    <title>        <%- title %>    </title>
+<title>
+    <%- title %>
+</title>
+<script src="./content/adicional/recompensa.js">
+    var usuario = JSON.parse(localStorage.getItem('usuario'));
+</script>
 
-
-<div class="text-center bodyImage1">    
+<div class="text-center bodyImage1">
     <div class="container">
-        <div class="row">
-            <div class="col-12 ">
-                <div id="bodyContent" class="jumbotron">
-                    <h1 class="display-4">RECOMPENSAS</h1>
-                    <br>
-                    <button class="btn btn-lg btn-block btn-primary" onClick="recompensa.random()">ABRIR CAIXA</button>
-
+        <div class="row justify-content-md-center">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                <div id="bodyContent" class="jumbotron justify-content-md-center">
+                    <h1 class="display-4">RECOMPENSAS</h1>                   
+                        <br>                        
+                        <img id="imgBau" src="./content/images/vazio.webp"  width="300px">
+                        <br>
+                        <br>
+                        <button id="btnAbrirBau" class="btn btn-lg btn-block btn-primary" disabled="true"  onClick="recompensa.abrirCaixa()">😭 NENHUMA CAIXA PARA ABRIR 🥱</button>
                 </div>
             </div>
         </div>

@@ -229,3 +229,8 @@ footer{
 .inline {
     display: inline;
 }
+
+.table-responsive {
+    max-height: 50%;
+    overflow: auto;
+}

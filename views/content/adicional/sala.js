@@ -85,6 +85,37 @@ var sala = function () {
         $('#div' + label).remove();
     };
 
+    var salvarUsuarioCompleto = function(){
+        $.ajax({
+            url: "salvarUsuario",
+            contentType: 'application/json',
+            data: JSON.stringify(usuario),
+            method: 'POST',
+            async: true
+        }).done(function (retorno) {
+            debugger;
+            if(retorno.error) alert(retorno.error);            
+            else{
+                localStorage.removeItem('usuario');
+                localStorage.setItem('usuario', JSON.stringify(retorno.usuario));                  
+            }
+        }).fail(function () {
+            alert("Falha na conexão com servidor, suas ações não foram salvas!!");
+        });
+    };
+
+    var coletarXP = function () {
+        debugger;
+        usuario.xp = usuario.xp++;
+        if(usuario.xp = usuario.nivel)
+        {
+            usuario.nivel = usuario.nivel++;
+            usuario.xp = 0;
+        }
+        salvarUsuarioCompleto();
+        cronometro.reinicio();
+    }
+
     var cronometro = function () {
         var centesimas = 0;
         var segundos = 0;
@@ -138,11 +169,13 @@ var sala = function () {
         }
     }();
 
+
     return {
         adicionarMensagem: adicionarMensagem,
         addAtributo: addAtributo,
         addItem: addItem,
         excluirCampo: excluirCampo,
+        coletarXP: coletarXP,
         cronometro: cronometro,
     };
 }();

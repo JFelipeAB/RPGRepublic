@@ -43,6 +43,10 @@ const schemaUsuario = new mongoose.Schema({
         type: Number,
         default: 3, 
     },
+    qtdeBaus: {
+        type: Number,
+        default: 1, 
+    },
 
     createdAt : {
         type: Date,

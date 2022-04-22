@@ -17,10 +17,11 @@ var sala = function () {
                 login: "20Derrotar",
                 icon: "../aditional/Icon/IconeEspadaFogo.jpg"
             }],
-            senha: "123"
+            senha: "123",
+            chatLog : ""
         }
         ];
-
+        
         return listaSala;
     };
 
