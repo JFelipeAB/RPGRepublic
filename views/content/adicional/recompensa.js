@@ -24,8 +24,11 @@ var recompensa = function () {
         if (usuario.qtdeBaus > 0) {
             let itemSelected = Math.floor(Math.random() * listaItemFiltrada.length)
             let itemSorteado = listaItemFiltrada[itemSelected];
-            console.log(itemSorteado);
-
+           
+            var modal = new bootstrap.Modal($('#mdlRecompensa'), {
+                keyboard: false
+            });            
+            modal.show('slow');
         }
         else
             alert("Voce não tem nenhuma caixa, MALANDRO(A)!");
