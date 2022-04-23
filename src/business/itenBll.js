@@ -1,14 +1,14 @@
 const schemaIten = require('../models/item');
 
 var iten = function () {
-     var listaItemsPorTipo = async (tipo) => {
-        schemaIten.find({tipo: "icone"}, function(err, listaitem) {
-            console.log(listaitem);
-            return listaitem;
-        });
-     };
-    
-    return{
+
+    var listaItemsPorTipo = async (tipo) => {
+        let listaitem = await schemaIten.find({ tipo }).exec();
+        if (!listaitem) return { error: "Erro ao consultar itens" };        
+        return listaitem;
+    };
+
+    return {
         listaItemsPorTipo: listaItemsPorTipo,
     }
 }();

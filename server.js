@@ -73,9 +73,9 @@ router.get('/sobre', function (req, res) {
     });
 });
 
-router.get('/recompensa', function (req, res) {
+router.get('/recompensa', async (req, res) => {    
     res.render(path.join(__dirname + '/views/recompensa.ejs'), {
-        listaIten: itenBll.listaItemsPorTipo("icone"),
+        listaIten: await itenBll.listaItemsPorTipo("icone"),
         title: 'Recompensa',
         layout: './layoutHome.ejs'
     });

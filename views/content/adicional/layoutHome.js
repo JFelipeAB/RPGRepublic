@@ -1,8 +1,7 @@
 var usuario = JSON.parse(localStorage.getItem('usuario'));
 if (!usuario) self.location = './';
 
-$(document).ready(function () {  
-    debugger;   
+$(document).ready(function () { 
     $('#aUsuario').append(usuario.login + ' Nvl ' + usuario.nivel);
     $('#imgIconMenu').attr("src",usuario.icon);
 });
