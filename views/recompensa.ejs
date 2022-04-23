@@ -3,7 +3,7 @@
 </title>
 <script src="./content/adicional/recompensa.js">  </script>
 <script>
-    var listaIten =  <%- JSON.stringify(listaIten) %> 
+    var listaItenGeral =  <%- JSON.stringify(listaIten) %> 
 </script>
 
 <div class="text-center bodyImage1">
@@ -17,6 +17,41 @@
                         <br>
                         <br>
                         <button id="btnAbrirBau" class="btn btn-lg btn-block btn-primary" disabled="true"  onClick="recompensa.abrirCaixa()">😭 NENHUMA CAIXA PARA ABRIR 🥱</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="MdlRecompensa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-">
+        <div class="modal-content">
+            <div id="ModalBody" class="modal-body">
+                <div style="margin: 0">
+                    <div id="info_div" style="display: none">
+                        <div class="center_field">
+                            <span id="label"></span>
+                        </div>
+                    </div>
+                    <div id="selector_div" style="display: none">
+                        <div class="center_field">
+                            <input type="text" id="set" value="4d6"></input><br />
+                            <button style="margin-left: 0.6em" id="throw">Rolar</button>
+                            <br />
+                        </div>
+                    </div>
+                    <div id="canvas"></div>
+
+                    <link rel="stylesheet" href="./dice/dice/dice.css">
+                    <script src="./dice/libs/three.min.js"></script>
+                    <script src="./dice/libs/cannon.min.js"></script>
+
+                    <script type="text/javascript" src="./dice/teal.js"></script>
+                    <script type="text/javascript" src="./dice/dice/dice.js"></script>
+                    <script type="text/javascript" src="./dice/dice/main.js"></script>
+                    <script type="text/javascript" defer="defer">
+                        // dice_initialize(document.body);
+                    </script>
                 </div>
             </div>
         </div>
