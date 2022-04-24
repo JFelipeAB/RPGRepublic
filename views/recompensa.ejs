@@ -24,23 +24,39 @@
 </div>
 <!-- Modal -->
 <div class="modal fade" id="mdlRecompensa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">🏆 RECOMPENSA 🏆</h5>
+            <div class="modal-header" align="center">
+                <h5 align="center" class="modal-title " id="exampleModalLabel">&nbsp;&nbsp; 🏆 RECOMPENSA CONQUISTADA 🏆</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                        <input type="text" id="txtEntrarSalaNome" class="form-control" readonly="true"
-                            placeholder="Nome da Sala">
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                        <input type="password" id="txtEntrarSalaSenha" class="form-control " placeholder="Senha">
-                    </div>                    
+                <div id="divMoeda" class="row justify-content-md-center"  style="display: flex;">
+                    <img id="imgBau" src="./content/images/Coin.gif"  width="200px">              
+                    <hr>                        
+                    <h4 >Voce ganhou (1) Moeda(s)</h4>                   
+                </div>
+                <div id="divIcone" class="row justify-content-md-center"  style="display: flex;">
+                    <img id="imgBau" src="./content/images/Coin.gif"  width="200px">              
+                    <hr>                        
+                    <h4 >Voce ganhou um Icone Novo</h4>                   
+                </div>
+                <div id="divFontFamily" class="row justify-content-md-center"  style="display: flex;">
+                    <img id="imgBau" src="./content/images/Coin.gif"  width="200px">              
+                    <hr>                        
+                    <h5 >Voce ganhou uma nova Fonte de Texto</h5>                   
+                </div>
+                <div id="divFontColor" class="row justify-content-md-center"  style="display: flex;">
+                    <img id="imgBau" src="./content/images/Coin.gif"  width="200px">              
+                    <hr>                        
+                    <h4 >Voce ganhou uma nova cor de texo</h4>                   
                 </div>
             </div>            
         </div>
     </div>
 </div>
+<style>
+    .row>*{
+        width: 80%;
+    }
+</style>

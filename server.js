@@ -75,7 +75,7 @@ router.get('/sobre', function (req, res) {
 
 router.get('/recompensa', async (req, res) => {    
     res.render(path.join(__dirname + '/views/recompensa.ejs'), {
-        listaIten: await itenBll.listaItemsPorTipo("icone"),
+        listaIten: await itenBll.listaItems(),
         title: 'Recompensa',
         layout: './layoutHome.ejs'
     });
