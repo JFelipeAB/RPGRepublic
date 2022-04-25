@@ -1,18 +1,96 @@
-<head>   
-    <title><%- title %></title>
+<head>
+    <title>
+        <%- title %>
+    </title>
 </head>
 
 <div class="bodyImage1">
-   
+
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <div id="bodyContent" class="jumbotron">
-                    <h1 class="display-4"> PERFIL</h1>
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                <div class="card">
+                                    <div class="jumbotron jumbotron-fluid">
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
+                                                <h1 id="lblLogin" align="center" class="display-6">LOGIN</h1>
+                                            </div>
+                                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 ">
+                                                <label id="lblNivel" class="form-label">Nivel 10 XP:</label>
+                                            </div>
+                                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 ">
+                                                <input id="iptXP" type="range" min="0" max="3" step="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
+                                            <label id="lblEmail" class="form-label">E-mail :
+                                                082170017@faculade.cefsa.edu.br</label>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
+                                            <label id="lblEmail" class="form-label">Rank: Bronze</label>
+                                        </div>
+                                    </div>                                  
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
                     <br>
-                    <button class="btn btn-lg btn-block btn-primary">CRIAR</button>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="jumbotron jumbotron-fluid">
+                                <h1 class="display-6">ITENS CONQUISTADOS</h1>
+                                <div class="row align-items-center">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-control">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="card">
+                                            <h4>Icones</h1>
+                                                <div id="divAtributo" class="row"></div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="card">
+                                            <h4>Fontes</h1>
+                                                <div id="divItem" class="row"></div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="card">
+                                            <h4>Cor de texto</h1>
+                                                <div id="divItem" class="row"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <div class="form-control">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <br />
+                    <img id="imgIcone" width="500px">
+                </div>
+            </div>
+        </div>
+
     </div>
+</div>
+</div>
+</div>
 </div>

@@ -107,10 +107,11 @@ var sala = function () {
     var coletarXP = function () {
         debugger;
         usuario.xp++;
-        if(usuario.xp = usuario.nivel)
+        if(usuario.xp == usuario.nivel)
         {
             usuario.nivel++;
             usuario.xp = 0;
+            usuario.qtdeBaus++;
         }
         salvarUsuarioCompleto();
         cronometro.reinicio();
