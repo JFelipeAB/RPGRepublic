@@ -59,7 +59,7 @@ var recompensa = function () {
             });
             modal.show('slow');
             usuario.listaIten.push(itemSorteado);
-            usuario.qtdeBaus = --usuario.qtdeBaus;            
+            usuario.qtdeBaus--;            
             salvarUsuarioCompleto();
             configBaus();
             configListaItens();

@@ -106,10 +106,10 @@ var sala = function () {
 
     var coletarXP = function () {
         debugger;
-        usuario.xp = usuario.xp++;
+        usuario.xp++;
         if(usuario.xp = usuario.nivel)
         {
-            usuario.nivel = ++usuario.nivel;
+            usuario.nivel++;
             usuario.xp = 0;
         }
         salvarUsuarioCompleto();
