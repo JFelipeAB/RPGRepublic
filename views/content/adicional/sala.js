@@ -109,7 +109,7 @@ var sala = function () {
         usuario.xp = usuario.xp++;
         if(usuario.xp = usuario.nivel)
         {
-            usuario.nivel = usuario.nivel++;
+            usuario.nivel = ++usuario.nivel;
             usuario.xp = 0;
         }
         salvarUsuarioCompleto();

@@ -11,12 +11,13 @@
         <div class="row justify-content-md-center">
             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                 <div id="bodyContent" class="jumbotron justify-content-md-center">
-                    <h1 class="display-4">RECOMPENSAS</h1>                   
-                        <br>                        
-                        <img id="imgBau" src="./content/images/vazio.webp"  width="300px">
-                        <br>
-                        <br>
-                        <button id="btnAbrirBau" class="btn btn-lg btn-block btn-primary" disabled="true"  onClick="recompensa.abrirCaixa()">😭 NENHUMA CAIXA PARA ABRIR 🥱</button>
+                    <h1 class="display-4">RECOMPENSAS</h1>
+                    <br>
+                    <img id="imgBau" src="./content/images/vazio.webp" width="300px">
+                    <br>
+                    <br>
+                    <button id="btnAbrirBau" class="btn btn-lg btn-block btn-primary" disabled="true"
+                        onClick="recompensa.abrirCaixa()">😭 NENHUMA CAIXA PARA ABRIR 🥱</button>
                 </div>
             </div>
         </div>
@@ -24,39 +25,46 @@
 </div>
 <!-- Modal -->
 <div class="modal fade" id="mdlRecompensa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header" align="center">
-                <h5 align="center" class="modal-title " id="exampleModalLabel">&nbsp;&nbsp; 🏆 RECOMPENSA CONQUISTADA 🏆</h5>
+                <h5 align="center" class="modal-title " id="exampleModalLabel">&nbsp;&nbsp; 🏆 RECOMPENSA CONQUISTADA 🏆
+                </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div id="divMoeda" class="row justify-content-md-center"  style="display: flex;">
-                    <img id="imgBau" src="./content/images/Coin.gif"  width="200px">              
-                    <hr>                        
-                    <h4 >Voce ganhou (1) Moeda(s)</h4>                   
+            <div class="modal-body" align="center">
+                <div id="divMoeda" class="row justify-content-md-center" style="display: flex;">
+                    <img id="imgBau" src="./content/images/Coin.gif" width="200px">
+                    <hr>
+                    <h5>Voce ganhou (1) Moeda(s)!</h5>
                 </div>
-                <div id="divIcone" class="row justify-content-md-center"  style="display: flex;">
-                    <img id="imgBau" src="./content/images/Coin.gif"  width="200px">              
-                    <hr>                        
-                    <h4 >Voce ganhou um Icone Novo</h4>                   
+                <div id="divIcone" class="row justify-content-md-center" style="display: flex;">
+                    <img id="imgIconeNovo" width="200px">
+                    <hr>
+                    <h5>Voce ganhou um Icone Novo!</h5>
                 </div>
-                <div id="divFontFamily" class="row justify-content-md-center"  style="display: flex;">
-                    <img id="imgBau" src="./content/images/Coin.gif"  width="200px">              
-                    <hr>                        
-                    <h5 >Voce ganhou uma nova Fonte de Texto</h5>                   
+                <div id="divFontColor" class="row justify-content-md-center" style="display: flex;">
+                    <br>
+                    <div id="divTextoCorNova" class="inLine" style="font-size: large;">Voce ganhou a nova cor de texto especial: </div>
+                    <input disabled type="color" id="iptCorNova">                    
+                    <br>
+                    <hr>
+                    <h5>Voce ganhou uma nova cor de texo!</h5>
                 </div>
-                <div id="divFontColor" class="row justify-content-md-center"  style="display: flex;">
-                    <img id="imgBau" src="./content/images/Coin.gif"  width="200px">              
-                    <hr>                        
-                    <h4 >Voce ganhou uma nova cor de texo</h4>                   
+                <div id="divFontFamily" class="row justify-content-md-center" style="display: flex;">
+                    <br>
+                    <div  class="inLine" style="font-size: large;">Voce ganhou a nova fonte de texto especial: </div>
+                    <div id="divTextoFonteNova" class="inLine" style="font-size: large;"></div>
+                    <br>                   
+                    <hr>
+                    <h5>Voce ganhou uma nova Fonte de Texto!</h5>
                 </div>
-            </div>            
+            </div>
         </div>
     </div>
 </div>
 <style>
-    .row>*{
-        width: 80%;
+    .row>* {
+        width: 400px;
     }
 </style>

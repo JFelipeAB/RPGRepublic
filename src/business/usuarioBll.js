@@ -9,7 +9,7 @@ var usuario = function () {
         return usuario;
     };
 
-    var salvarUsuario = async (usuario) => {
+    var salvarUsuario = async (usuario) => {        
         if (!usuario._id) { //Novo
             schemaUsuario.find({ email }, (erro, usuario) => {
                 if (erro) return { error: "Erro ao consultar usuário" };

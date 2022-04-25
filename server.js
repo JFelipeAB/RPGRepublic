@@ -108,15 +108,14 @@ router.post('/entrar', async (req, res) => {
     return res.send({ usuario });
 });
 
-app.post('/salvarUsuario', async (req, res) => {
-    const usuario = await usuarioBll.salvarUsuario(req.body.usuario);
+app.post('/salvarUsuario', async (req, res) => {    
+    const usuario = await usuarioBll.salvarUsuario(req.body);
     if (usuario.error) return res.send({ error: usuario.error });    
     return res.send({ usuario });
 });
 
 router.post('/salvarSala', (req, res) => {
-    var dto = req.body;
-    console.log(dto);
+    var dto = req.body;    
     if (!dto) {
         return res.send(null);
     }
