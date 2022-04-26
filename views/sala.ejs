@@ -1,4 +1,5 @@
 <script src="./content/adicional/sala.js"></script>
+<script src="socket.io/socket.io.js"></script>
 <title>
     <%- title %>
 </title>
@@ -219,7 +220,19 @@
                     <script type="text/javascript" src="./dice/dice/dice.js"></script>
                     <script type="text/javascript" src="./dice/dice/main.js"></script>
                     <script type="text/javascript" defer="defer">
+                        
                         // dice_initialize(document.body);
+                    </script>
+                    <script>
+                        const socket = io.connect()
+                
+                        socket.on('resp', () =>{
+                            console.log('resposta recebida front end')
+                        })
+                
+                        function enviar(){
+                            socket.emit('Mensagem')
+                        }
                     </script>
                 </div>
             </div>

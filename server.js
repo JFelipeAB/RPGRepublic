@@ -16,11 +16,23 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/src/'));
 app.use(express.static(__dirname + '/views/'));
-const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+const http = require('http')
+const server = http.createServer(app);
+const socketIo = require('socket.io')(http)
+const io = socketIo.listen(server);
 app.use('/', router);
 app.listen(process.env.port || 3333);
 console.log("Server rodando, listening at http://localhost:3333");
+
+io.on('connection', (socket) => {
+
+    console.log('new connection', socket.id)
+
+    socket.on('Mensagem', () => {
+        console.log('RECEBIDA')
+        io.emit('resp')
+    })
+})
 
 router.get('/', function (req, res) {
     res.render(path.join(__dirname + '/views/login.ejs'), {
