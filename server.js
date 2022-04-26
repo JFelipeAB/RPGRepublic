@@ -58,11 +58,11 @@ router.get('/home', function (req, res) {
     });
 });
 
-router.get('/sala', function (req, res) {
+router.get('/sala', async (req, res) => {  
     res.render(path.join(__dirname + '/views/sala.ejs'), {
         title: 'Game',
         layout: './layoutHome.ejs',
-        sala: salaBll.getSala(req.query.id)
+        sala: await salaBll.getSala(req.query.id)
     });
 });
 
@@ -108,7 +108,7 @@ router.post('/entrar', async (req, res) => {
     return res.send({ usuario });
 });
 
-app.post('/salvarUsuario', async (req, res) => {    
+router.post('/salvarUsuario', async (req, res) => {    
     const usuario = await usuarioBll.salvarUsuario(req.body);
     if (usuario.error) return res.send({ error: usuario.error });    
     return res.send({ usuario });
@@ -121,17 +121,7 @@ router.post('/salvarSala', (req, res) => {
     }
     return res.send({ resultado: 2 });
 
-})
+});
 
-async function getAllItems() {
-    let lista = await schemaItem.find()
-    let numeroItens = lista.count()
-    let item = floor(Math.random() * (numeroItens))
-    res.render(path.join(__dirname + '/views/recompensas.ejs'), {
-        title: 'Recompensas',
-        layout: './layoutHome.ejs',
-        lista: lista
-    });
-};
 
 
