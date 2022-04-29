@@ -17,13 +17,16 @@ var perfil = function () {
             switch (iten.tipo) {
                 case 'icone':
                     $('#divIcones').append(' <img id="Icone'+contador +'" src="'+ iten.descricao +'" width="200px">');
+                    $("#divIcones").on("click", perfil.confirmarSelecionarItem(iten.tipo, "Icone" + contador));
                     break;
                 case 'FontFamily':
                     $('#divFontes').append('<div id="Icone'+contador+'">Fonte: '+ iten.descricao+'</div>');
                     $('#Icone'+contador).css("font-family", iten.descricao );
+                    $("#divFontes").on("click", perfil.confirmarSelecionarItem(iten.tipo, "Icone" + contador));
                     break;
                 case 'FontColor':
                     $('#divCorTexto').append('Cor de texto: '+iten.descricao+' <input disabled id="Icone'+contador+'" type="color" value="'+iten.cor+'">');
+                    $("#divCorTexto").on("click", perfil.confirmarSelecionarItem(iten.tipo, "Icone" + contador));
                     break;
                     case 'moeda':
                         break;
@@ -34,8 +37,41 @@ var perfil = function () {
         });
     };
 
+    var confirmarSelecionarItem = function(tipo, index){
+        if(!tipo || !index)
+        {
+            alert(`Erro, contate o administrador! tipo de item não encontrado!`);
+            return;
+        }
+        var modal = new bootstrap.Modal($('#mdlConfirmarItem'), {
+            keyboard: false
+        });
+        $("#btnModalConfirmar").on("click",perfil.selecionarItem(tipo, index));
+        modal.show('slow'); 
+    };
+
+    var selecionarItem = function(tipo, index){
+        switch (tipo) {
+            case 'icone':
+               console.log('mudar icone');
+                break;
+            case 'FontFamily':
+                console.log('mudar icone');
+                break;
+            case 'FontColor':
+                console.log('mudar icone');
+                break;
+                case 'moeda':
+                    break;
+            default:
+                alert(`Erro, contate o administrador! tipo de item não cadastrado: ${iten.tipo}.`);
+        };
+    };
+
     return {
         configFIcha: configFIcha,
-    }
+        confirmarSelecionarItem: confirmarSelecionarItem,
+        selecionarItem: selecionarItem
+    };
 
 }();
