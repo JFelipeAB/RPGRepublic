@@ -45,13 +45,11 @@ var sala = function () {
 
     var adicionarMensagem = function (text) {
         if (text)
-            socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>')
-        // $("#divChat").append('<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>')
-        else {
-            socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>')
-            // $("#divChat").append('<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>')
-        }
-    };
+            socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>');        
+        else 
+            socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>');
+            
+        };
 
     var GetMensagem = function () {
         let mensagem = $("#txtText").val();
