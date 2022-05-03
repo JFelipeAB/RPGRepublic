@@ -1,4 +1,4 @@
-<script src="content/adicional/sala.js"></script>
+<script src="./content/adicional/sala.js"></script>
 <script src="socket.io/socket.io.js"></script>
 
 
@@ -183,7 +183,8 @@
                                 <input class="form-control" id="txtText" type="text" style="width: 95%;" name="username"
                                     placeholder="digite sua mensagem">
                                 <br />
-                                <button class="form-control" type="button" onclick="enviar()">Enviar</button>
+                                <button class="form-control" type="button" onclick="sala.adicionarMensagem()">
+                                    Enviar</button>
                                 </input>
                             </form>
                         </div>
@@ -224,26 +225,21 @@
                         
                         // dice_initialize(document.body);
                     </script>
-                    <script>
-                        const socket = io.connect('http://localhost:3333')
-                        const user = JSON.parse(localStorage.getItem('usuario'));
-                        
-                        //socket.emit()
-                        socket.on('resp', (data) =>{
-                            var chat = document.getElementById("divChat")   
-                            var p = document.createElement('p')
-                            p.innerHTML = data
-                            chat.append(p)                         
-                        })
-                        function enviar(){
-                            
-                            var texto = document.getElementById("txtText")
-                            console.log(usuario.login + texto.value)
-                            socket.emit("txtText", usuario.login + " diz: " + texto.value)
-                        }
-                    </script>
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    const socket = io.connect()
+
+    socket.on('resp', () =>{
+        console.log('resposta recebida front end')
+    })
+
+    function enviar(){
+        socket.emit('Mensagem')
+    }
+</script>

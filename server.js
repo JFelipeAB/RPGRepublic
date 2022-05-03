@@ -5,7 +5,7 @@ const path = require('path');
 const router = express.Router();
 const usuarioBll = require('./src/business/usuarioBll');
 const salaBll = require('./src/business/salaBll');
-const itenBll = require('./src/business/itenBll');
+//const itenBll = require(-'./src/business/itenBll');
 const racaBll = require('./src/business/racaBll');
 const classeBll = require('./src/business/classeBll');
 
@@ -16,23 +16,23 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/src/'));
 app.use(express.static(__dirname + '/views/'));
-const http = require('http')
+
+const http = require('http');
+const { getUsuario } = require('./src/business/usuarioBll');
 const server = http.createServer(app);
 const socketIo = require('socket.io')(http)
 const io = socketIo.listen(server);
 app.use('/', router);
-app.listen(process.env.port || 3333);
+//server.use('/', router);
+
+
+
+server.listen(process.env.port || 3333);
 console.log("Server rodando, listening at http://localhost:3333");
 
-io.on('connection', (socket) => {
 
-    console.log('new connection', socket.id)
 
-    socket.on('Mensagem', () => {
-        console.log('RECEBIDA')
-        io.emit('resp')
-    })
-})
+
 
 router.get('/', function (req, res) {
     res.render(path.join(__dirname + '/views/login.ejs'), {
@@ -77,6 +77,19 @@ router.get('/sala', function (req, res) {
         sala: salaBll.getSala(req.query.id)
     });
 });
+
+//########################################################################################
+
+router.get('/salaTeste', function (req, res) {
+    res.render(path.join(__dirname + '/views/sala.ejs'), {
+        title: 'Game',
+        layout: './layoutHome.ejs',
+        sala: salaBll.getSala(5)
+    });
+});
+
+//########################################################################################
+
 
 router.get('/sobre', function (req, res) {
     res.render(path.join(__dirname + '/views/sobre.ejs'), {
@@ -145,5 +158,18 @@ async function getAllItems() {
         lista: lista
     });
 };
+
+io.on('connection', (socket) => {
+    
+    console.log('new connection', socket.id)
+
+    socket.on('txtText', (data) => {
+        console.log(data)
+        io.emit('resp', data)
+    })
+})
+
+app.use(express.static(__dirname + 'public'))
+
 
 
