@@ -58,7 +58,7 @@
                                     </thead>
                                     <tbody id="myTable" class="trSelect">
                                         <% listaSalas.map(function(sala){ %>
-                                            <% console.log(sala.usuarioMestre)%>
+                                            <% console.log(sala.listaUsuario)%>
                                             <tr
                                                 onclick="home.entrarSala(<%- sala.idSala %>,'<%- sala.descricao %>','<%- sala.senha %>')">
                                                 <td>                                                    

@@ -1,8 +1,15 @@
-var usuario = JSON.parse(localStorage.getItem('usuario'));
 var usurName = usuario.login;
 var usurImg = '<img class="IconMensage" src="' + usuario.icon + '" alt="user">';
+var socket;
 
 $(document).ready(function () {
+    socket = io.connect('http://localhost:3333')
+
+    socket.on('resp', (retorno) => {
+        $("#divChat").append(retorno);
+        var objDiv = document.getElementById("divChat");
+        objDiv.scrollTop = objDiv.scrollHeight;       
+    });
     $('#imgIconFicha').attr("src", usuario.icon);
     sala.cronometro.inicio();
 });
@@ -30,21 +37,20 @@ var sala = function () {
     var MontarModal = function (partial_view) {
 
         $('#ModalBody').html(partial_view);
-
         var modal = new bootstrap.Modal(document.getElementById('ModalDados'), {
             keyboard: false
         })
         modal.show('slow');
-    }
+    };
 
     var adicionarMensagem = function (text) {
         if (text)
-            $("#divChat").append('<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>')
-        else
-            $("#divChat").append('<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>')
-        var objDiv = document.getElementById("divChat");
-        objDiv.scrollTop = objDiv.scrollHeight;
-
+            socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>')
+        // $("#divChat").append('<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>')
+        else {
+            socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>')
+            // $("#divChat").append('<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>')
+        }
     };
 
     var GetMensagem = function () {
@@ -85,7 +91,7 @@ var sala = function () {
         $('#div' + label).remove();
     };
 
-    var salvarUsuarioCompleto = function(){
+    var salvarUsuarioCompleto = function () {
         $.ajax({
             url: "salvarUsuario",
             contentType: 'application/json',
@@ -94,10 +100,10 @@ var sala = function () {
             async: true
         }).done(function (retorno) {
             debugger;
-            if(retorno.error) alert(retorno.error);            
-            else{
+            if (retorno.error) alert(retorno.error);
+            else {
                 localStorage.removeItem('usuario');
-                localStorage.setItem('usuario', JSON.stringify(retorno.usuario));                  
+                localStorage.setItem('usuario', JSON.stringify(retorno.usuario));
             }
         }).fail(function () {
             alert("Falha na conexão com servidor, suas ações não foram salvas!!");
@@ -107,8 +113,7 @@ var sala = function () {
     var coletarXP = function () {
         debugger;
         usuario.xp++;
-        if(usuario.xp == usuario.nivel)
-        {
+        if (usuario.xp == usuario.nivel) {
             usuario.nivel++;
             usuario.xp = 0;
             usuario.qtdeBaus++;
