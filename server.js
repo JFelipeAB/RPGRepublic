@@ -133,8 +133,9 @@ router.post('/salvarSala', (req, res) => {
 
 io.on('connection', (socket) => {    
     console.log('Nova Conexão', socket.id)
-    socket.on('connection', (data) => {        
-        io.emit('resp', data)
+    socket.on('connection', (mensagem) => {        
+        console.log(mensagem);
+        io.emit('resp', mensagem)
     });
 });
 
