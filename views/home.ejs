@@ -58,13 +58,14 @@
                                     </thead>
                                     <tbody id="myTable" class="trSelect">
                                         <% listaSalas.map(function(sala){ %>
+                                            <% console.log(sala.usuarioMestre)%>
                                             <tr
                                                 onclick="home.entrarSala(<%- sala.idSala %>,'<%- sala.descricao %>','<%- sala.senha %>')">
-                                                <td>
+                                                <td>                                                    
                                                     <%- sala.descricao %>
                                                 </td>
                                                 <td>
-                                                    <%- sala.usuarioMestre.login %>
+                                                    <%- sala.usuarioMestre.login%>
                                                 </td>
                                                 <td>
                                                     <%- sala.senha==null ? "" : "🔒" %>

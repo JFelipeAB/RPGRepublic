@@ -50,11 +50,11 @@ router.get('/info', function (req, res) {
     });
 });
 
-router.get('/home', function (req, res) {
+router.get('/home', async (req, res) => {    
     res.render(path.join(__dirname + '/views/home.ejs'), {
         title: 'Home',
         layout: './layoutHome.ejs',
-        listaSalas: salaBll.listaSala()
+        listaSalas: await salaBll.listaSala()
     });
 });
 

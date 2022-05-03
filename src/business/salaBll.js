@@ -3,34 +3,13 @@ const schemaSala = require('../models/sala');
 var sala = function () {
     
     var listaSala = async () => {
-        let listaSala = await schemaUsuario.find().exec();
-        if (!listaSala) return { error : "Salas não encontradas!" };        
-               
-        // let listaSala = [{
-        //     idSala: 5,
-        //     descricao: "Sala1",
-        //     usuarioMestre: {
-        //         login: "Adm",
-        //         icon: "../aditional/Icon/IconeCaveira.png"
-        //     },
-        //     listaUsuario: [{
-        //         login: "Clebinho123",
-        //         icon: "../aditional/Icon/IconeEspadaFogo.jpg"
-        //     },
-        //     {
-        //         login: "20Derrotar",
-        //         icon: "../aditional/Icon/IconeEspadaFogo.jpg"
-        //     }],
-        //     senha: "123",
-        //     chatLog : ""
-        // }
-        // ];
-        
+        let listaSala = await schemaSala.find().exec();
+        if (!listaSala) return { error : "Salas não encontradas!" };  
         return listaSala;
     };
 
     var getSala = async (idSala) => {        
-        let sala = await schemaUsuario.findOne({ idSala }).exec();
+        let sala = await schemaSala.findOne({ idSala }).exec();
         if (!sala) return { error : "Sala não encontrado!" };        
         return sala;
     };
