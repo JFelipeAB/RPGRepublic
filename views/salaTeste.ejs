@@ -1,4 +1,4 @@
-<script src="content/adicional/sala.js"></script>
+<script src="./content/adicional/sala.js"></script>
 <script src="socket.io/socket.io.js"></script>
 
 
@@ -43,11 +43,11 @@
                                     <div class="row">
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
                                             <br />
-                                            <div class="input-group mb-3 align-items-center">
+                                            <div class="input-group mb-3">
                                                 &nbsp;&nbsp;
                                                 <input type="text" id="txtAtributoFicha" class="form-control"
                                                     placeholder="Atributo" aria-label="Recipient's username"
-                                                    aria-describedby="basic-addon2" style="margin: 0px">
+                                                    aria-describedby="basic-addon2">
                                                 <div class="input-group-append">
                                                     <button onclick="sala.addAtributo()"
                                                         class="btn btn-outline-secondary" type="button">➕</button>
@@ -56,10 +56,10 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                             <br />
-                                            <div class="input-group mb-3 align-items-center">
+                                            <div class="input-group mb-3">
                                                 <input type="text" id="txtItemFicha" placeholder="Item"
                                                     class="form-control" aria-label="Recipient's username"
-                                                    aria-describedby="basic-addon2" style="margin: 0px">
+                                                    aria-describedby="basic-addon2">
                                                 <div class="input-group-append">
                                                     <button onclick="sala.addItem()" class="btn btn-outline-secondary"
                                                         type="button">➕</button>
@@ -74,82 +74,74 @@
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="card">
-                                <div class="jumbotron jumbotron-fluid" style="padding: 10px;">
+                                <div class="jumbotron jumbotron-fluid">
                                     <h1 class="display-6">Ficha</h1>
-                                    <div class="row align-items-center ficha-sala">
-                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12" style="text-align: left;">
+                                    <div class="row align-items-center">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                            <label for="txtFichaNome" class="form-label">Personagem</label>
+                                            <div class="input-group input-group-lg">
+                                                <input id="txtFichaNome" type="text" class="form-control"
+                                                    aria-label="Large" placeholder="Personagem">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
                                             <div class="row align-items-center">
-                                            <div class="row align-items-center" style="padding-bottom: 20px;">
-                                                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
-                                                    <label for="txtFichaNome" class="form-label">Personagem</label>
-                                                    <div class="input-group input-group-lg">
-                                                        <input id="txtFichaNome" type="text" class="form-control"
-                                                             placeholder="Personagem">
-                                                    </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6">
+                                                    <label for="txtFichaVida" class="form-label">Vida</label>
+                                                    <input id="txtFichaVida" type="number" class="form-control">
                                                 </div>
-                                                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
-                                                    <label class="form-label"></label>
-                                                    <select id="sltFichaRaca" class="form-select"
-                                                        aria-label="Default select example">
-                                                        <option value="0">Selecione uma Raça</option>
-                                                        <option value="1">Humanos</option>
-                                                        <option value="2">Elfos</option>
-                                                        <option value="3">Anões</option>
-                                                        <option value="4">Orcs</option>
-                                                        <option value="5">Goblin</option>
-                                                        <option value="6">Metamorfos</option>
-                                                    </select>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6">
+                                                    <label for="txtFichaMana" class="form-label">Mana</label>
+                                                    <input id="txtFichaMana" type="number" class="form-control">
                                                 </div>
                                             </div>
-                                            <div class="row align-items-center">
-                                                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
-                                                    <div class="row align-items-center">
-                                                        <br><br>
-                                                        <div class="col-6 col-sm-6">
-                                                            <label for="txtFichaVida" class="form-label">Vida</label>
-                                                            <input id="txtFichaVida" type="number" class="form-control">
-                                                        </div>
-                                                        <div class="col-6 col-sm-6">
-                                                            <label for="txtFichaMana" class="form-label">Mana</label>
-                                                            <input id="txtFichaMana" type="number" class="form-control">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
-                                                    <label class="form-label"></label>
-                                                    <select id="sltFichaClasse" class="form-select"
-                                                        aria-label="Default select example">
-                                                        <option value="0">Selecione uma Classe</option>
-                                                        <option value="1">Guerreiro</option>
-                                                        <option value="2">Arqueiro</option>
-                                                        <option value="3">Mago</option>
-                                                        <option value="4">Assassino</option>
-                                                        <option value="5">Bruxo</option>
-                                                        <option value="6">Ladino</option>
-                                                        <option value="7">Sacerdote</option>
-                                                        <option value="8">Paladino</option>
-                                                        <option value="9">Necromante</option>
-                                                        <option value="10">Druida</option>
-                                                        <option value="11">Xamã</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            </div>
+                                            <br>
                                         </div>
                                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
                                             <img id="imgIconFicha" class="IconFicha" src="content/images/loading.gif"
                                                 alt="user">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6">
-                                                <label for="txtFichaTentativa" class="form-label">Tentativas: </label>
-                                                <label class="radio-inline"><input type="radio" name="Tentativas"
-                                                        checked>1</label>
-                                                <label class="radio-inline"><input type="radio" name="Tentativas">2</label>
-                                                <label class="radio-inline"><input type="radio" name="Tentativas">3</label>
-                                            </div>
-                                        </div>                                        
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                            <select id="sltFichaRaca" class="form-select"
+                                                aria-label="Default select example">
+                                                <option value="0">Selecione uma Raça</option>
+                                                <option value="1">Humanos</option>
+                                                <option value="2">Elfos</option>
+                                                <option value="3">Anões</option>
+                                                <option value="4">Orcs</option>
+                                                <option value="5">Goblin</option>
+                                                <option value="6">Metamorfos</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                            <select id="sltFichaClasse" class="form-select"
+                                                aria-label="Default select example">
+                                                <option value="0">Selecione uma Classe</option>
+                                                <option value="1">Guerreiro</option>
+                                                <option value="2">Arqueiro</option>
+                                                <option value="3">Mago</option>
+                                                <option value="4">Assassino</option>
+                                                <option value="5">Bruxo</option>
+                                                <option value="6">Ladino</option>
+                                                <option value="7">Sacerdote</option>
+                                                <option value="8">Paladino</option>
+                                                <option value="9">Necromante</option>
+                                                <option value="10">Druida</option>
+                                                <option value="11">Xamã</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                            <label for="txtFichaTentativa" class="form-label">Tentativas: </label>
+                                            <label class="radio-inline"><input type="radio" name="Tentativas"
+                                                    checked>1</label>
+                                            <label class="radio-inline"><input type="radio" name="Tentativas">2</label>
+                                            <label class="radio-inline"><input type="radio" name="Tentativas">3</label>
+                                        </div>
                                     </div>
                                     <br>
-                                    <div class="row sala-atributos">
+                                    <div class="row">
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                             <div class="card">
                                                 <h4>Atributos</h1>
@@ -191,7 +183,8 @@
                                 <input class="form-control" id="txtText" type="text" style="width: 95%;" name="username"
                                     placeholder="digite sua mensagem">
                                 <br />
-                                <button class="form-control" type="button" onclick="enviar()">Enviar</button>
+                                <button class="form-control" type="button" onclick="sala.adicionarMensagem()">
+                                    Enviar</button>
                                 </input>
                             </form>
                         </div>
@@ -232,26 +225,21 @@
                         
                         // dice_initialize(document.body);
                     </script>
-                    <script>
-                        const socket = io.connect('http://localhost:3333')
-                        const user = JSON.parse(localStorage.getItem('usuario'));
-                        
-                        //socket.emit()
-                        socket.on('resp', (data) =>{
-                            var chat = document.getElementById("divChat")   
-                            var p = document.createElement('p')
-                            p.innerHTML = data
-                            chat.append(p)                         
-                        })
-                        function enviar(){
-                            
-                            var texto = document.getElementById("txtText")
-                            console.log(usuario.login + texto.value)
-                            socket.emit("txtText", usuario.login + " diz: " + texto.value)
-                        }
-                    </script>
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    const socket = io.connect()
+
+    socket.on('resp', () =>{
+        console.log('resposta recebida front end')
+    })
+
+    function enviar(){
+        socket.emit('Mensagem')
+    }
+</script>
