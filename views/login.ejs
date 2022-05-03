@@ -3,20 +3,37 @@
 </title>
 <script src="./content/adicional/login.js"></script>
 
-
 <div class="text-center bodyImage2">
 
   <div class="container">
     <div class="row justify-content-md-center">      
       <div id="bodyContent" class="form-signin col-xl-6 col-lg-6 col-md-8 col-sm-10">
-        <label style="font-size: 50px;">🎲</label>
+        <label style="font-size: 50px;">🎲 JOGO RÁPIDO 🎲</label>
+        <div class="row justify-content-md-center">
+          <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 justify-content-center">            
+            <input id="txtUSerEmailAnonimo" type="email" class="form-control" placeholder="Apelido">
+          </div>         
+        </div>
+        <br />
+        <div class="row justify-content-md-center">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+            <button class="btn btn-lg btn-primary btn-block" onclick="login.logarAnonimo();">Entrar</button>
+          </div>
+        </div>            
+      </div>      
+    </div>
+  </div>  
+  <div class="container">
+    <div class="row justify-content-md-center">      
+      <div id="bodyContent" class="form-signin col-xl-6 col-lg-6 col-md-8 col-sm-10">
+        <label style="font-size: 50px;">🎲 Login 🎲</label>
         <div class="row justify-content-md-center">
           <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 justify-content-center">
-            <label for="txtUSerEmail" class="form-label">E-mail</label>
+            <!-- <label for="txtUSerEmail" class="form-label">E-mail</label> -->
             <input id="txtUSerEmail" type="email" class="form-control" placeholder="E-mail">
           </div>
           <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 justify-content-center">
-            <label for="txtUserSenha" class="form-label">Senha</label>
+            <!-- <label for="txtUserSenha" class="form-label">Senha</label> -->
             <input type="password" id="txtUserSenha" class="form-control" placeholder="Senha" required="">
           </div>
         </div>
