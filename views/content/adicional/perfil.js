@@ -15,17 +15,18 @@ var perfil = function () {
             debugger;
             switch (iten.tipo) {
                 case 'icone':
-                    $('#divIcones').append(' <img id="Icone' + contador + '" src="' + iten.descricao + '" width="200px">');
-                    $("#divIcones").on("click", function () { perfil.selecionarItem(iten.tipo, contador) });
+                    $('#divIcones').append(' <img id="Icone' + contador + '" src="' + iten.descricao + 
+                    '" width="200px" onclick="perfil.selecionarItem('+iten.tipo+', '+contador+')">');
+                   
                     break;
                 case 'FontFamily':
-                    $('#divFontes').append('<div id="Icone' + contador + '">Fonte: ' + iten.descricao + '</div>');
+                    $('#divFontes').append('<div id="Icone' + contador + '"width="200px" onclick="perfil.selecionarItem('+iten.tipo+', '+contador+')"> Fonte: ' + iten.descricao + '</div>');
                     $('#Icone' + contador).css("font-family", iten.descricao);
-                    $("#divFontes").bind("click", function () { perfil.selecionarItem(iten.tipo, contador) });
+                   
                     break;
                 case 'FontColor':
-                    $('#divCorTexto').append('Cor de texto: ' + iten.descricao + ' <input disabled id="Icone' + contador + '" type="color" value="' + iten.cor + '">');
-                    $("#divCorTexto").bind("click", function () { perfil.selecionarItem(iten.tipo, contador) });
+                    $('#divCorTexto').append('Cor de texto: ' + iten.descricao + ' <input disabled id="Icone' + contador + '" type="color" value="' + iten.cor + '"width="200px" onclick="perfil.selecionarItem('+iten.tipo+', '+contador+')">');
+                    // $("#divCorTexto").bind("click", function () { perfil.selecionarItem(iten.tipo, contador) });
                     break;
                 case 'moeda':
                     break;
