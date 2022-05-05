@@ -3,12 +3,12 @@
 </title>
 <script src="./content/adicional/login.js"></script>
 
-<div class="text-center bodyImage2">
+<div class="text-center bodyImage2 login">
 
   <div class="container">
-    <div class="row justify-content-md-center">      
-      <div id="bodyContent" class="form-signin col-xl-6 col-lg-6 col-md-8 col-sm-10">
-        <label style="font-size: 50px;">🎲 JOGO RÁPIDO 🎲</label>
+    <div class="row card-login justify-content-md-center">      
+      <div id="bodyContent" class="form-signin col-xl-6 col-lg-6 col-md-11 col-sm-11">
+        <label style="font-size: 40px;">🎲 JOGO RÁPIDO 🎲</label>
         <div class="row justify-content-md-center">
           <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 justify-content-center">            
             <input id="txtUSerEmailAnonimo" type="email" class="form-control" placeholder="Apelido">
@@ -24,9 +24,9 @@
     </div>
   </div>  
   <div class="container">
-    <div class="row justify-content-md-center">      
-      <div id="bodyContent" class="form-signin col-xl-6 col-lg-6 col-md-8 col-sm-10">
-        <label style="font-size: 50px;">🎲 Login 🎲</label>
+    <div class="row card-login justify-content-md-center">      
+      <div id="bodyContent" class="form-signin col-xl-6 col-lg-6 col-md-11 col-sm-11">
+        <label style="font-size: 40px;">🎲 Login 🎲</label>
         <div class="row justify-content-md-center">
           <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 justify-content-center">
             <!-- <label for="txtUSerEmail" class="form-label">E-mail</label> -->
@@ -41,11 +41,8 @@
         <div class="row justify-content-md-center">
           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
             <button class="btn btn-lg btn-primary btn-block" onclick="login.logar();">Entrar</button>
+            <a class="btn btn-lg btn-block btn-secondary" onclick="window.location = './registrar'">Cadastrar</a>
           </div>
-        </div>
-        <br />
-        <div class="row d-inline-flex">
-          <a class="btn btn-lg btn-block btn-secondary" onclick="window.location = './registrar'">Cadastrar</a>
         </div>
       </div>      
     </div>

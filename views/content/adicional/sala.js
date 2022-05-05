@@ -3,8 +3,8 @@ var usurImg = '<img class="IconMensage" src="' + usuario.icon + '" alt="user">';
 var socket;
 
 $(document).ready(function () {
-    socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
-    // socket = io.connect('http://localhost:3333');
+    // socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
+    socket = io.connect('http://localhost:3333');
 
     socket.on('resp', (retorno) => {
         $("#divChat").append(retorno);

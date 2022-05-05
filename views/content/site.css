@@ -72,7 +72,9 @@ body{
 }
 
 .bodyImage2{
-    background-image: url("images/login_cadastro.jpg");    
+    background-image: url("images/login_cadastro.jpg");
+    background-size: cover;
+    min-height: 100vh;    
 }
 
 .bodyImage3{
@@ -243,4 +245,32 @@ footer{
 }
 .perfil .icone img{
     width: 150px;
+}
+.login #bodyContent {
+    margin-bottom: 0%;
+    margin-top: 3%;
+}
+.login .form-signin a {
+    margin-left: 5%;
+}
+.footer a {
+    text-decoration: none;
+    color: #FFF;
+    
+}
+.footer {
+    padding-top: 5px;
+}
+
+
+
+@media screen and  (max-width: 768px) {
+    .login #bodyContent {
+        margin-bottom: 3%;
+        margin-top: 8%;
+    }
+    .card-login {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
