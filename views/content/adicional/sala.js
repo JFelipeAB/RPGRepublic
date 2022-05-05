@@ -1,17 +1,17 @@
 var usurName = usuario.login;
-var usurImg = '<img class="IconMensage" src="' + usuario.icon + '" alt="user">';
+var usurImg = '<img class="IconMensage" src="' + usuario.icone + '" alt="user">';
 var socket;
 
 $(document).ready(function () {
     // socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
     socket = io.connect('http://localhost:3333');
-
     socket.on('resp', (retorno) => {
         $("#divChat").append(retorno);
         var objDiv = document.getElementById("divChat");
         objDiv.scrollTop = objDiv.scrollHeight;       
     });
-    $('#imgIconFicha').attr("src", usuario.icon);
+    socket.emit("connection", '<div><i><strong>' + usurImg + ' '+ usuario.login+'</strong> se conectou! </i> </div><hr>');
+    $('#imgIconFicha').attr("src", usuario.icone);
     sala.cronometro.inicio();
 });
 
