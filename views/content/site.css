@@ -68,17 +68,19 @@ body{
 .bodyImage1{
     background-image: url("images/login_cadastro.jpg");
     background-size: cover;
-    min-height: 100vh;
+    min-height: calc(100vh - 28px);
 }
 
 .bodyImage2{
     background-image: url("images/login_cadastro.jpg");
     background-size: cover;
-    min-height: 100vh;    
+    min-height: calc(100vh - 28px);    
 }
 
 .bodyImage3{
     background-image: url("images/login_cadastro.jpg");    
+    background-size: cover;
+    min-height: calc(100vh - 28px);
 }
 
 .bodyImage4{
@@ -250,7 +252,7 @@ footer{
     margin-bottom: 0%;
     margin-top: 3%;
 }
-.login .form-signin a {
+.login .form-signin a, .cadastro .form-signin a {
     margin-left: 5%;
 }
 .footer a {
