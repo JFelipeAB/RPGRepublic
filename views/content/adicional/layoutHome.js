@@ -3,7 +3,7 @@ if (!usuario) self.location = './';
 
 $(document).ready(function () { 
     $('#aUsuario').append(usuario.login + ' Nvl ' + usuario.nivel);
-    $('#imgIconMenu').attr("src",usuario.icon);
+    $('#imgIconMenu').attr("src",usuario.icone);
 });
 
 var layoutHome = function(){

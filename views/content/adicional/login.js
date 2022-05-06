@@ -46,20 +46,23 @@ var login = function () {
         debugger;
         let userName = $('#txtUSerEmailAnonimo').val();
         if (userName) {
-            let usuarioAnonimo = { 
-                _id: "anonimo", 
-                eMail: "loginAnonimo@", 
-                createdAt: "2022-03-11T01:03:52.548Z", 
-                acesso: "bronze", 
-                listaFIcha: [], 
+            let usuarioAnonimo = {
+                _id: "anonimo",
+                eMail: "loginAnonimo@",
+                createdAt: "2022-03-11T01:03:52.548Z",
+                acesso: "bronze",
+                listaFIcha: [],
                 listaIten: [{ tipo: "icone", descricao: "../aditional/Icon/IconeCaveira.png" }],
-                qtdeFichas: 1, 
-                icon: "../aditional/Icon/IconeCaveira.png", 
-                login: userName, 
-                moeda: 0, 
-                nivel: 0, 
-                senha: "123", 
-                xP: 0, 
+                qtdeFichas: 1,
+                icone: "../aditional/Icon/IconeCaveira.png",
+                textoCor: "Preto",
+                textoCorN: "#000000",
+                textoFonte: "Arial",
+                login: userName,
+                moeda: 0,
+                nivel: 0,
+                senha: "123",
+                xP: 0,
                 qtdeBaus: 1,
                 anonimo: true
             }

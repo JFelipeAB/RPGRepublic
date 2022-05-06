@@ -1,21 +1,26 @@
 var usurName = usuario.login;
-var usurImg = '<img class="IconMensage" src="' + usuario.icon + '" alt="user">';
+var usurImg = '<img class="IconMensage" src="' + usuario.icone + '" alt="user">';
 var socket;
 
 $(document).ready(function () {
-    // socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
-    socket = io.connect('http://localhost:3333');
-
-    socket.on('resp', (retorno) => {
-        $("#divChat").append(retorno);
-        var objDiv = document.getElementById("divChat");
-        objDiv.scrollTop = objDiv.scrollHeight;       
-    });
-    $('#imgIconFicha').attr("src", usuario.icon);
+    sala.configSocket();
+    $('#imgIconFicha').attr("src", usuario.icone);
     sala.cronometro.inicio();
 });
 
 var sala = function () {
+    
+    var configSocket = function(){
+        // socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
+        socket = io.connect('http://localhost:3333');
+        socket.on('resp', (retorno) => {
+            $("#divChat").append(retorno);
+            var objDiv = document.getElementById("divChat");
+            objDiv.scrollTop = objDiv.scrollHeight;       
+        });
+        socket.emit("connection", '<div><i><strong>' + usurImg + ' '+ 
+        usuario.login+'</strong> se conectou! </i> </div><hr>');
+    };
 
     var idcomponenteFicha = 0;
 
@@ -32,8 +37,7 @@ var sala = function () {
         }).fail(function () {
             alert("Falha na conexão com servidor");
         });
-
-    }
+    };
 
     var MontarModal = function (partial_view) {
 
@@ -75,17 +79,19 @@ var sala = function () {
                 "</div>" +
                 "</div>";
             $(div).append(componente.replaceAll('|', '"'));
-
         }
-    }
+    };
+
     var addItem = function () {
         adicionarFicha($("#txtItemFicha").val(), "#divItem");
         $("#txtItemFicha").val("");
     };
+
     var addAtributo = function () {
         adicionarFicha($("#txtAtributoFicha").val(), "#divAtributo");
         $("#txtAtributoFicha").val("");
     };
+
     var excluirCampo = function (label) {
         $('#div' + label).remove();
     };
@@ -119,7 +125,7 @@ var sala = function () {
         }
         salvarUsuarioCompleto();
         cronometro.reinicio();
-    }
+    };
 
     var cronometro = function () {
         var centesimas = 0;
@@ -182,5 +188,6 @@ var sala = function () {
         excluirCampo: excluirCampo,
         coletarXP: coletarXP,
         cronometro: cronometro,
+        configSocket: configSocket
     };
 }();
