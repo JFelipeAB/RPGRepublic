@@ -22,7 +22,7 @@
                                             <label id="lblNivel" class="form-label">Nivel 10 XP:</label>
                                         </div>
                                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 ">
-                                            <input id="iptXP" type="range" min="0" max="3" step="1">
+                                            <input disabled id="iptXP" type="range" min="0" max="3" step="1">
                                         </div>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                                         <label id="lblRank" class="form-label">Rank: Bronze</label>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 ">
-                                        <label id="lblMoedas" class="form-label">Moedas: 10</label>
+                                        <label id="lblMoedas" class="form-label">Moedas: 0</label>
                                     </div>
                                 </div>
                             </div>
@@ -82,8 +82,14 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                     <div class="form-control">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <h4>Icone Selecionado:</h4>
+                            <img id="imgIconeSelecionado" width="400px">
                             <br />
-                            <img id="imgIcone" width="400px">
+                            <br />
+                            <h4 id="lblFonteSelecionada">Fonte Selecionada:</h4>
+                            <br />
+                            <h4 id="lblFonteCorSelecionada">Cor da Fonte:</h4>
+                            <input disabled type="color" id="iptCorSelecionada">
                         </div>
                     </div>
                 </div>

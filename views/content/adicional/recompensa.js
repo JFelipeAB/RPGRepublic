@@ -35,6 +35,7 @@ var recompensa = function () {
             console.log(listaItemFiltrada);
             switch (itemSorteado.tipo) {
                 case 'moeda':
+                    debugger;
                     $("#divMoeda").show();
                     break;
                 case 'icone':
