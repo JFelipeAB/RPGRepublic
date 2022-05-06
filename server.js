@@ -135,6 +135,12 @@ io.on('connection', (socket) => {
     socket.on('connection', (mensagem) => {      
         io.emit('resp', mensagem)
     });
+
+    // socket.on('disconnect', (mensagem) => {      
+    //     console.log(mensagem);
+    //     io.emit('resp', mensagem)
+
+    // });
 });
 
 app.use(express.static(__dirname + 'public'))

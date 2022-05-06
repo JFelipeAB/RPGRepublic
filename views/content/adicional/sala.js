@@ -20,6 +20,11 @@ var sala = function () {
         });
         socket.emit("connection", '<div><i><strong>' + usurImg + ' '+ 
         usuario.login+'</strong> se conectou! </i> </div><hr>');
+        
+        // socket.on('disconnect', () => {
+        //     socket.emit("connection", '<div><i><strong>' + usurImg + ' '+ 
+        //     usuario.login+'</strong> se desconectou! </i> </div><hr>');
+        // });
     };
 
     var idcomponenteFicha = 0;
