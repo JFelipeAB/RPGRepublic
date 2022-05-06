@@ -49,7 +49,7 @@ var login = function () {
                 eMail: "loginAnonimo@",
                 createdAt: "2022-03-11T01:03:52.548Z",
                 acesso: "bronze",
-                listaFIcha: [],
+                listaFicha: [],
                 listaIten: [{
                     tipo: "icone",
                      descricao: "../aditional/Icon/IconeCaveira.png"

@@ -1,10 +1,12 @@
 $(document).ready(function () {
-    perfil.configFIcha();
+    perfil.configPefil();
+    perfil.configFichas();
+    perfil.configItens();
 });
 
 var perfil = function () {
 
-    var configFIcha = function () {
+    var configPefil = function () {
         $('#imgIconeSelecionado').attr("src", usuario.icone);
         $('#lblFonteSelecionada').text("Fonte Selecionada: " + usuario.textoFonte);
         $('#lblFonteSelecionada').css("font-family", usuario.textoFonte);
@@ -15,8 +17,11 @@ var perfil = function () {
         $('#lblEmail').text("E-mail: " + usuario.eMail);
         $('#lblRank').text("Rank: " + usuario.acesso);
         $('#lblMoedas').text("Moedas: " + usuario.moeda);
+    };
+
+    var configItens = function () {
         let contador = 0;
-        usuario.listaIten.forEach(iten => {            
+        usuario.listaIten.forEach(iten => {
             switch (iten.tipo) {
                 case 'icone':
                     $('#divIcones').append(`<img id="Icone${contador}" src="${iten.descricao}` +
@@ -41,6 +46,31 @@ var perfil = function () {
         });
     };
 
+    var configFichas = function () {
+        let contador = 0;
+        usuario.listaFicha.forEach(ficha => {
+            debugger;
+
+            $('#divPersonagem').append(
+                `<div onclick="perfil.mostrarFicha(${ contador++})" class="col-xl-6 col-lg-6 col-md-6 col-sm-12">` +
+                `<div class="card" style="width: 18rem;">` +
+                `<img src="${ficha.icone}" class="card-img-top" >` +
+                `<div class="card-body">` +
+                `<h5 class="card-title">${ficha.personagem}</h5>` +
+                `<p class="card-text">Descrição: ${ficha.descricao}</p>` +
+                `</div>` +
+                `<ul class="list-group list-group-flush">`+
+                `<li class="list-group-item">Raça: ${ficha.raca}</li>`+
+                `<li class="list-group-item">Classe: ${ficha.classe}</li>`+
+                `<li class="list-group-item">Ultima sala Usada: ${ficha.classe}</li>`+
+                `</ul>`+
+                `</div>` +
+                `</div>`
+            )
+            contador++;
+        });
+    }
+
     var salvarUsuarioCompleto = function () {
         $.ajax({
             url: "salvarUsuario",
@@ -59,7 +89,7 @@ var perfil = function () {
         });
     };
 
-    var selecionarItem = function (tipo, index) {        
+    var selecionarItem = function (tipo, index) {
         if (!tipo) {
             alert(`Erro, contate o administrador! tipo de item não encontrado!`);
             return;
@@ -68,12 +98,12 @@ var perfil = function () {
             case 'icone':
                 usuario.icone = usuario.listaIten[index].descricao;
                 $('#imgIconeSelecionado').attr("src", usuario.icone);
-                $('#imgIconMenu').attr("src", usuario.icone);                
+                $('#imgIconMenu').attr("src", usuario.icone);
                 break;
             case 'FontFamily':
                 usuario.textoFonte = usuario.listaIten[index].descricao
                 $('#lblFonteSelecionada').text("Fonte Selecionada: " + usuario.textoFonte);
-                $('#lblFonteSelecionada').css("font-family", usuario.textoFonte);                
+                $('#lblFonteSelecionada').css("font-family", usuario.textoFonte);
                 break;
             case 'FontColor':
                 usuario.textoCor = usuario.listaIten[index].descricao;
@@ -89,10 +119,17 @@ var perfil = function () {
         salvarUsuarioCompleto();
     };
 
+    var mostrarFicha = function(){
+
+    };
+
     return {
-        configFIcha: configFIcha,
+        configItens: configItens,
+        configPefil: configPefil,
+        configFichas: configFichas,
         selecionarItem: selecionarItem,
-        salvarUsuarioCompleto: salvarUsuarioCompleto
+        salvarUsuarioCompleto: salvarUsuarioCompleto,
+        mostrarFicha: mostrarFicha
     };
 
 }();
