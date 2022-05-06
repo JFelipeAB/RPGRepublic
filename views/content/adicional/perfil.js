@@ -16,8 +16,7 @@ var perfil = function () {
         $('#lblRank').text("Rank: " + usuario.acesso);
         $('#lblMoedas').text("Moedas: " + usuario.moeda);
         let contador = 0;
-        usuario.listaIten.forEach(iten => {
-            debugger;
+        usuario.listaIten.forEach(iten => {            
             switch (iten.tipo) {
                 case 'icone':
                     $('#divIcones').append(`<img id="Icone${contador}" src="${iten.descricao}` +
@@ -60,8 +59,7 @@ var perfil = function () {
         });
     };
 
-    var selecionarItem = function (tipo, index) {
-        debugger;
+    var selecionarItem = function (tipo, index) {        
         if (!tipo) {
             alert(`Erro, contate o administrador! tipo de item não encontrado!`);
             return;

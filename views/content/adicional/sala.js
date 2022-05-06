@@ -62,8 +62,7 @@ var sala = function () {
         return mensagem;
     };
 
-    var adicionarFicha = function (label, div) {
-        debugger;
+    var adicionarFicha = function (label, div) {        
         labelId = (label + idcomponenteFicha++).replaceAll(' ', '');;
         if (label) {
             let componente =
@@ -103,8 +102,7 @@ var sala = function () {
             data: JSON.stringify(usuario),
             method: 'POST',
             async: true
-        }).done(function (retorno) {
-            debugger;
+        }).done(function (retorno) {           
             if (retorno.error) alert(retorno.error);
             else {
                 localStorage.removeItem('usuario');
@@ -115,8 +113,7 @@ var sala = function () {
         });
     };
 
-    var coletarXP = function () {
-        debugger;
+    var coletarXP = function () {       
         usuario.xp++;
         if (usuario.xp == usuario.nivel) {
             usuario.nivel++;

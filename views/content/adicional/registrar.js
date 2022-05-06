@@ -8,8 +8,7 @@ var registrar = function () {
                 data: JSON.stringify(getDto()),
                 method: 'POST',
                 async: true
-            }).done(function (retorno) {
-                debugger;
+            }).done(function (retorno) {                
                 if(retorno.error)
                 {
                     alert(retorno.error);
@@ -43,8 +42,7 @@ var registrar = function () {
             'senha': $('#txtUserSenha').val(),
             'usuario': $('#txtUSerName').val(),
             'email': $('#txtUSerEmail').val(),
-        };
-        debugger;
+        };        
         return dto;
     };
 

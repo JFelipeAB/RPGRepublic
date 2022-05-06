@@ -8,8 +8,7 @@ var login = function () {
                 data: JSON.stringify(getDto()),
                 method: 'POST',
                 async: true
-            }).done(function (retorno) {
-                debugger;
+            }).done(function (retorno) {                
                 if (retorno.error) {
                     alert(retorno.error);
                     $('#txtUSerEmail').val("");
@@ -42,8 +41,7 @@ var login = function () {
         return true;
     }
 
-    var logarAnonimo = function () {
-        debugger;
+    var logarAnonimo = function () {       
         let userName = $('#txtUSerEmailAnonimo').val();
         if (userName) {
             let usuarioAnonimo = {
@@ -52,7 +50,19 @@ var login = function () {
                 createdAt: "2022-03-11T01:03:52.548Z",
                 acesso: "bronze",
                 listaFIcha: [],
-                listaIten: [{ tipo: "icone", descricao: "../aditional/Icon/IconeCaveira.png" }],
+                listaIten: [{
+                    tipo: "icone",
+                     descricao: "../aditional/Icon/IconeCaveira.png"
+                }, {
+                    tipo: "FontFamily",
+                     descricao: "Arial"
+                }, {
+                    cor: "#000000",
+                    descricao: "Preto",
+                    tipo: "FontColor"
+                }
+
+                ],
                 qtdeFichas: 1,
                 icone: "../aditional/Icon/IconeCaveira.png",
                 textoCor: "Preto",
