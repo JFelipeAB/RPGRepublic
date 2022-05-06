@@ -68,19 +68,19 @@ body{
 .bodyImage1{
     background-image: url("images/login_cadastro.jpg");
     background-size: cover;
-    min-height: calc(100vh - 28px);
+    min-height: calc(100vh - 20px);
 }
 
 .bodyImage2{
     background-image: url("images/login_cadastro.jpg");
     background-size: cover;
-    min-height: calc(100vh - 28px);    
+    min-height: calc(100vh - 20px);    
 }
 
 .bodyImage3{
     background-image: url("images/login_cadastro.jpg");    
     background-size: cover;
-    min-height: calc(100vh - 28px);
+    min-height: calc(100vh - 20px);
 }
 
 .bodyImage4{
@@ -247,6 +247,11 @@ footer{
 }
 .perfil .icone img{
     width: 150px;
+}
+.perfil .card {
+    margin-bottom: 15px;
+    padding: 20px;
+
 }
 .login #bodyContent {
     margin-bottom: 0%;

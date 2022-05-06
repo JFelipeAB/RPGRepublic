@@ -12,7 +12,7 @@ var perfil = function () {
         $('#lblRank').text("Rank: " + usuario.acesso);
         let contador = 0;
         usuario.listaIten.forEach(iten => {
-            debugger;
+            //debugger;
             switch (iten.tipo) {
                 case 'icone':
                     $('#divIcones').append(' <img id="Icone' + contador + '" src="' + iten.descricao + 
