@@ -54,8 +54,7 @@ const schemaUsuario = new mongoose.Schema({
         default: Date.now,
     },
     listaIten : [
-        {
-            // type: schemaItem.
+        {            
             descricao: {
                 type: String,
                 required: true, 

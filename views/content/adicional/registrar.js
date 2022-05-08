@@ -38,12 +38,12 @@ var registrar = function () {
     };
 
     var getDto = function () {
-        var dto = {
+        var usuario = {
             'senha': $('#txtUserSenha').val(),
             'usuario': $('#txtUSerName').val(),
             'email': $('#txtUSerEmail').val(),
         };        
-        return dto;
+        return usuario;
     };
 
     return {
