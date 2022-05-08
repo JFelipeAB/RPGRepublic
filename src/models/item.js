@@ -10,6 +10,9 @@ const schemaItem = new mongoose.Schema({
     tipo : {
         type: String,
         required: true,        
+    },
+    cor : {
+        type: String,       
     }
 });
 const item = mongoose.model('item', schemaItem);

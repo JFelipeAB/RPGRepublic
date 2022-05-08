@@ -61,7 +61,6 @@ var login = function () {
                     descricao: "Preto",
                     tipo: "FontColor"
                 }
-
                 ],
                 qtdeFichas: 1,
                 icone: "../aditional/Icon/IconeCaveira.png",

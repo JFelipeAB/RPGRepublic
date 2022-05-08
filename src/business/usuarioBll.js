@@ -21,8 +21,9 @@ var usuario = function () {
                     return { usuario };
                 });
             });
-        } else { //Alterar            
-            return usuario;
+        } else { //Alterar                
+            console.log(usuario);
+            return await schemaUsuario.findByIdAndUpdate(usuario._id, usuario);  
         }
     };
 

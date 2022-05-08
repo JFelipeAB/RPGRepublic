@@ -17,6 +17,8 @@ var perfil = function () {
         $('#lblEmail').text("E-mail: " + usuario.eMail);
         $('#lblRank').text("Rank: " + usuario.acesso);
         $('#lblMoedas').text("Moedas: " + usuario.moeda);
+        $('#iptXP').val(usuario.xp);
+        $('#slider').attr('max', usuario.nivel);
     };
 
     var configItens = function () {

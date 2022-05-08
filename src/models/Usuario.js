@@ -1,4 +1,5 @@
-const mongoose = require('../database')
+const mongoose = require('../database');
+// const itenBll = require('./itenBll');
 
 const schemaUsuario = new mongoose.Schema({     
     eMail: {
@@ -51,7 +52,24 @@ const schemaUsuario = new mongoose.Schema({
     createdAt : {
         type: Date,
         default: Date.now,
-    }    
+    },
+    listaIten : [
+        {
+            // type: schemaItem.
+            descricao: {
+                type: String,
+                required: true, 
+                unique: true,
+            },  
+            tipo : {
+                type: String,
+                required: true,        
+            },
+            cor : {
+                type: String,       
+            }
+        }
+    ]    
 });
 const Usuario = mongoose.model('usuario', schemaUsuario);
 module.exports = Usuario;

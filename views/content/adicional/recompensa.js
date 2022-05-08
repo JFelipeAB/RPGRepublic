@@ -58,6 +58,7 @@ var recompensa = function () {
                 keyboard: false
             });
             modal.show('slow');
+            debugger;
             if (itemSorteado.tipo == 'moeda')
                 usuario.moeda++;
             else

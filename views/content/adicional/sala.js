@@ -4,27 +4,32 @@ var socket;
 
 $(document).ready(function () {
     sala.configSocket();
+    $('#chat').on('submit', function (e) {
+        e.preventDefault();
+        sala.adicionarMensagem()
+    });
     $('#imgIconFicha').attr("src", usuario.icone);
     sala.cronometro.inicio();
 });
 
 var sala = function () {
-    
-    var configSocket = function(){
+
+    var configSocket = function () {
         //socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
         socket = io.connect('http://localhost:3333');
         socket.on('resp', (retorno) => {
             $("#divChat").append(retorno);
             var objDiv = document.getElementById("divChat");
-            objDiv.scrollTop = objDiv.scrollHeight;       
+            objDiv.scrollTop = objDiv.scrollHeight;
         });
-        socket.emit("connection", '<div><i><strong>' + usurImg + ' '+ 
-        usuario.login+'</strong> se conectou! </i> </div><hr>');
-        
-        // socket.on('disconnect', () => {
-        //     socket.emit("connection", '<div><i><strong>' + usurImg + ' '+ 
-        //     usuario.login+'</strong> se desconectou! </i> </div><hr>');
-        // });
+        socket.emit("connection", '<div><i><strong>' + usurImg + ' ' +
+            usuario.login + '</strong> se conectou! </i> </div><hr>');
+
+        socket.on('disconnect', () => {
+            console.log(usuario.login + 'desconectiou');
+            // socket.emit("connection", '<div><i><strong>' + usurImg + ' '+ 
+            // usuario.login+'</strong> se desconectou! </i> </div><hr>');
+        });
     };
 
     var idcomponenteFicha = 0;
@@ -55,19 +60,20 @@ var sala = function () {
 
     var adicionarMensagem = function (text) {
         if (text)
-            socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>');        
-        else 
-            socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + GetMensagem() + '</div><hr>');
-            
+            socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>');
+        else {
+            if (GetMensagem())
+                socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName +
+                    '</strong>: ' + GetMensagem() + '</div><hr>');
+            $("#txtText").val("");
         };
-
-    var GetMensagem = function () {
-        let mensagem = $("#txtText").val();
-        $("#txtText").val("");
-        return mensagem;
     };
 
-    var adicionarFicha = function (label, div) {        
+    var GetMensagem = function () {
+        return $("#txtText").val();        
+    };
+
+    var adicionarFicha = function (label, div) {
         labelId = (label + idcomponenteFicha++).replaceAll(' ', '');;
         if (label) {
             let componente =
@@ -107,7 +113,7 @@ var sala = function () {
             data: JSON.stringify(usuario),
             method: 'POST',
             async: true
-        }).done(function (retorno) {           
+        }).done(function (retorno) {
             if (retorno.error) alert(retorno.error);
             else {
                 localStorage.removeItem('usuario');
@@ -118,7 +124,7 @@ var sala = function () {
         });
     };
 
-    var coletarXP = function () {       
+    var coletarXP = function () {
         usuario.xp++;
         if (usuario.xp == usuario.nivel) {
             usuario.nivel++;
