@@ -33,22 +33,27 @@ var registrar = function () {
     };
 
     var validaUsuario = function () {        
-       return true;
-
+       if($('#txtUserSenha').val() == $('#txtUserRepetirSenha').val())
+        return true;
+        else{
+            alert("Senhas diferentes");
+            $('#txtUserSenha').val('');
+            $('#txtUserRepetirSenha').val('');
+            return false;
+        } ;        
     };
 
     var getDto = function () {
         var usuario = {
             'senha': $('#txtUserSenha').val(),
-            'usuario': $('#txtUSerName').val(),
+            'login': $('#txtUSerName').val(),
             'email': $('#txtUSerEmail').val(),
-        };        
+        };   
         return usuario;
     };
 
     return {
-        registrar: registrar,
-        controles: controles,
+        registrar: registrar, 
     };
 
 }();

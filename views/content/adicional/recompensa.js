@@ -57,8 +57,7 @@ var recompensa = function () {
             var modal = new bootstrap.Modal($('#mdlRecompensa'), {
                 keyboard: false
             });
-            modal.show('slow');
-            debugger;
+            modal.show('slow');          
             if (itemSorteado.tipo == 'moeda')
                 usuario.moeda++;
             else
@@ -81,7 +80,7 @@ var recompensa = function () {
             async: true
         }).done(function (retorno) {
             if (retorno.error) alert(retorno.error);
-            else {
+            else {               
                 localStorage.removeItem('usuario');
                 localStorage.setItem('usuario', JSON.stringify(retorno.usuario));
             }

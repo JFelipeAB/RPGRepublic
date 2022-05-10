@@ -51,8 +51,6 @@ var perfil = function () {
     var configFichas = function () {
         let contador = 0;
         usuario.listaFicha.forEach(ficha => {
-            debugger;
-
             $('#divPersonagem').append(
                 `<div onclick="perfil.mostrarFicha(${ contador++})" class="col-xl-6 col-lg-6 col-md-6 col-sm-12">` +
                 `<div class="card" style="width: 18rem;">` +
@@ -73,7 +71,7 @@ var perfil = function () {
         });
     }
 
-    var salvarUsuarioCompleto = function () {
+    var salvarUsuarioCompleto = function () {        
         $.ajax({
             url: "salvarUsuario",
             contentType: 'application/json',
@@ -82,7 +80,7 @@ var perfil = function () {
             async: true
         }).done(function (retorno) {
             if (retorno.error) alert(retorno.error);
-            else {
+            else {               
                 localStorage.removeItem('usuario');
                 localStorage.setItem('usuario', JSON.stringify(retorno.usuario));
             }

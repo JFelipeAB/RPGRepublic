@@ -16,11 +16,12 @@ var usuario = function () {
             else
                 return montaUsuario(usuario)
         }
-        if (usuario._id) {       
-            return await schemaUsuario.findByIdAndUpdate(usuario._id, usuario);
+        if (usuario._id) {                 
+            let retorno =  await schemaUsuario.findByIdAndUpdate(usuario._id, usuario);            
+            if (!retorno) return { error: "ERRO! Alterações não salvas no usuario!" };
+            return usuario;
         } else {      //Novo    
-            var usuario = montaUsuario(usuario)
-            console.log(usuario);
+            var usuario = montaUsuario(usuario);            
             // schemaUsuario.find({ email }, (erro, usuario) => {               
             //     schemaUsuario.create({ email, senha, usuario }, (erro, usuario) => {
             //         if (erro) return { error: "Erro ao criar novo usuário" };
@@ -31,7 +32,7 @@ var usuario = function () {
         }
     };
 
-    var montaUsuario = function (dados) {        
+    var montaUsuario = function (dados) {                
         let usuarioNovo = {
             eMail: dados.email,
             createdAt: "2022-03-11T01:03:52.548Z",
