@@ -14,9 +14,9 @@ var perfil = function () {
         $('#iptCorSelecionada').val(usuario.textoCorN);
         $('#lblLogin').text(usuario.login);
         $('#lblNivel').text("Nível " + usuario.nivel + " XP: ");
-        $('#lblEmail').text("E-mail: " + usuario.eMail);
-        $('#lblRank').text("Rank: " + usuario.acesso);
-        $('#lblMoedas').text("Moedas: " + usuario.moeda);
+        $('#lblEmail').text(usuario.eMail);
+        $('#lblRank').text(usuario.acesso);
+        $('#lblMoedas').text(usuario.moeda);
         $('#iptXP').val(usuario.xp);
         $('#slider').attr('max', usuario.nivel);
     };
