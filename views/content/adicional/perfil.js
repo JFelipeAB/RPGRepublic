@@ -13,7 +13,7 @@ var perfil = function () {
         $('#lblFonteCorSelecionada').text("Cor da Fonte: " + usuario.textoCor);
         $('#iptCorSelecionada').val(usuario.textoCorN);
         $('#lblLogin').text(usuario.login);
-        $('#lblNivel').text("Nível " + usuario.nivel + " XP: ");
+        $('#lblNivel').text(usuario.nivel + " XP");
         $('#lblEmail').text(usuario.eMail);
         $('#lblRank').text(usuario.acesso);
         $('#lblMoedas').text(usuario.moeda);
@@ -26,17 +26,17 @@ var perfil = function () {
         usuario.listaIten.forEach(iten => {
             switch (iten.tipo) {
                 case 'icone':
-                    $('#divIcones').append(`<img id="Icone${contador}" src="${iten.descricao}` +
+                    $('#divIcones').append(`<img style="cursor: pointer;" id="Icone${contador}" src="${iten.descricao}` +
                         `" width="200px" onclick="perfil.selecionarItem('${iten.tipo}', ${contador})">`);
                     break;
                 case 'FontFamily':
                     $('#divFontes').append(`<div onclick="perfil.selecionarItem('${iten.tipo}',${contador})">` +
-                        `<div id="Icone${contador}" "width="200px"> Fonte: ${iten.descricao} </div></div>`);
+                        `<div id="Icone${contador}" "width="200px" style="cursor: pointer;"> Fonte: ${iten.descricao} </div></div>`);
                     $('#Icone' + contador).css("font-family", iten.descricao);
                     break;
                 case 'FontColor':
-                    $('#divCorTexto').append(`<div onclick="perfil.selecionarItem('${iten.tipo}',${contador})">` +
-                        `Cor de texto:${iten.descricao}<input disabled id="Icone${contador}" type="color" ` +
+                    $('#divCorTexto').append(`<div style="cursor: pointer;" onclick="perfil.selecionarItem('${iten.tipo}',${contador})">` +
+                        `Cor de texto ${iten.descricao} <input style="cursor: pointer;" disabled id="Icone${contador}" type="color" ` +
                         `value="${iten.cor}"width="200px"> </div>`);
                     break;
                 case 'moeda':
