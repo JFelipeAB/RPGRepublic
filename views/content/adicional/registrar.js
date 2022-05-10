@@ -8,8 +8,7 @@ var registrar = function () {
                 data: JSON.stringify(getDto()),
                 method: 'POST',
                 async: true
-            }).done(function (retorno) {
-                debugger;
+            }).done(function (retorno) {                
                 if(retorno.error)
                 {
                     alert(retorno.error);
@@ -34,23 +33,27 @@ var registrar = function () {
     };
 
     var validaUsuario = function () {        
-       return true;
-
+       if($('#txtUserSenha').val() == $('#txtUserRepetirSenha').val())
+        return true;
+        else{
+            alert("Senhas diferentes");
+            $('#txtUserSenha').val('');
+            $('#txtUserRepetirSenha').val('');
+            return false;
+        } ;        
     };
 
     var getDto = function () {
-        var dto = {
+        var usuario = {
             'senha': $('#txtUserSenha').val(),
-            'usuario': $('#txtUSerName').val(),
+            'login': $('#txtUSerName').val(),
             'email': $('#txtUSerEmail').val(),
-        };
-        debugger;
-        return dto;
+        };   
+        return usuario;
     };
 
     return {
-        registrar: registrar,
-        controles: controles,
+        registrar: registrar, 
     };
 
 }();

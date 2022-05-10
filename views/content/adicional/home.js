@@ -16,8 +16,7 @@ var home = function () {
             data: JSON.stringify(getDtoCriarSala()),
             method: 'POST',
             async: true
-        }).done(function (retorno) {
-            debugger;
+        }).done(function (retorno) {            
             if (!retorno)
                 alert("Falha interna do servidor");
             else {
@@ -43,8 +42,7 @@ var home = function () {
         }
     }
 
-    var validaEntrarSala = function () {
-        debugger;
+    var validaEntrarSala = function () {        
         let senha = $('#hdfEntrarSalaSenha').val();
         let senhaInserida = $('#txtEntrarSalaSenha').val();
         let idSala = $('#hdfEntrarSalaId').val();

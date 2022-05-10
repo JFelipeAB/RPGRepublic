@@ -34,8 +34,7 @@ var recompensa = function () {
             let itemSorteado = listaItemFiltrada[posicaoSelecionada];
             console.log(listaItemFiltrada);
             switch (itemSorteado.tipo) {
-                case 'moeda':
-                    debugger;
+                case 'moeda':                   
                     $("#divMoeda").show();
                     break;
                 case 'icone':
@@ -58,7 +57,7 @@ var recompensa = function () {
             var modal = new bootstrap.Modal($('#mdlRecompensa'), {
                 keyboard: false
             });
-            modal.show('slow');
+            modal.show('slow');          
             if (itemSorteado.tipo == 'moeda')
                 usuario.moeda++;
             else
@@ -81,7 +80,7 @@ var recompensa = function () {
             async: true
         }).done(function (retorno) {
             if (retorno.error) alert(retorno.error);
-            else {
+            else {               
                 localStorage.removeItem('usuario');
                 localStorage.setItem('usuario', JSON.stringify(retorno.usuario));
             }

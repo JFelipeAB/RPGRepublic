@@ -135,6 +135,9 @@ io.on('connection', (socket) => {
     socket.on('connection', (mensagem) => {      
         io.emit('resp', mensagem)
     });
+    socket.on('disconnect', () => {              
+        io.emit('resp', '<div><i>Um usuario se desconectou!</i></div><hr>');
+    });
 });
 
 app.use(express.static(__dirname + 'public'))
