@@ -83,6 +83,7 @@ var recompensa = function () {
             else {               
                 localStorage.removeItem('usuario');
                 localStorage.setItem('usuario', JSON.stringify(retorno.usuario));
+                usuario = retorno.usuario;
             }
         }).fail(function () {
             alert("Falha na conexão com servidor, suas ações não foram salvas!!");
