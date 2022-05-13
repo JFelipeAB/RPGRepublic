@@ -60,10 +60,10 @@ var sala = function () {
 
     var adicionarMensagem = function (text) {
         if (text)
-            socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>');
+            socket.emit("connection", '<div class="textoEditavel">' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>');
         else {
             if (GetMensagem())
-                socket.emit("connection", '<div >' + usurImg + ' <strong>' + usurName +
+                socket.emit("connection", '<div class="textoEditavel">' + usurImg + ' <strong>' + usurName +
                     '</strong>: ' + GetMensagem() + '</div><hr>');
             $("#txtText").val("");
         };
