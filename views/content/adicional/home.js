@@ -5,6 +5,8 @@ $(document).ready(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
+    debugger;
+    $('#PesquisarSala').val('');
 });
 
 var home = function () {

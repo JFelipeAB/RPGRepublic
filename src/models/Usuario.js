@@ -58,8 +58,7 @@ const schemaUsuario = new mongoose.Schema({
         {
             descricao: {
                 type: String,
-                required: true,
-                unique: true,
+                required: true,               
             },
             tipo: {
                 type: String,

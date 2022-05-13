@@ -4,15 +4,21 @@ var socket;
 
 $(document).ready(function () {
     sala.configSocket();
-    $('#chat').on('submit', function (e) {
-        e.preventDefault();
-        sala.adicionarMensagem()
-    });
-    $('#imgIconFicha').attr("src", usuario.icone);
+    sala.configGeral();
     sala.cronometro.inicio();
 });
 
 var sala = function () {
+    
+    var configGeral = function(){
+        $('#chat').on('submit', function (e) {
+            e.preventDefault();
+            sala.adicionarMensagem()
+        });
+        $('#imgIconFicha').attr("src", usuario.icone);
+        $('.textoEditavel').css("color", usuario.textoCorN);
+        $('.textoEditavel').css("font-family", usuario.textoFonte);
+    }
 
     var configSocket = function () {
         //socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
@@ -59,12 +65,14 @@ var sala = function () {
     };
 
     var adicionarMensagem = function (text) {
+        debugger;
         if (text)
-            socket.emit("connection", '<div class="textoEditavel">' + usurImg + ' <strong>' + usurName + '</strong>: ' + text + '</div><hr>');
+            socket.emit("connection", `<div style="font-family:${usuario.textoFonte}; color:${usuario.textoCorN}"`+
+            `class="textoEditavel">${usurImg}<strong>${usurName}</strong>: ${text}</div><hr>`);
         else {
             if (GetMensagem())
-                socket.emit("connection", '<div class="textoEditavel">' + usurImg + ' <strong>' + usurName +
-                    '</strong>: ' + GetMensagem() + '</div><hr>');
+                socket.emit("connection", `<div style="font-family:${usuario.textoFonte}; color:${usuario.textoCorN}"`+
+                 `class="textoEditavel">${usurImg}<strong>${usurName}</strong>: ${GetMensagem()}</div><hr>`);
             $("#txtText").val("");
         };
     };
@@ -80,7 +88,7 @@ var sala = function () {
                 "<div id='div" + labelId + "' class='col-xl-4 col-lg-6 col-md-6 col-sm-12 '>" +
                 "<label for='txtAtributoFicha" + labelId + "' class='form-label'>" + label + "</label>" +
                 "<div class='input-group mb-3'>" +
-                "   <input type='text' id='txtAtributoFicha" + labelId + "' class='form-control' placeholder='" + label + "'" +
+                "   <input style='font-family:"+usuario.textoFonte+"; color:"+usuario.textoCorN+"' type='text' id='txtAtributoFicha textoEditavel" + labelId + "' class='form-control' placeholder='" + label + "'" +
                 "      aria-label='Recipient's username' aria-describedby='basic-addon2'>" +
                 " <div class='input-group-append'>" +
                 "    <button onclick='sala.excluirCampo(|" + labelId + "|)' class='btn btn-outline-secondary'" +
@@ -197,6 +205,7 @@ var sala = function () {
         excluirCampo: excluirCampo,
         coletarXP: coletarXP,
         cronometro: cronometro,
-        configSocket: configSocket
+        configSocket: configSocket,
+        configGeral: configGeral,
     };
 }();
