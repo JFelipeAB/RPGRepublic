@@ -272,7 +272,9 @@ footer{
 .footer {
     padding-top: 5px;
 }
-
+.menu .dropdown-menu {
+    margin-bottom: 10px;
+}
 
 
 @media screen and  (max-width: 768px) {
@@ -283,5 +285,8 @@ footer{
     .card-login {
         margin-left: 10px;
         margin-right: 10px;
+    }
+    .menu .container-fluid {
+        background-color: #000;
     }
 }
