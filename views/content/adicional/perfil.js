@@ -17,8 +17,12 @@ var perfil = function () {
         $('#lblEmail').text(usuario.eMail);
         $('#lblRank').text(usuario.acesso);
         $('#lblMoedas').text(usuario.moeda);
-        $('#iptXP').val(usuario.xp);
-        $('#slider').attr('max', usuario.nivel);
+        $('#lblBaus').text(usuario.qtdeBaus);
+        $('#iptXP').attr('max', usuario.nivel);        
+        let xpPorcentage = Math.round(usuario.xP/usuario.nivel*100);
+        $('#divXP').attr('style', "width: "+xpPorcentage+"%");
+        $('#divXP').append(xpPorcentage+"%");
+        $('#iptXP').val(usuario.xP);
     };
 
     var configItens = function () {
@@ -30,12 +34,14 @@ var perfil = function () {
                         `" width="200px" onclick="perfil.selecionarItem('${iten.tipo}', ${contador})">`);
                     break;
                 case 'FontFamily':
-                    $('#divFontes').append(`<div onclick="perfil.selecionarItem('${iten.tipo}',${contador})">` +
+                    $('#divFontes').append(`<div onclick="perfil.selecionarItem('${iten.tipo}',${contador})"` +
+                        `class="col-xl-6 col-lg-6 col-md-6 col-sm-12">` +
                         `<div id="Icone${contador}" "width="200px" style="cursor: pointer;"> Fonte: ${iten.descricao} </div></div>`);
                     $('#Icone' + contador).css("font-family", iten.descricao);
                     break;
                 case 'FontColor':
-                    $('#divCorTexto').append(`<div style="cursor: pointer;" onclick="perfil.selecionarItem('${iten.tipo}',${contador})">` +
+                    $('#divCorTexto').append(`<div style="cursor: pointer;" onclick="perfil.selecionarItem('${iten.tipo}',${contador})"` +
+                        `class="col-xl-6 col-lg-6 col-md-6 col-sm-12">` +
                         `Cor de texto ${iten.descricao} <input style="cursor: pointer;" disabled id="Icone${contador}" type="color" ` +
                         `value="${iten.cor}"width="200px"> </div>`);
                     break;
@@ -52,18 +58,21 @@ var perfil = function () {
         let contador = 0;
         usuario.listaFicha.forEach(ficha => {
             $('#divPersonagem').append(
-                `<div onclick="perfil.mostrarFicha(${ contador++})" class="col-xl-6 col-lg-6 col-md-6 col-sm-12">` +
+                `<div onclick="perfil.mostrarFicha(${contador++})" class="col-xl-6 col-lg-6 col-md-6 col-sm-12">` +
                 `<div class="card" style="width: 18rem;">` +
-                `<img src="${ficha.icone}" class="card-img-top" >` +
-                `<div class="card-body">` +
+                `<div class="modal-header">` +
                 `<h5 class="card-title">${ficha.personagem}</h5>` +
+                `<button type="button" class="btn-close" aria-label="Close"></button>` +
+                `</div>` +
+                `<div class="card-body">` +
+                `<img src="${ficha.icone}" class="card-img-top"  >` +
                 `<p class="card-text">Descrição: ${ficha.descricao}</p>` +
                 `</div>` +
-                `<ul class="list-group list-group-flush">`+
-                `<li class="list-group-item">Raça: ${ficha.raca}</li>`+
-                `<li class="list-group-item">Classe: ${ficha.classe}</li>`+
-                `<li class="list-group-item">Ultima sala Usada: ${ficha.classe}</li>`+
-                `</ul>`+
+                `<ul class="list-group list-group-flush">` +
+                `<li class="list-group-item">Raça: ${ficha.raca}</li>` +
+                `<li class="list-group-item">Classe: ${ficha.classe}</li>` +
+                `<li class="list-group-item">Ultima sala Usada: ${ficha.classe}</li>` +
+                `</ul>` +
                 `</div>` +
                 `</div>`
             )
@@ -71,7 +80,7 @@ var perfil = function () {
         });
     }
 
-    var salvarUsuarioCompleto = function () {        
+    var salvarUsuarioCompleto = function () {
         $.ajax({
             url: "salvarUsuario",
             contentType: 'application/json',
@@ -80,7 +89,7 @@ var perfil = function () {
             async: true
         }).done(function (retorno) {
             if (retorno.error) alert(retorno.error);
-            else {               
+            else {
                 localStorage.removeItem('usuario');
                 localStorage.setItem('usuario', JSON.stringify(retorno.usuario));
                 usuario = retorno.usuario;
@@ -120,7 +129,7 @@ var perfil = function () {
         salvarUsuarioCompleto();
     };
 
-    var mostrarFicha = function(){
+    var mostrarFicha = function () {
 
     };
 

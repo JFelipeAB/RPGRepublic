@@ -9,8 +9,10 @@ $(document).ready(function () {
 });
 
 var sala = function () {
-    
-    var configGeral = function(){
+
+    var idcomponenteFicha = 0;
+
+    var configGeral = function () {
         $('#chat').on('submit', function (e) {
             e.preventDefault();
             sala.adicionarMensagem()
@@ -37,8 +39,6 @@ var sala = function () {
             // usuario.login+'</strong> se desconectou! </i> </div><hr>');
         });
     };
-
-    var idcomponenteFicha = 0;
 
     var dados = function () {
         $.ajax({
@@ -67,18 +67,18 @@ var sala = function () {
     var adicionarMensagem = function (text) {
         debugger;
         if (text)
-            socket.emit("connection", `<div style="font-family:${usuario.textoFonte}; color:${usuario.textoCorN}"`+
-            `class="textoEditavel">${usurImg}<strong>${usurName}</strong>: ${text}</div><hr>`);
+            socket.emit("connection", `<div style="font-family:${usuario.textoFonte}; color:${usuario.textoCorN}"` +
+                `class="textoEditavel">${usurImg}<strong>${usurName}</strong>: ${text}</div><hr>`);
         else {
             if (GetMensagem())
-                socket.emit("connection", `<div style="font-family:${usuario.textoFonte}; color:${usuario.textoCorN}"`+
-                 `class="textoEditavel">${usurImg}<strong>${usurName}</strong>: ${GetMensagem()}</div><hr>`);
+                socket.emit("connection", `<div style="font-family:${usuario.textoFonte}; color:${usuario.textoCorN}"` +
+                    `class="textoEditavel">${usurImg}<strong>${usurName}</strong>: ${GetMensagem()}</div><hr>`);
             $("#txtText").val("");
         };
     };
 
     var GetMensagem = function () {
-        return $("#txtText").val();        
+        return $("#txtText").val();
     };
 
     var adicionarFicha = function (label, div) {
@@ -88,7 +88,7 @@ var sala = function () {
                 "<div id='div" + labelId + "' class='col-xl-4 col-lg-6 col-md-6 col-sm-12 '>" +
                 "<label for='txtAtributoFicha" + labelId + "' class='form-label'>" + label + "</label>" +
                 "<div class='input-group mb-3'>" +
-                "   <input style='font-family:"+usuario.textoFonte+"; color:"+usuario.textoCorN+"' type='text' id='txtAtributoFicha textoEditavel" + labelId + "' class='form-control' placeholder='" + label + "'" +
+                "   <input style='font-family:" + usuario.textoFonte + "; color:" + usuario.textoCorN + "' type='text' id='txtAtributoFicha textoEditavel" + labelId + "' class='form-control' placeholder='" + label + "'" +
                 "      aria-label='Recipient's username' aria-describedby='basic-addon2'>" +
                 " <div class='input-group-append'>" +
                 "    <button onclick='sala.excluirCampo(|" + labelId + "|)' class='btn btn-outline-secondary'" +
@@ -134,11 +134,13 @@ var sala = function () {
     };
 
     var coletarXP = function () {
-        usuario.xp++;
-        if (usuario.xp == usuario.nivel) {
+        debugger;
+        usuario.xP++;
+        if (usuario.xP == usuario.nivel) {          
             usuario.nivel++;
-            usuario.xp = 0;
+            usuario.xP = 0;
             usuario.qtdeBaus++;
+            $('#aUsuario').append(usuario.login + ' Nvl ' + usuario.nivel);
         }
         salvarUsuarioCompleto();
         cronometro.reinicio();
