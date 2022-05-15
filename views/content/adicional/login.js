@@ -47,8 +47,7 @@ var login = function () {
                 login: userName,
                 anonimo: true
             };
-            salvarUsuarioCompleto(NovousuarioAnonimo);
-            debugger;
+            salvarUsuarioCompleto(NovousuarioAnonimo);            
             self.location = './home';
         }
     }
@@ -60,8 +59,7 @@ var login = function () {
             data: JSON.stringify(NovousuarioAnonimo),
             method: 'POST',
             async: true
-        }).done(function (retorno) {
-            debugger;
+        }).done(function (retorno) {            
             if (retorno.error) alert(retorno.error);
             else {
                 localStorage.removeItem('usuario');

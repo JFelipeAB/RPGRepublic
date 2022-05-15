@@ -23,8 +23,8 @@ var sala = function () {
     }
 
     var configSocket = function () {
-        //socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
-        socket = io.connect('http://localhost:3333');
+        socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
+        //socket = io.connect('http://localhost:3333');
         socket.on('resp', (retorno) => {
             $("#divChat").append(retorno);
             var objDiv = document.getElementById("divChat");
@@ -64,8 +64,7 @@ var sala = function () {
         modal.show('slow');
     };
 
-    var adicionarMensagem = function (text) {
-        debugger;
+    var adicionarMensagem = function (text) {        
         if (text)
             socket.emit("connection", `<div style="font-family:${usuario.textoFonte}; color:${usuario.textoCorN}"` +
                 `class="textoEditavel">${usurImg}<strong>${usurName}</strong>: ${text}</div><hr>`);
@@ -133,8 +132,7 @@ var sala = function () {
         });
     };
 
-    var coletarXP = function () {
-        debugger;
+    var coletarXP = function () {        
         usuario.xP++;
         if (usuario.xP == usuario.nivel) {          
             usuario.nivel++;
