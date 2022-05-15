@@ -16,23 +16,19 @@ var usuario = function () {
             else
                 return montaUsuario(usuario)
         }
-        if (usuario._id) {                 
-            let retorno =  await schemaUsuario.findByIdAndUpdate(usuario._id, usuario);            
+        if (usuario._id) {
+            let retorno = await schemaUsuario.findByIdAndUpdate(usuario._id, usuario);
             if (!retorno) return { error: "ERRO! Alterações não salvas no usuario!" };
             return usuario;
         } else {      //Novo    
-            var usuario = montaUsuario(usuario);            
-            // schemaUsuario.find({ email }, (erro, usuario) => {               
-            //     schemaUsuario.create({ email, senha, usuario }, (erro, usuario) => {
-            //         if (erro) return { error: "Erro ao criar novo usuário" };
-            //         return { usuario };
-            //     });
-            // });
-            return usuario;
+            var usuario = montaUsuario(usuario);
+            const usuarioNovo = new schemaUsuario(usuario);            
+            usuarioNovo.save();
+            return usuarioNovo;
         }
     };
 
-    var montaUsuario = function (dados) {                
+    var montaUsuario = function (dados) {
         let usuarioNovo = {
             eMail: dados.email,
             createdAt: "2022-03-11T01:03:52.548Z",
@@ -57,18 +53,18 @@ var usuario = function () {
             textoFonte: "Arial",
             login: dados.login,
             moeda: 0,
-            nivel: 0,
+            nivel: 1,
             senha: dados.senha,
             xP: 0,
             qtdeBaus: 1,
         };
         if (dados.anonimo) {
-            usuarioNovo.login = dados.login +"A#" + contadorAnonimo,
-            usuarioNovo.anonimo = true;
+            usuarioNovo.login = dados.login + "A#" + contadorAnonimo,
+                usuarioNovo.anonimo = true;
             usuarioNovo._id = "A#" + contadorAnonimo;
             usuarioNovo.eMail = "A#" + contadorAnonimo;
             usuarioNovo.senha = "A#" + contadorAnonimo;
-            contadorAnonimo++;      
+            contadorAnonimo++;
         };
         return usuarioNovo;
     };

@@ -67,7 +67,7 @@
                                                     <%- sala.usuarioMestre.login%>
                                                 </td>
                                                 <td>
-                                                    <%- sala.senha==null ? "" : "🔒" %>
+                                                    <%- !sala.senha ? "" : "🔒" %>
                                                 </td>
                                             </tr>
                                             <% })%>

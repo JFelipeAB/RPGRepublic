@@ -140,7 +140,7 @@ var sala = function () {
             usuario.nivel++;
             usuario.xP = 0;
             usuario.qtdeBaus++;
-            $('#aUsuario').append(usuario.login + ' Nvl ' + usuario.nivel);
+            $('#aUsuario').html(usuario.login + ' Nvl ' + usuario.nivel);
         }
         salvarUsuarioCompleto();
         cronometro.reinicio();
