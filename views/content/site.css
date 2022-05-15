@@ -290,3 +290,10 @@ footer{
         background-color: #000;
     }
 }
+.selecionarItem:hover {
+    transform:scale(1.1);
+    transition: 0.5s;
+}
+.selecionarItem {
+    transition: 0.5s;
+}

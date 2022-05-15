@@ -12,17 +12,22 @@ var perfil = function () {
         $('#lblFonteSelecionada').css("font-family", usuario.textoFonte);
         $('#lblFonteCorSelecionada').text("Cor da Fonte: " + usuario.textoCor);
         $('#iptCorSelecionada').val(usuario.textoCorN);
+
         $('#lblLogin').text(usuario.login);
-        $('#lblNivel').text(usuario.nivel + " XP");
         $('#lblEmail').text(usuario.eMail);
-        $('#lblRank').text(usuario.acesso);
-        $('#lblMoedas').text(usuario.moeda);
-        $('#lblBaus').text(usuario.qtdeBaus);
-        $('#iptXP').attr('max', usuario.nivel);        
+        $('#lblNivel').text(usuario.nivel + " XP");
         let xpPorcentage = Math.round(usuario.xP/usuario.nivel*100);
         $('#divXP').attr('style', "width: "+xpPorcentage+"%");
         $('#divXP').append(xpPorcentage+"%");
         $('#iptXP').val(usuario.xP);
+        $('#iptXP').attr('max', usuario.nivel);
+
+        $('#lblRank').text(usuario.acesso);
+        $('#lblMoedas').text("💰 "+usuario.moeda);
+        $('#lblBaus').text("📦 " + usuario.qtdeBaus);
+        $('#lblSloteFichas').text(usuario.qtdeFichas);    
+        $('#lblFichasSalvas').text(usuario.listaFicha.length);       
+        $('#lblItensCOnquistados').text(usuario.listaIten.length);     
     };
 
     var configItens = function () {
@@ -30,18 +35,18 @@ var perfil = function () {
         usuario.listaIten.forEach(iten => {
             switch (iten.tipo) {
                 case 'icone':
-                    $('#divIcones').append(`<img style="cursor: pointer;" id="Icone${contador}" src="${iten.descricao}` +
-                        `" width="200px" onclick="perfil.selecionarItem('${iten.tipo}', ${contador})">`);
+                    $('#divIcones').append(`<img style="cursor: pointer;" id="Icone${contador}" src="${iten.descricao}"` +
+                        ` class="selecionarItem" width="200px" onclick="perfil.selecionarItem('${iten.tipo}', ${contador})">`);
                     break;
                 case 'FontFamily':
                     $('#divFontes').append(`<div onclick="perfil.selecionarItem('${iten.tipo}',${contador})"` +
-                        `class="col-xl-6 col-lg-6 col-md-6 col-sm-12">` +
+                        `class="col-xl-6 col-lg-6 col-md-6 col-sm-12 selecionarItem">` +
                         `<div id="Icone${contador}" "width="200px" style="cursor: pointer;"> Fonte: ${iten.descricao} </div></div>`);
                     $('#Icone' + contador).css("font-family", iten.descricao);
                     break;
                 case 'FontColor':
                     $('#divCorTexto').append(`<div style="cursor: pointer;" onclick="perfil.selecionarItem('${iten.tipo}',${contador})"` +
-                        `class="col-xl-6 col-lg-6 col-md-6 col-sm-12">` +
+                        `class="col-xl-6 col-lg-6 col-md-6 col-sm-12 selecionarItem">` +
                         `Cor de texto ${iten.descricao} <input style="cursor: pointer;" disabled id="Icone${contador}" type="color" ` +
                         `value="${iten.cor}"width="200px"> </div>`);
                     break;
@@ -58,7 +63,7 @@ var perfil = function () {
         let contador = 0;
         usuario.listaFicha.forEach(ficha => {
             $('#divPersonagem').append(
-                `<div onclick="perfil.mostrarFicha(${contador++})" class="col-xl-6 col-lg-6 col-md-6 col-sm-12">` +
+                `<div onclick="perfil.mostrarFicha(${contador++})" class="col-xl-6 col-lg-6 col-md-6 col-sm-12 selecionarItem">` +
                 `<div class="card" style="width: 18rem;">` +
                 `<div class="modal-header">` +
                 `<h5 class="card-title">${ficha.personagem}</h5>` +

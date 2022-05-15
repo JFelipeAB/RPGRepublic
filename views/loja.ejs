@@ -1,25 +1,142 @@
-    <title><%- title %></title>
+<title>
+    <%- title %>
+</title>
+<script src="./content/adicional/loja.js"></script>
 
-<div class="text-center bodyImage1">
-    <div id="menuLateral"></div>  
-    <div id="modal" class="modal">
-        <div style="text-align: center;">
-            <h2>Carregando</h2>
-        </div>
-        <div class="loader">
-            <img src="./content/images/loading.gif" alt="">
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div id="bodyContent" class="jumbotron">
-                    <h1 class="display-4">LOJA</h1>
-                    <br>
-                    <button class="btn btn-lg btn-block btn-primary">COMPRAR</button>
+<div class="bodyImage1 perfil">
+    <br> <br> <br> <br> <br>
+    <div class="container jumbotron">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
+                                <div class="jumbotron jumbotron-fluid">
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-4 col-md-8 col-sm-8 ">
+                                            <label class="title">Usuário</label>
+                                            <h1 id="lblLogin" class="display-6 text" style="font-size: 2rem;">LOGIN</h1>
+                                        </div>
+                                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
+                                            <label class="title">Passe</label><br>
+                                            <label id="lblRank" class="form-label text">Bronze</label>
+                                        </div>  
+                                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                                            <label class="title">Moedas</label><br>
+                                            <label id="lblMoedas" class="form-label text">1</label> 
+                                        </div>
+                                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                                            <label class="title">Baús</label><br>
+                                            <label id="lblBaus" class="form-label text">1</label> 
+                                        </div>
+                                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm- col-xs-6">
+                                            <label class="title">Slotes Fichas</label><br>
+                                            <label id="lblSloteFichas" class="form-label text">1</label> 🗄
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
+                                <h2>Adquirir</h2>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 ">
+                                        <div class="form-control selecionarItem">
+                                            <h4>Moedas</h4>
+                                            <hr>
+                                            <img width="100%"
+                                                src="https://img.freepik.com/vetores-gratis/pilha-de-moedas-de-ouro-moeda-de-ouro-dolar-pilha-de-dinheiro-e-ilustracao-realista-de-pilha-de-dinheiro-ouro_102902-1189.jpg">
+                                            50 Moedas
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-control selecionarItem">
+                                            <h4>Saco de Moedas</h4>
+                                            <hr>
+                                            <img width="100%"
+                                                src="https://media.istockphoto.com/vectors/gold-coins-bag-golden-coin-wealth-big-cash-sack-and-money-bonus-3d-vector-id1135152831">
+                                            200 Moedas
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-control selecionarItem">
+                                            <h4>Item Exclusivo</h4>
+                                            <hr>
+                                            <img width="100%"
+                                                src="https://cdn.pixabay.com/photo/2018/03/18/01/46/red-dragon-3235672_960_720.jpg">
+                                            Icone
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="Fichas" class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
+                                <h2>Comprar com moedas</h2>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 ">
+                                        <div class="form-control selecionarItem">
+                                            <h4>1 Baú</h4>
+                                            <hr>
+                                            <img width="100%"
+                                                src="./content/images/BauOpen.gif">
+                                            $💰 10 Moedas
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 ">
+                                        <div class="form-control selecionarItem">
+                                            <h4>5 Baús</h4>
+                                            <hr>
+                                            <img width="100%"
+                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEPkDR1r22dc_cnu3tOjo2VK4eDBLmq4WumQ&usqp=CAU">
+                                            $💰 40 Moedas
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-control selecionarItem">
+                                            <h4>1 Slote de Ficha</h4>
+                                            <hr>
+                                            <img width="100%"
+                                                src="https://thumbs.dreamstime.com/b/estilo-de-desenho-animado-do-%C3%ADcone-gaveta-documentos-armazenamento-da-vetor-para-design-web-isolado-em-fundo-branco-191638766.jpg">
+                                            $💰100 Moedas
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-control">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <h3>Comprar Passe(em breve)</h3>
+                            <br>
+                            <div id="passeOuro" class="selecionarItem">
+                                <div class="row form-control">
+                                    Ouro
+                                    <img width="100%" src="https://i.makeagif.com/media/5-15-2016/StennC.gif">
+                                </div>
+                            </div>
+                            <br>
+                            <div id="passePrata" class="selecionarItem">
+                                <div class="row form-control">
+                                    Prata
+                                    <img width="100%"
+                                        src="https://thumbs.gfycat.com/EarlyNeatBlackfootedferret-size_restricted.gif">
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <br>
 </div>

@@ -15,37 +15,55 @@
                             <div class="card">
                                 <div class="jumbotron jumbotron-fluid">
                                     <div class="row">
-                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
+                                        <div class="col-xl-5 col-lg-5 col-md-9 col-sm-10 ">
                                             <label class="title">Usuário</label>
                                             <h1 id="lblLogin" class="display-6 text" style="font-size: 2rem;">LOGIN</h1>
                                         </div>
+                                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-2">
+                                            <button class="btn btn-sm btn-outline-danger">Alterar Senha</button>
+                                        </div>
+                                        <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+                                            <label class="title">E-mail</label><br>
+                                            <label id="lblEmail" class="form-label text">
+                                                082170017@faculade.cefsa.edu.br</label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
                                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
                                             <label class="title">Nivel</label>
                                             <label id="lblNivel" class="form-label text">Nivel 10 XP:</label><br>
                                             <!-- <input disabled id="iptXP" type="range" min="0" max="3" step="1"> -->
                                             <div class="progress">
-                                                <div id="divXP" class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100"></div>
-                                              </div>
+                                                <div id="divXP" class="progress-bar progress-bar-striped bg-info"
+                                                    role="progressbar" style="width: 50%" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
-                                            <label class="title">Rank</label><br>
+                                            <label class="title">Passe</label><br>
                                             <label id="lblRank" class="form-label text">Bronze</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                            <label class="title">E-mail</label><br>
-                                            <label id="lblEmail" class="form-label text">
-                                                082170017@faculade.cefsa.edu.br</label>
-                                        </div>                                    
+                                        </div>                                        
                                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
-                                        <label class="title">Moedas</label><br>
-                                            <label id="lblMoedas" class="form-label text">1</label> 💰
+                                            <label class="title">Moedas</label><br>
+                                            <label id="lblMoedas" class="form-label text">💰 1</label> 
                                         </div>
                                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
                                             <label class="title">Baús</label><br>
-                                                <label id="lblBaus" class="form-label text">1</label> 📦
-                                            </div>
+                                            <label id="lblBaus" class="form-label text">📦 1</label> 
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                                            <label class="title">Slotes Fichas</label><br>
+                                            <label id="lblSloteFichas" class="form-label text">1</label> 🗄
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                                            <label class="title">Fichas Salvas</label><br>
+                                            <label id="lblFichasSalvas" class="form-label text">1</label> 🗄
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                                            <label class="title">Itens Conquistados</label><br>
+                                            <label id="lblItensCOnquistados" class="form-label text">1</label> 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -64,22 +82,22 @@
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                             <div class="card">
                                                 <h2>Icones</h2>
-                                                    <div id="divIcones" class="row">
-                                                    </div>
+                                                <div id="divIcones" class="row">
+                                                </div>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                             <div class="card">
                                                 <h2>Fontes</h2>
-                                                    <div id="divFontes" class="row"></div>
+                                                <div id="divFontes" class="row"></div>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                             <div class="card">
                                                 <h2>Cor de texto</h2>
-                                                    <div id="divCorTexto" class="row"></div>
+                                                <div id="divCorTexto" class="row"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -95,7 +113,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div id="divPersonagem" class="row">                                    
+                                <div id="divPersonagem" class="row">
                                 </div>
                             </div>
                         </div>
@@ -110,7 +128,7 @@
                             <br />
                             <h5 id="lblFonteSelecionada">Fonte Selecionada:</h5>
                             <br />
-                            <h5 style="display: contents;" id="lblFonteCorSelecionada">Cor da Fonte:</h5> 
+                            <h5 style="display: contents;" id="lblFonteCorSelecionada">Cor da Fonte:</h5>
                             <input disabled type="color" id="iptCorSelecionada">
                         </div>
                     </div>
