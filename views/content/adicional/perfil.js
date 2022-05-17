@@ -139,12 +139,16 @@ var perfil = function () {
     };
 
     var mostrarFicha = function (indexFicha) {
-        debugger;
+        
     };
     
     var excluirFicha = function (indexFicha) {
-        debugger;
+       
     };
+
+    var alterarSenha = function (){
+
+    }
 
     return {
         configItens: configItens,
@@ -154,6 +158,7 @@ var perfil = function () {
         salvarUsuarioCompleto: salvarUsuarioCompleto,
         mostrarFicha: mostrarFicha,
         excluirFicha: excluirFicha,
+        alterarSenha: alterarSenha,
     };
 
 }();
