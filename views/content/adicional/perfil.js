@@ -71,7 +71,7 @@ var perfil = function () {
                     `<div class="card" style="width: 18rem;">` +
                     `<div class="modal-header">` +
                     `<h5 class="card-title">${ficha.personagem}</h5>` +
-                    `<button type="button" class="btn-close" aria-label="Close"></button>` +
+                    `<button onclick="perfil.excluirFicha(${contador++})" type="button" class="btn-close" aria-label="Close"></button>` +
                     `</div>` +
                     `<div class="card-body">` +
                     `<img src="${ficha.icone}" class="card-img-top"  >` +
@@ -138,8 +138,12 @@ var perfil = function () {
         salvarUsuarioCompleto();
     };
 
-    var mostrarFicha = function () {
-
+    var mostrarFicha = function (indexFicha) {
+        debugger;
+    };
+    
+    var excluirFicha = function (indexFicha) {
+        debugger;
     };
 
     return {
@@ -148,7 +152,8 @@ var perfil = function () {
         configFichas: configFichas,
         selecionarItem: selecionarItem,
         salvarUsuarioCompleto: salvarUsuarioCompleto,
-        mostrarFicha: mostrarFicha
+        mostrarFicha: mostrarFicha,
+        excluirFicha: excluirFicha,
     };
 
 }();

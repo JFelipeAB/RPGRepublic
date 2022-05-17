@@ -22,7 +22,6 @@ const server = http.createServer(app);
 const socketIo = require('socket.io')(http)
 const io = socketIo.listen(server);
 app.use('/', router);
-//server.use('/', router);
 
 
 server.listen(process.env.port || 3333);

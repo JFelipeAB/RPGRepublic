@@ -18,8 +18,8 @@
                 <div class="row-xl-6 col-lg-6 col-md-6 col-sm-6">
                     <div class="display-6" align="right" id="NomeSala">
                         <div id="divXpUp" style="display: none;" class="inline">
-                            <img src="./content/images/BauOpen.gif" title="Ganhar XP"
-                                onclick="sala.coletarXP();" width="60px">
+                            <img src="./content/images/BauOpen.gif" title="Ganhar XP" onclick="sala.coletarXP();"
+                                width="60px">
                         </div>
                         <div id="divCronometro" style="display: block;" class="inline">
                             ⏲
@@ -36,36 +36,42 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="card">
-                                <div class="jumbotron jumbotron-fluid">
-                                    <div class="row">
+                                <div class="row">
+                                    <div class="col-md-4 ms-md-auto">
                                         <h1 class="display-6">Adicionar</h1>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
-                                            <br />
-                                            <div class="input-group mb-3 align-items-center">
-                                                &nbsp;&nbsp;
-                                                <input type="text" id="txtAtributoFicha" class="form-control"
-                                                    placeholder="Atributo" aria-label="Recipient's username"
-                                                    aria-describedby="basic-addon2" style="margin: 0px">
-                                                <div class="input-group-append">
-                                                    <button onclick="sala.addAtributo()"
-                                                        class="btn btn-outline-secondary" type="button">➕</button>
-                                                </div>
+                                    <div class="col-md-4 ms-auto " style="padding: 10px;">
+                                        <button class="btn btn-outline-success" onclick="sala.carregarFicha();">
+                                            Carregar Ficha</button>
+                                        <button class="btn btn-primary" onclick="sala.salvarFicha()">
+                                            Salvar</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
+                                        <br />
+                                        <div class="input-group mb-3 align-items-center">
+                                            &nbsp;&nbsp;
+                                            <input type="text" id="txtAtributoFicha" class="form-control"
+                                                placeholder="Atributo" aria-label="Recipient's username"
+                                                aria-describedby="basic-addon2" style="margin: 0px">
+                                            <div class="input-group-append">
+                                                <button onclick="sala.addAtributo()" class="btn btn-outline-secondary"
+                                                    type="button">➕</button>
                                             </div>
                                         </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                                            <br />
-                                            <div class="input-group mb-3 align-items-center">
-                                                <input type="text" id="txtItemFicha" placeholder="Item"
-                                                    class="form-control" aria-label="Recipient's username"
-                                                    aria-describedby="basic-addon2" style="margin: 0px">
-                                                <div class="input-group-append">
-                                                    <button onclick="sala.addItem()" class="btn btn-outline-secondary"
-                                                        type="button">➕</button>
-                                                </div>
-                                                &nbsp;&nbsp;
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <br />
+                                        <div class="input-group mb-3 align-items-center">
+                                            <input type="text" id="txtItemFicha" placeholder="Item" class="form-control"
+                                                aria-label="Recipient's username" aria-describedby="basic-addon2"
+                                                style="margin: 0px">
+                                            <div class="input-group-append">
+                                                <button onclick="sala.addItem()" class="btn btn-outline-secondary"
+                                                    type="button">➕</button>
                                             </div>
+                                            &nbsp;&nbsp;
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +89,8 @@
                                                     <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
                                                         <label for="txtFichaNome" class="form-label">Personagem</label>
                                                         <div class="input-group input-group-lg">
-                                                            <input id="txtFichaNome" type="text" class="form-control textoEditavel"
+                                                            <input id="txtFichaNome" type="text"
+                                                                class="form-control textoEditavel"
                                                                 placeholder="Personagem">
                                                         </div>
                                                     </div>
@@ -147,10 +154,10 @@
                                                 <label for="txtFichaTentativa" class="form-label">Tentativas: </label>
                                                 <label class="radio-inline"><input type="radio" name="Tentativas"
                                                         checked class="textoEditavel">1</label>
-                                                <label class="radio-inline"><input type="radio"
-                                                        name="Tentativas" class="textoEditavel">2</label>
-                                                <label class="radio-inline"><input type="radio"
-                                                        name="Tentativas" class="textoEditavel">3</label>
+                                                <label class="radio-inline"><input type="radio" name="Tentativas"
+                                                        class="textoEditavel">2</label>
+                                                <label class="radio-inline"><input type="radio" name="Tentativas"
+                                                        class="textoEditavel">3</label>
                                             </div>
                                         </div>
                                     </div>
@@ -159,13 +166,13 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                             <div class="card">
                                                 <h4>Atributos</h1>
-                                                    <div id="divAtributo" class="row"></div>
+                                                    <div id="divAtributo" style="padding: 10px;" class="row"></div>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                             <div class="card">
                                                 <h4>Mochila</h1>
-                                                    <div id="divItem" class="row"></div>
+                                                    <div id="divItem" style="padding: 10px;" class="row"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +196,7 @@
                         <div class="col-12">
                             <br />
                             <h1 style="text-align: center;"> Chat</h1>
-                            <form id="chat" >                               
+                            <form id="chat">
                                 <div style="text-align: left; font-size: medium;" id="divChat"
                                     class="overflow-auto form-control messages">
                                 </div>
