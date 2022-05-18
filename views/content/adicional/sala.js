@@ -23,8 +23,8 @@ var sala = function () {
     }
 
     var configSocket = function () {
-        socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
-        //socket = io.connect('http://localhost:3333');
+        //socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
+        socket = io.connect('http://localhost:3333');
         socket.on('resp', (retorno) => {
             $("#divChat").append(retorno);
             var objDiv = document.getElementById("divChat");
@@ -84,14 +84,14 @@ var sala = function () {
         labelId = (label + idcomponenteFicha++).replaceAll(' ', '');;
         if (label) {
             let componente =
-                "<div id='div" + labelId + "' class='col-xl-4 col-lg-6 col-md-6 col-sm-12 '>" +
+                "<div id='div" + labelId + "' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 '>" +
                 "<label for='txtAtributoFicha" + labelId + "' class='form-label'>" + label + "</label>" +
                 "<div class='input-group mb-3'>" +
-                "   <input style='font-family:" + usuario.textoFonte + "; color:" + usuario.textoCorN + "' type='text' id='txtAtributoFicha textoEditavel" + labelId + "' class='form-control' placeholder='" + label + "'" +
+                "   <input style='font-family:" + usuario.textoFonte + "; color:" + usuario.textoCorN + "' type='number' id='txtAtributoFicha textoEditavel" + labelId + "' class='form-control' placeholder='" + label + "'" +
                 "      aria-label='Recipient's username' aria-describedby='basic-addon2'>" +
                 " <div class='input-group-append'>" +
                 "    <button onclick='sala.excluirCampo(|" + labelId + "|)' class='btn btn-outline-secondary'" +
-                "       type='button'>❌</button>" +
+                "       type='button' class='btn btn-sm'>❌</button>" +
                 "</div>" +
                 "</div>" +
                 "</div>";
@@ -157,7 +157,7 @@ var sala = function () {
             segundos = 0;
             minutos = 0;
             relSegundos.innerHTML = ":00";
-            relMinutos.innerHTML = ":00";
+            relMinutos.innerHTML = "00";
             $("#divXpUp").hide();
             $("#divCronometro").show();
             inicio();

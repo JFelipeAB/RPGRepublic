@@ -1,6 +1,8 @@
 <script src="content/adicional/sala.js"></script>
 <script src="socket.io/socket.io.js"></script>
 
+<script
+    src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.3.7/dist/latest/bootstrap-autocomplete.min.js"></script>
 
 <title>
     <%- title %>
@@ -95,7 +97,10 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
-                                                        <label class="form-label"></label>
+                                                        <label class="form-label">Raça</label>
+                                                        <input class="form-control basicAutoComplete" type="text"
+                                                            data-url="file:///C:/Users/Jo%C3%A3o%20Felipe/Desktop/TesteAutoComplite/jason.json"
+                                                            autocomplete="off">
                                                         <select id="sltFichaRaca" class="form-select"
                                                             aria-label="Default select example">
                                                             <option value="0">Selecione uma Raça</option>
@@ -127,7 +132,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
-                                                        <label class="form-label"></label>
+                                                        <label class="form-label">Classe</label>
                                                         <select id="sltFichaClasse" class="form-select"
                                                             aria-label="Default select example">
                                                             <option value="0">Selecione uma Classe</option>
