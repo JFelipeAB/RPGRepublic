@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 
 <script>   
-debugger;
     var salaEntrando = JSON.parse(localStorage.getItem('sala'));
     if (!salaEntrando || salaEntrando.id != `<%-sala.idSala %>` || salaEntrando.senha != `<%-sala.senha %>`) {
         localStorage.removeItem('sala');
