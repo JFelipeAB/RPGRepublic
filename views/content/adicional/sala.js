@@ -1,3 +1,5 @@
+
+
 var usurName = usuario.login;
 var usurImg = '<img class="IconMensage" src="' + usuario.icone + '" alt="user">';
 var socket;
@@ -6,6 +8,7 @@ $(document).ready(function () {
     sala.configSocket();
     sala.configGeral();
     sala.cronometro.inicio();
+    sala.configAutoComplete();
 });
 
 var sala = function () {
@@ -23,8 +26,8 @@ var sala = function () {
     }
 
     var configSocket = function () {
-        //socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
-        socket = io.connect('http://localhost:3333');
+        socket = io.connect('https://rpgrepublic.jfelipeab.repl.co');
+        //socket = io.connect('http://localhost:3333');
         socket.on('resp', (retorno) => {
             $("#divChat").append(retorno);
             var objDiv = document.getElementById("divChat");
@@ -37,6 +40,41 @@ var sala = function () {
             console.log(usuario.login + 'desconectiou');
             // socket.emit("connection", '<div><i><strong>' + usurImg + ' '+ 
             // usuario.login+'</strong> se desconectou! </i> </div><hr>');
+        });
+    };
+
+    var configAutoComplete = function () {
+        $(function () {
+            var racasas = [
+                "Humanos",
+                "Elfos",
+                "Anões",
+                "Orcs",
+                "Goblin",
+                "Metamorfos"
+            ];
+            $("#sltFichaRaca").autocomplete({
+                source: racasas
+            });
+        });
+
+        $(function () {
+            var classes = [
+                "Guerreiro",
+                "Arqueiro",
+                "Mago",
+                "Assassino",
+                "Bruxo",
+                "Ladino",
+                "Sacerdote",
+                "Paladino",
+                "Necromante",
+                "Druida",
+                "Xamã"
+            ];
+            $("#sltFichaClasse").autocomplete({
+                source: classes
+            });
         });
     };
 
@@ -64,7 +102,7 @@ var sala = function () {
         modal.show('slow');
     };
 
-    var adicionarMensagem = function (text) {        
+    var adicionarMensagem = function (text) {
         if (text)
             socket.emit("connection", `<div style="font-family:${usuario.textoFonte}; color:${usuario.textoCorN}"` +
                 `class="textoEditavel">${usurImg}<strong>${usurName}</strong>: ${text}</div><hr>`);
@@ -132,9 +170,9 @@ var sala = function () {
         });
     };
 
-    var coletarXP = function () {        
+    var coletarXP = function () {
         usuario.xP++;
-        if (usuario.xP == usuario.nivel) {          
+        if (usuario.xP == usuario.nivel) {
             usuario.nivel++;
             usuario.xP = 0;
             usuario.qtdeBaus++;
@@ -197,11 +235,11 @@ var sala = function () {
         }
     }();
 
-    var salvarFicha = function() {
-    
+    var salvarFicha = function () {
+
     };
 
-    var carregarFicha = function(){
+    var carregarFicha = function () {
 
     };
 
@@ -216,5 +254,6 @@ var sala = function () {
         configGeral: configGeral,
         salvarFicha: salvarFicha,
         carregarFicha: carregarFicha,
+        configAutoComplete: configAutoComplete,
     };
 }();

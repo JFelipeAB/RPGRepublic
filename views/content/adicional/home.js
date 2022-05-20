@@ -29,8 +29,15 @@ var home = function () {
     };
 
     var entrarSala = function (idSala, descricaoSala, senhaSala) {
-        if (!senhaSala)
+        if (!senhaSala){
+            let sala = {
+                id: idSala,
+                senha: ""
+            };
+            localStorage.removeItem('sala');
+            localStorage.setItem('sala', JSON.stringify(sala));
             window.location = './sala?id=' + idSala;
+        }
         else {
             var modal = new bootstrap.Modal($('#mdlEntrarSala'), {
                 keyboard: false
@@ -40,18 +47,27 @@ var home = function () {
             $('#txtEntrarSalaNome').val(descricaoSala);
             $('#txtEntrarSalaSenha').val("");
             modal.show('slow');
-        }
-    }
+        };
+    };
 
     var validaEntrarSala = function () {        
         let senha = $('#hdfEntrarSalaSenha').val();
         let senhaInserida = $('#txtEntrarSalaSenha').val();
         let idSala = $('#hdfEntrarSalaId').val();
         if (senha == senhaInserida)
+        {
+            let sala = {
+                id: idSala,
+                senha: senha
+            };
             window.location = './sala?id=' + idSala;
-        else {
-            alert("Senha incorreta!");
+            localStorage.removeItem('sala');
+            localStorage.setItem('sala', JSON.stringify(sala));
         }
+        else {
+            localStorage.removeItem('sala');
+            alert("Senha incorreta!");
+        };
     };
 
     var getDtoCriarSala = function () {

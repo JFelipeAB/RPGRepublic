@@ -59,7 +59,7 @@ var usuario = function () {
             qtdeBaus: 1,
         };
         if (dados.anonimo) {
-            usuarioNovo.login = dados.login + "A#" + contadorAnonimo,
+            usuarioNovo.login = dados.login + "_A#" + contadorAnonimo,
                 usuarioNovo.anonimo = true;
             usuarioNovo._id = "A#" + contadorAnonimo;
             usuarioNovo.eMail = "A#" + contadorAnonimo;

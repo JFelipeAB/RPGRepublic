@@ -1,8 +1,16 @@
 <script src="content/adicional/sala.js"></script>
 <script src="socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 
-<script
-    src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.3.7/dist/latest/bootstrap-autocomplete.min.js"></script>
+<script>   
+debugger;
+    var salaEntrando = JSON.parse(localStorage.getItem('sala'));
+    if (salaEntrando.id != `<%-sala.idSala %>` || salaEntrando.senha != `<%-sala.senha %>`) {
+        localStorage.removeItem('sala');
+        self.location = './home';
+    }
+</script>
 
 <title>
     <%- title %>
@@ -97,20 +105,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
-                                                        <label class="form-label">Raça</label>
-                                                        <input class="form-control basicAutoComplete" type="text"
-                                                            data-url="file:///C:/Users/Jo%C3%A3o%20Felipe/Desktop/TesteAutoComplite/jason.json"
-                                                            autocomplete="off">
-                                                        <select id="sltFichaRaca" class="form-select"
-                                                            aria-label="Default select example">
-                                                            <option value="0">Selecione uma Raça</option>
-                                                            <option value="1">Humanos</option>
-                                                            <option value="2">Elfos</option>
-                                                            <option value="3">Anões</option>
-                                                            <option value="4">Orcs</option>
-                                                            <option value="5">Goblin</option>
-                                                            <option value="6">Metamorfos</option>
-                                                        </select>
+                                                        <label class="form-label">Raça</label>                                                        
+                                                        <input id="sltFichaRaca" class="form-control">
+                                                           
                                                     </div>
                                                 </div>
                                                 <div class="row align-items-center">
@@ -133,20 +130,8 @@
                                                     </div>
                                                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
                                                         <label class="form-label">Classe</label>
-                                                        <select id="sltFichaClasse" class="form-select"
-                                                            aria-label="Default select example">
-                                                            <option value="0">Selecione uma Classe</option>
-                                                            <option value="1">Guerreiro</option>
-                                                            <option value="2">Arqueiro</option>
-                                                            <option value="3">Mago</option>
-                                                            <option value="4">Assassino</option>
-                                                            <option value="5">Bruxo</option>
-                                                            <option value="6">Ladino</option>
-                                                            <option value="7">Sacerdote</option>
-                                                            <option value="8">Paladino</option>
-                                                            <option value="9">Necromante</option>
-                                                            <option value="10">Druida</option>
-                                                            <option value="11">Xamã</option>
+                                                        <input id="sltFichaClasse" class="form-control">
+                                                            
                                                         </select>
                                                     </div>
                                                 </div>
