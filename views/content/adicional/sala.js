@@ -241,6 +241,10 @@ var sala = function () {
 
     };
 
+var abrirDados = function(){
+
+};
+
     return {
         adicionarMensagem: adicionarMensagem,
         addAtributo: addAtributo,
