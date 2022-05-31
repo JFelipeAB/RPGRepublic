@@ -1,5 +1,3 @@
-
-
 var usurName = usuario.login;
 var usurImg = '<img class="IconMensage" src="' + usuario.icone + '" alt="user">';
 var socket;
@@ -255,5 +253,6 @@ var sala = function () {
         salvarFicha: salvarFicha,
         carregarFicha: carregarFicha,
         configAutoComplete: configAutoComplete,
+        abrirDados: abrirDados,
     };
 }();

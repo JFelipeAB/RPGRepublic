@@ -101,6 +101,12 @@ router.get('/perfil', function (req, res) {
     });
 });
 
+router.get('/telaDados', function (req, res) {
+    res.render(path.join(__dirname + '/views/dice/dice/game.ejs'), {
+        title: 'Dados'        
+    });
+});
+
 router.post('/entrar', async (req, res) => {
     const usuario = await usuarioBll.getUsuario(req.body.email, req.body.senha);    
     if (usuario.error) return res.send({ error: usuario.error });    
