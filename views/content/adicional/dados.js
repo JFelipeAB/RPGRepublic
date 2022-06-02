@@ -23,8 +23,7 @@ var sala = function () {
         });        
     };
     
-    var adicionarMensagem = function (text) {
-        debugger;
+    var adicionarMensagem = function (text) {       
         if (text)
             socket.emit("connection", `<div style="font-family:${usuario.textoFonte}; color:${usuario.textoCorN}"` +
                 `class="textoEditavel">${usurImg}<strong>${usurName}</strong>: ${text}</div><hr>`);
