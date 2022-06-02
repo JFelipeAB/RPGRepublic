@@ -102,8 +102,9 @@ router.get('/perfil', function (req, res) {
 });
 
 router.get('/telaDados', function (req, res) {
-    res.render(path.join(__dirname + '/views/dice/dice/game.ejs'), {
-        title: 'Dados'        
+    res.render(path.join(__dirname + '/views/game.ejs'), {
+        title: 'Dados',
+        layout: './salaTeste.ejs'
     });
 });
 
@@ -133,9 +134,9 @@ io.on('connection', (socket) => {
     socket.on('connection', (mensagem) => {      
         io.emit('resp', mensagem)
     });
-    socket.on('disconnect', () => {              
-        io.emit('resp', '<div><i>Um usuario se desconectou!</i></div><hr>');
-    });
+    // socket.on('disconnect', () => {              
+    //     io.emit('resp', '<div><i>Um usuario se desconectou!</i></div><hr>');
+    // });
 });
 
 app.use(express.static(__dirname + 'public'))

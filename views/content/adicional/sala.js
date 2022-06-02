@@ -21,6 +21,11 @@ var sala = function () {
         $('#imgIconFicha').attr("src", usuario.icone);
         $('.textoEditavel').css("color", usuario.textoCorN);
         $('.textoEditavel').css("font-family", usuario.textoFonte);
+
+        $("#ModalDados").on("hidden.bs.modal", function () {
+           box = null;           
+        });
+        
     }
 
     var configSocket = function () {
@@ -100,7 +105,7 @@ var sala = function () {
         modal.show('slow');
     };
 
-    var adicionarMensagem = function (text) {
+    var adicionarMensagem = function (text) {        
         if (text)
             socket.emit("connection", `<div style="font-family:${usuario.textoFonte}; color:${usuario.textoCorN}"` +
                 `class="textoEditavel">${usurImg}<strong>${usurName}</strong>: ${text}</div><hr>`);
@@ -120,7 +125,7 @@ var sala = function () {
         labelId = (label + idcomponenteFicha++).replaceAll(' ', '');;
         if (label) {
             let componente =
-                "<div id='div" + labelId + "' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 '>" +
+                "<div id='div" + labelId + "' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6'>" +
                 "<label for='txtAtributoFicha" + labelId + "' class='form-label'>" + label + "</label>" +
                 "<div class='input-group mb-3'>" +
                 "   <input style='font-family:" + usuario.textoFonte + "; color:" + usuario.textoCorN + "' type='number' id='txtAtributoFicha textoEditavel" + labelId + "' class='form-control' placeholder='" + label + "'" +
@@ -242,7 +247,7 @@ var sala = function () {
     };
 
 var abrirDados = function(){
-
+  
 };
 
     return {

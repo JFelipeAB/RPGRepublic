@@ -74,7 +74,7 @@ teal.remove = function(sel) {
     }
 }
 
-teal.bind = function(sel, eventname, func, bubble) {
+teal.bind = function(sel, eventname, func, bubble) {   
     if (!sel) return;
     if (eventname.constructor === Array) {
         for (var i in eventname)
@@ -84,7 +84,7 @@ teal.bind = function(sel, eventname, func, bubble) {
         sel.addEventListener(eventname, func, bubble ? bubble : false);
 }
 
-teal.unbind = function(sel, eventname, func, bubble) {
+teal.unbind = function(sel, eventname, func, bubble) {    
     if (eventname.constructor === Array) {
         for (var i in eventname)
             sel.removeEventListener(eventname[i], func, bubble ? bubble : false);

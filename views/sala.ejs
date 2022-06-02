@@ -3,7 +3,7 @@
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 
-<script>   
+<script>
     var salaEntrando = JSON.parse(localStorage.getItem('sala'));
     if (!salaEntrando || salaEntrando.id != `<%-sala.idSala %>` || salaEntrando.senha != `<%-sala.senha %>`) {
         localStorage.removeItem('sala');
@@ -19,15 +19,15 @@
         <br><br><br>
         <div class="container " style="background-color: white;">
             <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                     <div class="display-6" align="right" style="align-items: center;" id="NomeSala">
                         Sala: <%-sala.descricao %>
                     </div>
                 </div>
-                <div class="row-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <div class="row-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                     <div class="display-6" align="right" id="NomeSala">
                         <div id="divXpUp" style="display: none;" class="inline">
-                            <img src="./content/images/BauOpen.gif" title="Ganhar XP" onclick="sala.coletarXP();"
+                            <img src="./content/images/xpUP.gif" title="Ganhar XP" onclick="sala.coletarXP();"
                                 width="60px">
                         </div>
                         <div id="divCronometro" style="display: block;" class="inline">
@@ -46,10 +46,10 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="card">
                                 <div class="row">
-                                    <div class="col-md-4 ms-md-auto">
+                                    <div class="col-md-4 ms-md-auto col-6">
                                         <h1 class="display-6">Adicionar</h1>
                                     </div>
-                                    <div class="col-md-4 ms-auto " style="padding: 10px;">
+                                    <div class="col-md-4 ms-auto col-6" style="padding: 10px;">
                                         <button class="btn btn-outline-success" onclick="sala.carregarFicha();">
                                             Carregar Ficha</button>
                                         <button class="btn btn-primary" onclick="sala.salvarFicha()">
@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <br />
                                         <div class="input-group mb-3 align-items-center">
                                             &nbsp;&nbsp;
@@ -70,7 +70,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <br />
                                         <div class="input-group mb-3 align-items-center">
                                             <input type="text" id="txtItemFicha" placeholder="Item" class="form-control"
@@ -104,9 +104,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
-                                                        <label class="form-label">Raça</label>                                                        
+                                                        <label class="form-label">Raça</label>
                                                         <input id="sltFichaRaca" class="form-control">
-                                                           
+
                                                     </div>
                                                 </div>
                                                 <div class="row align-items-center">
@@ -130,7 +130,7 @@
                                                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
                                                         <label class="form-label">Classe</label>
                                                         <input id="sltFichaClasse" class="form-control">
-                                                            
+
                                                         </select>
                                                     </div>
                                                 </div>
@@ -175,15 +175,15 @@
                     <div class="form-control">
                         <div class="col-12">
                             <br />
-                            <button class="form-control" type="button" data-bs-toggle="modal"
+                            <!-- <button class="form-control" type="button" data-bs-toggle="modal"
                                 data-bs-target="#ModalDados" onclick="  setTimeout(function(){ 
                                     $('#canvas').empty();
                                     dice_initialize(document.body);
                                }, 500);">
-                                🎲 Dados 🎲</button>
-                                <!-- <button class="form-control" type="button" data-bs-toggle="modal"
-                                data-bs-target="#ModalDados" onclick="sala.abrirDados()">
                                 🎲 Dados 🎲</button> -->
+                            <a href="/telaDados" target="_blank"
+                                onclick="window.open(this.href, this.target, 'width=704,height=489'); return false;">
+                                <button class="form-control" type="button"> 🎲 Dados 🎲</button></a>
                         </div>
                         <div class="col-12">
                             <br />

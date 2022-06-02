@@ -485,11 +485,10 @@
         this.desk = new THREE.Mesh(new THREE.PlaneGeometry(this.w * 2, this.h * 2, 1, 1), 
                 new THREE.MeshPhongMaterial({ color: that.desk_color }));
         this.desk.receiveShadow = that.use_shadows;
-        this.scene.add(this.desk);
-
+        this.scene.add(this.desk);      
         this.renderer.render(this.scene, this.camera);
     }
-
+   
     function make_random_vector(vector) {
         var random_angle = rnd() * Math.PI / 5 - Math.PI / 5 / 2;
         var vec = {
