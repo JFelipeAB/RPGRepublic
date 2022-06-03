@@ -13,14 +13,14 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="padding: 10px;">
                             <h2>Adquirir Passe</h2>
                             <br>
-                            <div id="passeOuro" class="selecionarItem">
+                            <div id="passeOuro" class="selecionarItem" onclick="loja.adquirir()">
                                 <div class="row form-control">
                                     Ouro
                                     <img width="100%" src="https://i.makeagif.com/media/5-15-2016/StennC.gif">
                                 </div>
                             </div>
                             <br>
-                            <div id="passePrata" class="selecionarItem">
+                            <div id="passePrata" class="selecionarItem" onclick="loja.adquirir()">
                                 <div class="row form-control">
                                     Prata
                                     <img width="100%"
@@ -44,14 +44,14 @@
                                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6">
                                             <label class="title">Passe</label><br>
                                             <label id="lblRank" class="form-label text">Bronze</label>
-                                        </div>  
+                                        </div>
                                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6">
                                             <label class="title">Moedas</label><br>
-                                            <label id="lblMoedas" class="form-label text">1</label> 
+                                            <label id="lblMoedas" class="form-label text">1</label>
                                         </div>
                                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6">
                                             <label class="title">Baús</label><br>
-                                            <label id="lblBaus" class="form-label text">1</label> 
+                                            <label id="lblBaus" class="form-label text">1</label>
                                         </div>
                                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm- col-6">
                                             <label class="title">Slotes Fichas</label><br>
@@ -67,7 +67,7 @@
                                 <h2>Adquirir</h2>
                                 <br>
                                 <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.adquirir()">
                                         <div class="form-control selecionarItem">
                                             <h4>Moedas</h4>
                                             <hr>
@@ -76,16 +76,15 @@
                                             50 Moedas
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.adquirir()">
                                         <div class="form-control selecionarItem">
                                             <h4>Saco de Moedas</h4>
                                             <hr>
-                                            <img width="100%"
-                                                src="https://media.istockphoto.com/vectors/gold-coins-bag-golden-coin-wealth-big-cash-sack-and-money-bonus-3d-vector-id1135152831">
+                                            <img width="100%" src="./content/images/SacoDinheiro.gif">
                                             200 Moedas
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.adquirir()">
                                         <div class="form-control selecionarItem">
                                             <h4>Item Exclusivo</h4>
                                             <hr>
@@ -103,16 +102,15 @@
                                 <h2>Comprar com moedas</h2>
                                 <br>
                                 <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.comprar()">
                                         <div class="form-control selecionarItem">
                                             <h4>1 Baú</h4>
                                             <hr>
-                                            <img width="100%"
-                                                src="./content/images/BauOpen.gif">
+                                            <img width="100%" src="./content/images/BauOpen.gif">
                                             $💰 10 Moedas
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.comprar()">
                                         <div class="form-control selecionarItem">
                                             <h4>5 Baús</h4>
                                             <hr>
@@ -121,9 +119,9 @@
                                             $💰 40 Moedas
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.comprar()">
                                         <div class="form-control selecionarItem">
-                                            <h4>1 Slote de Ficha</h4>
+                                            <h4>1 Slot de Ficha</h4>
                                             <hr>
                                             <img width="100%"
                                                 src="https://thumbs.dreamstime.com/b/estilo-de-desenho-animado-do-%C3%ADcone-gaveta-documentos-armazenamento-da-vetor-para-design-web-isolado-em-fundo-branco-191638766.jpg">
@@ -138,5 +136,39 @@
             </div>
         </div>
     </div>
-    <br>
+</div>
+<div class="modal fade" id="mdlaquirirPasseOuro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div id="ModalBody" class="modal-body">
+                <div id="divIcone" class="row justify-content-md-center" style="display: flex;">
+                    <img id="imgIconeNovo" width="200px">
+                    <h5>Comprar!</h5>
+                    <img src="./content/images/QRCode.gif" alt="" height="200px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdlcomprarSloteFicha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Comprar Slot de Ficha</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div >
+                    <img width="100%"
+                        src="https://thumbs.dreamstime.com/b/estilo-de-desenho-animado-do-%C3%ADcone-gaveta-documentos-armazenamento-da-vetor-para-design-web-isolado-em-fundo-branco-191638766.jpg">
+                    <h3>$💰100 Moedas</h3>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" onclick="loja.comprar();" class="btn btn-primary">Confirmar</button>
+            </div>
+        </div>
+    </div>
 </div>

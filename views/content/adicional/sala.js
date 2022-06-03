@@ -180,6 +180,10 @@ var sala = function () {
             usuario.xP = 0;
             usuario.qtdeBaus++;
             $('#aUsuario').html(usuario.login + ' Nvl ' + usuario.nivel);
+            var modal = new bootstrap.Modal($('#mdlLevelUp'), {
+                keyboard: false
+            });
+            modal.show('slow');
         }
         salvarUsuarioCompleto();
         cronometro.reinicio();
@@ -225,7 +229,7 @@ var sala = function () {
                 if (minutos < 10) { minutos = "0" + minutos }
                 relMinutos.innerHTML = minutos;
             }
-            if (minutos == 2) {
+            if (minutos == 1) {
                 minutos = -1;
                 clearInterval(control);
                 $("#divXpUp").show();
