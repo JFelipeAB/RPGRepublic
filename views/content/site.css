@@ -84,7 +84,9 @@ body{
 }
 
 .bodyImage4{
-    background-image: url("images/home.gif");    
+    background-image: url("images/imagem_fundo_home.jpg");   
+    background-size: cover;
+    min-height: calc(100vh - 20px); 
 }
 
 .bodyImage5{
