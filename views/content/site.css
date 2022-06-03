@@ -90,7 +90,9 @@ body{
 }
 
 .bodyImage5{
-    background-image: url("images/home.gif");    
+    background-image: url("images/background.jpg");  
+    background-size: cover;
+    min-height: calc(100vh - 20px);   
 }
 
 .bodyImage6{
