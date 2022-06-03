@@ -11,23 +11,41 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                     <div class="form-control">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="padding: 10px;">
-                            <h2>Adquirir Passe</h2>
+                            <h2>Adquirir Passes</h2>
                             <br>
-                            <div id="passeOuro" class="selecionarItem" onclick="loja.adquirir()">
+                            <div id="passeOuro" class="selecionarItem" onclick="loja.adquirir('ouro')">
                                 <div class="row form-control">
                                     Ouro
                                     <img width="100%" src="https://i.makeagif.com/media/5-15-2016/StennC.gif">
                                 </div>
                             </div>
                             <br>
-                            <div id="passePrata" class="selecionarItem" onclick="loja.adquirir()">
+                            <div id="passePrata" class="selecionarItem" onclick="loja.adquirir('prata')">
                                 <div class="row form-control">
                                     Prata
                                     <img width="100%"
                                         src="https://thumbs.gfycat.com/EarlyNeatBlackfootedferret-size_restricted.gif">
                                 </div>
                             </div>
-                            <br>
+                        </div>
+                        <button class="btn btn btn-outline-warning" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#clpsInfoCompra" aria-expanded="false" aria-controls="collapseWidthExample">
+                             Informações sobre nossa compra online !
+                        </button>
+                    </div>
+                    <br>
+                    <div style="min-height: 120px;">
+                        <div class="collapse collapse-horizontal" id="clpsInfoCompra">
+                            <div class="form-control">
+                                <div class="card card-body">
+                                    Para realizar as compras, click no item desejado e em seguida leia
+                                    o QRcode que surgirá, contendo link para o pagamente via PIX.
+                                    Por fim, envie o comprovate da transação para o e-mail <u>suporte.rpg@gmail.com</u>
+                                    <br>
+                                    Nossa plataforma garante a consistências das transações.
+                                    Qualquer dúvida entre em contato através do e-mail <u>suporte.rpg@gmail.com</u>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,7 +72,7 @@
                                             <label id="lblBaus" class="form-label text">1</label>
                                         </div>
                                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm- col-6">
-                                            <label class="title">Slotes Fichas</label><br>
+                                            <label class="title">Slots Fichas</label><br>
                                             <label id="lblSloteFichas" class="form-label text">1</label> 🗄
                                         </div>
                                     </div>
@@ -67,7 +85,7 @@
                                 <h2>Adquirir</h2>
                                 <br>
                                 <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.adquirir()">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.adquirir('moeda')">
                                         <div class="form-control selecionarItem">
                                             <h4>Moedas</h4>
                                             <hr>
@@ -76,7 +94,7 @@
                                             50 Moedas
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.adquirir()">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.adquirir('sacoMoeda')">
                                         <div class="form-control selecionarItem">
                                             <h4>Saco de Moedas</h4>
                                             <hr>
@@ -84,7 +102,7 @@
                                             200 Moedas
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.adquirir()">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-6" onclick="loja.adquirir('icone')">
                                         <div class="form-control selecionarItem">
                                             <h4>Item Exclusivo</h4>
                                             <hr>
@@ -125,7 +143,7 @@
                                             <hr>
                                             <img width="100%"
                                                 src="https://thumbs.dreamstime.com/b/estilo-de-desenho-animado-do-%C3%ADcone-gaveta-documentos-armazenamento-da-vetor-para-design-web-isolado-em-fundo-branco-191638766.jpg">
-                                            $💰100 Moedas
+                                            $💰50 Moedas
                                         </div>
                                     </div>
                                 </div>
@@ -138,13 +156,45 @@
     </div>
 </div>
 <div class="modal fade" id="mdlaquirirPasseOuro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog ">
+    <div id="divModalTamanho"class="modal-dialog">
         <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Comprar!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
             <div id="ModalBody" class="modal-body">
-                <div id="divIcone" class="row justify-content-md-center" style="display: flex;">
-                    <img id="imgIconeNovo" width="200px">
-                    <h5>Comprar!</h5>
-                    <img src="./content/images/QRCode.gif" alt="" height="200px">
+                <div class="row justify-content-md-center">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
+                        <img src="./content/images/QRCode.gif" alt="" width="100%">
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
+                        <div id="divModalAdquirir">
+                            <h2> Passe Prata R$ 9,99</h2>
+                            <br>
+                            <p>
+                            <h5>Compre o Passe de Prata para ter benefícios como:<br><br>
+                                -Sempre que ganhar ou comprar um Bau receberá em dobro! <br>
+                                -Sempre que ganhar ou comprar um Slot de Ficha receberá em dobro!</h5><br>
+                            *Ao final da temporada os jogares votam ao passe Bronze.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-md-center">
+                <button class="btn btn btn-outline-warning" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#clpsInfoCompraModal" aria-expanded="false" aria-controls="collapseWidthExample">
+                     Informações sobre nossa compra online !
+                </button>
+                <div class="collapse collapse-horizontal" id="clpsInfoCompraModal">
+                    <div class="card card-body">
+                        Para realizar as compras, click no item desejado e em seguida leia
+                        o QRcode que surgirá, contendo link para o pagamente via PIX.
+                        Por fim, envie o comprovate da transação para o e-mail suporte.rpg@gmail.com
+                        <br>
+                        Nossa plataforma garante a consistências das transações.
+                        Qualquer dúvida entre em contato através do e-mail suporte.rpg@gmail.com
+                    </div>
                 </div>
             </div>
         </div>
@@ -158,16 +208,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div >
+                <div>
                     <img width="100%"
                         src="https://thumbs.dreamstime.com/b/estilo-de-desenho-animado-do-%C3%ADcone-gaveta-documentos-armazenamento-da-vetor-para-design-web-isolado-em-fundo-branco-191638766.jpg">
-                    <h3>$💰100 Moedas</h3>
+                    <h3>$💰50 Moedas</h3>
                 </div>
             </div>
             <div class="modal-footer">
-
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" onclick="loja.comprar();" class="btn btn-primary">Confirmar</button>
+                <button type="button" onclick="alert('Você não tem moedas suficientes!');"
+                    class="btn btn-primary">Confirmar</button>
             </div>
         </div>
     </div>
