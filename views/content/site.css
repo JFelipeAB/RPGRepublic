@@ -300,3 +300,7 @@ footer{
     transition: 0.5s;
     height: 100%;
 }
+.home {
+    transform: translate(0%, 50%);
+    margin: 1% 0 7% !important;
+}
