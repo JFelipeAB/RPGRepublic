@@ -32,7 +32,7 @@ var usuario = function () {
         let usuarioNovo = {
             eMail: dados.email,
             createdAt: "2022-03-11T01:03:52.548Z",
-            acesso: "bronze",
+            acesso: "Bronze",
             listaFicha: [],
             listaIten: [{
                 tipo: "icone",

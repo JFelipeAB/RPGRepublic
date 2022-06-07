@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                     <div class="display-6" align="right" style="align-items: center;" id="NomeSala">
-                        Sala: <%-sala.descricao %>
+                        <%-sala.descricao %>
                     </div>
                 </div>
                 <div class="row-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
@@ -30,11 +30,9 @@
                             <img src="./content/images/xpUP.gif" title="Ganhar XP" onclick="sala.coletarXP();"
                                 width="60px">
                         </div>
-                        <div id="divCronometro" style="display: block;" class="inline">
-                            ⏲
+                        <div id="divCronometro" style="display: block;" class="inline">                            
                             <div class="inline" id="relMinutos">00</div>
-                            <div class="inline" id="relSegundos">:00</div>
-                            🧰
+                            <div class="inline" id="relSegundos">:00</div>                            
                         </div>
                     </div>
                 </div>
@@ -42,12 +40,13 @@
             <br>
             <div class="row form-signin">
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                    <br>
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="card">
                                 <div class="row">
                                     <div class="col-md-4 ms-md-auto col-6">
-                                        <h1 class="display-6">Adicionar</h1>
+                                        <img width="75%" src="./content/images/adicionar.png">
                                     </div>
                                     <div class="col-md-4 ms-auto col-6" style="padding: 10px;">
                                         <button class="btn btn-outline-success" onclick="sala.carregarFicha();">
@@ -59,6 +58,7 @@
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <br />
+                                        <label class="form-label">Atributo</label>
                                         <div class="input-group mb-3 align-items-center">
                                             &nbsp;&nbsp;
                                             <input type="text" id="txtAtributoFicha" class="form-control"
@@ -72,11 +72,12 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <br />
+                                        <label class="form-label">Item</label>
                                         <div class="input-group mb-3 align-items-center">
                                             <input type="text" id="txtItemFicha" placeholder="Item" class="form-control"
                                                 aria-label="Recipient's username" aria-describedby="basic-addon2"
                                                 style="margin: 0px">
-                                            <div class="input-group-append">
+                                            <div class="input-group-append">                                                
                                                 <button onclick="sala.addItem()" class="btn btn-outline-secondary"
                                                     type="button">➕</button>
                                             </div>
@@ -90,7 +91,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="card">
                                 <div class="jumbotron jumbotron-fluid" style="padding: 10px;">
-                                    <h1 class="display-6">Ficha</h1>
+                                    <img width="25%" src="./content/images/ficha.png">
                                     <div class="row align-items-center ficha-sala">
                                         <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12" style="text-align: left;">
                                             <div class="row align-items-center">
@@ -105,7 +106,7 @@
                                                     </div>
                                                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
                                                         <label class="form-label">Raça</label>
-                                                        <input id="sltFichaRaca" class="form-control">
+                                                        <input id="sltFichaRaca" placeholder="Raça" class="form-control">
 
                                                     </div>
                                                 </div>
@@ -116,20 +117,20 @@
                                                             <div class="col-6 col-sm-6">
                                                                 <label for="txtFichaVida"
                                                                     class="form-label">Vida</label>
-                                                                <input id="txtFichaVida" type="number"
+                                                                <input id="txtFichaVida" placeholder="0" type="number"
                                                                     class="form-control textoEditavel">
                                                             </div>
                                                             <div class="col-6 col-sm-6">
                                                                 <label for="txtFichaMana"
                                                                     class="form-label">Mana</label>
-                                                                <input id="txtFichaMana" type="number"
+                                                                <input id="txtFichaMana" placeholder="0" type="number"
                                                                     class="form-control textoEditavel">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
                                                         <label class="form-label">Classe</label>
-                                                        <input id="sltFichaClasse" class="form-control">
+                                                        <input id="sltFichaClasse" placeholder="Classe" class="form-control">
 
                                                         </select>
                                                     </div>
@@ -183,17 +184,18 @@
                                 🎲 Dados 🎲</button> -->
                             <a href="/telaDados" target="_blank"
                                 onclick="window.open(this.href, this.target, 'width=704,height=489'); return false;">
-                                <button class="form-control" type="button"> 🎲 Dados 🎲</button></a>
+                                <button  class="btn btn-outline-dark form-control" type="button"> 🎲 🎲 🎲 </button></a>
                         </div>
                         <div class="col-12">
-                            <br />
-                            <h1 style="text-align: center;"> Chat</h1>
+                            <br>
+                            <br>
+                            <img width="35%" src="./content/images/chat.png">
                             <form id="chat">
                                 <div style="text-align: left; font-size: medium;" id="divChat"
                                     class="overflow-auto form-control messages">
                                 </div>
                                 <input class="form-control" id="txtText" type="text" style="width: 95%;" name="username"
-                                    placeholder="digite sua mensagem">
+                                    placeholder="Digite sua mensagem">
                                 <br />
                                 <button class="form-control" type="submit">Enviar</button>
                                 </input>
@@ -219,7 +221,7 @@
                 <div id="divMoeda" class="row justify-content-md-center" style="display: flex;">
                     <img id="imgBau" src="./content/images/lvlUP.gif" width="200px">
                     <hr>
-                    <h5>Voce ganhou 1 Bau📦!</h5>
+                    <h5>Voce ganhou 1 Baú📦!</h5>
                 </div>                
             </div>
         </div>

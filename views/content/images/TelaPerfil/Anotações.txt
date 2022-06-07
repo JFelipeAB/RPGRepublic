@@ -1,0 +1,12 @@
+Inserir <a href='https://www.freepik.com/photos/fun'>Fun photo created by freepik - www.freepik.com</a> em todas as imagens de background que usar, porque tempos que creditar os caras
+
+Na label que fala qual passe o usuario tem, Alterar a primeira letra para maiúsculo, "Bronze", "Prata"
+
+Tirar negrito da label "Cor da Fonte: "
+
+Alterar as duas labels "Cor de texto" para "Cor da fonte"
+
+
+
+
+

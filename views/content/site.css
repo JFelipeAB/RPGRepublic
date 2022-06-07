@@ -95,18 +95,39 @@ body{
     min-height: calc(100vh - 20px);   
 }
 
-.bodyImage6{
-    background-image: url("images/home.gif");    
+.bodyImageRegistrar{
+    background-image: url("images/registrarBackgroud.jpg");  
+    background-size: cover;
+    min-height: calc(100vh - 20px);   
 }
 
-.bodyImage7{
-    background-image: url("images/sobre.jpg");    
+.bodyImageHome{
+    background-image: url("images/homeBackground.jpg");  
+    background-size: cover;
+    min-height: calc(100vh - 20px);   
 }
 
+.bodyImageRecom{
+    background-image: url("images/RecoBackground.jpg");  
+    background-size: cover;
+    min-height: calc(100vh - 20px);   
+}
+
+.bodyImageloja{
+    background-image: url("images/lojaBackground.jpg");  
+    background-size: cover;
+    min-height: calc(100vh - 20px);   
+}
+
+.bodyImagePerfil{
+    background-image: url("images/Perfilbackground.jpg");  
+    background-size: cover;
+    min-height: calc(100vh - 20px);   
+}
 
 #bodyContent {
     margin: 80px auto;
-    background-color: rgb(232, 232, 232, 0.8);
+    background-color: rgb(232, 232, 232, 0.95);
     height: 80%;
     margin-bottom: 4%;
     padding: 2%;
@@ -303,6 +324,6 @@ footer{
     height: 100%;
 }
 .home {
-    transform: translate(0%, 50%);
+    transform: translate(0%, 20%);
     margin: 1% 0 7% !important;
 }

@@ -10,22 +10,23 @@ $(document).ready(function () {
 
 var home = function () {
 
-    var criarSala = function () {        
-        $.ajax({
-            url: "salvarSala",
-            contentType: 'application/json',
-            data: JSON.stringify(getDtoCriarSala()),
-            method: 'POST',
-            async: true
-        }).done(function (retorno) {            
-            if (!retorno)
-                alert("Falha interna do servidor");
-            else {
-                self.location = './sala?id=' + retorno.resultado;
-            }
-        }).fail(function () {
-            alert("Falha na conexão com servidor");
-        })
+    var criarSala = function () {    
+        alert("Voce não pode criar uma sala ainda!")
+        // $.ajax({
+        //     url: "salvarSala",
+        //     contentType: 'application/json',
+        //     data: JSON.stringify(getDtoCriarSala()),
+        //     method: 'POST',
+        //     async: true
+        // }).done(function (retorno) {            
+        //     if (!retorno)
+        //         alert("Falha interna do servidor");
+        //     else {
+        //         self.location = './sala?id=' + retorno.resultado;
+        //     }
+        // }).fail(function () {
+        //     alert("Falha na conexão com servidor");
+        // })
     };
 
     var entrarSala = function (idSala, descricaoSala, senhaSala) {

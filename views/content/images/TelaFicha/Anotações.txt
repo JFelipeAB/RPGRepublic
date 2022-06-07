@@ -1,0 +1,21 @@
+Inserir <a href='https://www.freepik.com/photos/fun'>Fun photo created by freepik - www.freepik.com</a> em todas as imagens de background que usar, porque tempos que creditar os caras
+
+Tirar os ícones quando o contador ta rolando, só deixar o tempo mesmo
+
+Trocar aquele gif do xp rodando pro  icone do baúzinho
+
+Colocar o tempo de recompensa pra 15 minutos
+
+Tirar o sala: da label "SALA: A LENDA DO VALLE", deixar so o nome do negócio mesmo
+
+Colocar dentro da label os nomes do campo, porque no personagem ta escrito dentro da label e no resto não, e em atributo e item nao tem a label escrita em cima, tem que padronizar essa galera
+
+No botão de dados, tirar o texto "Dados" e deixar apenas um íconezinho de dadinho
+
+Na label "digite sua mensagem" o D é maiúsculo
+
+
+ 
+
+
+

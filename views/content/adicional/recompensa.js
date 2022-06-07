@@ -12,9 +12,9 @@ var configBaus = function () {
         $("#btnAbrirBau").html('ABRIR BAU(' + usuario.qtdeBaus + ')');
     }
     else {
-        $('#imgBau').attr("src", "./content/images/vazio.webp");
+        $('#imgBau').attr("src", "./content/images/Rsembau.png");
         $('#btnAbrirBau').prop("disabled", true);
-        $("#btnAbrirBau").html('😭 NENHUMA CAIXA PARA ABRIR 🥱');
+        $("#btnAbrirBau").html('Sem baús para abrir');
     };
 };
 

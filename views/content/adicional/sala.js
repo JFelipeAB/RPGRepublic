@@ -229,7 +229,7 @@ var sala = function () {
                 if (minutos < 10) { minutos = "0" + minutos }
                 relMinutos.innerHTML = minutos;
             }
-            if (minutos == 1) {
+            if (minutos == 3) {
                 minutos = -1;
                 clearInterval(control);
                 $("#divXpUp").show();

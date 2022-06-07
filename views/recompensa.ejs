@@ -3,21 +3,24 @@
 </title>
 <script src="./content/adicional/recompensa.js">  </script>
 <script>
-    var listaItenGeral =  <%- JSON.stringify(listaIten) %> 
+    var listaItenGeral =  <% - JSON.stringify(listaIten) %> 
 </script>
 
-<div class="text-center bodyImage1">
+<div class="text-center bodyImageRecom">
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                 <div id="bodyContent" class="jumbotron justify-content-md-center">
-                    <h1 class="display-5">RECOMPENSAS</h1>
+                    <img width="65%" src="./content/images/recompensas.png">
                     <br>
-                    <img id="imgBau" src="./content/images/vazio.webp" width="300px">
+                    <br>
+                    <img id="imgBau" src="./content/images/Rsembau.png" width="300px">
                     <br>
                     <br>
                     <button id="btnAbrirBau" class="btn btn-lg btn-block btn-primary" disabled="true"
-                        onClick="recompensa.abrirCaixa()">😭 NENHUMA CAIXA PARA ABRIR 🥱</button>
+                        onClick="recompensa.abrirCaixa()"> Sem baús para abrir </button>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
@@ -45,17 +48,18 @@
                 </div>
                 <div id="divFontColor" class="row justify-content-md-center" style="display: flex;">
                     <br>
-                    <div id="divTextoCorNova" class="inLine" style="font-size: large;">Voce ganhou a nova cor de texto especial: </div>
-                    <input disabled type="color" id="iptCorNova">                    
+                    <div id="divTextoCorNova" class="inLine" style="font-size: large;">Voce ganhou a nova cor de texto
+                        especial: </div>
+                    <input disabled type="color" id="iptCorNova">
                     <br>
                     <hr>
                     <h5>Voce ganhou uma nova cor de texo!</h5>
                 </div>
                 <div id="divFontFamily" class="row justify-content-md-center" style="display: flex;">
                     <br>
-                    <div  class="inLine" style="font-size: large;">Voce ganhou a nova fonte de texto especial: </div>
+                    <div class="inLine" style="font-size: large;">Voce ganhou a nova fonte de texto especial: </div>
                     <div id="divTextoFonteNova" class="inLine" style="font-size: large;"></div>
-                    <br>                   
+                    <br>
                     <hr>
                     <h5>Voce ganhou uma nova Fonte de Texto!</h5>
                 </div>
