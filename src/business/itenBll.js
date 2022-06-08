@@ -4,7 +4,7 @@ var iten = function () {
 
     var listaItems = async () => {
         let listaitem = await schemaIten.find().exec();
-        if (!listaitem) return { error: "Erro ao consultar itens" };        
+        if (!listaitem) return { error: "Erro ao consultar itens" };       
         return listaitem;
     };
 

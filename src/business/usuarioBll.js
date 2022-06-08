@@ -36,7 +36,10 @@ var usuario = function () {
             listaFicha: [],
             listaIten: [{
                 tipo: "icone",
-                descricao: "../aditional/Icon/IconeCaveira.png"
+                descricao: "../aditional/Icon/perfil1.png"
+            }, {
+                tipo: "icone",
+                descricao: "../aditional/Icon/perfil2.png"
             }, {
                 tipo: "FontFamily",
                 descricao: "Arial"
@@ -47,7 +50,7 @@ var usuario = function () {
             }
             ],
             qtdeFichas: 2,
-            icone: "../aditional/Icon/IconeCaveira.png",
+            icone: "../aditional/Icon/perfil1.png",
             textoCor: "Preto",
             textoCorN: "#000000",
             textoFonte: "Arial",
