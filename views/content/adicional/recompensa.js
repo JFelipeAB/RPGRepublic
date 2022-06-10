@@ -7,7 +7,7 @@ $(document).ready(function () {
 
 var configBaus = function () {
     if (usuario.qtdeBaus > 0) {
-        $('#imgBau').attr("src", "./content/images/BauOpen.gif");
+        $('#imgBau').attr("src", "./content/images/Rbau.png");
         $('#btnAbrirBau').prop("disabled", false);
         $("#btnAbrirBau").html('ABRIR BAU(' + usuario.qtdeBaus + ')');
     }

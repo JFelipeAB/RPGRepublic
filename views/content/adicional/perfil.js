@@ -147,7 +147,7 @@ var perfil = function () {
     };
 
     var alterarSenha = function (){
-
+        alert('Você não pode mudar sua senha!');
     }
 
     return {

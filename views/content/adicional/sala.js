@@ -23,9 +23,9 @@ var sala = function () {
         $('.textoEditavel').css("font-family", usuario.textoFonte);
 
         $("#ModalDados").on("hidden.bs.modal", function () {
-           box = null;           
+            box = null;
         });
-        
+
     }
 
     var configSocket = function () {
@@ -105,7 +105,7 @@ var sala = function () {
         modal.show('slow');
     };
 
-    var adicionarMensagem = function (text) {        
+    var adicionarMensagem = function (text) {
         if (text)
             socket.emit("connection", `<div style="font-family:${usuario.textoFonte}; color:${usuario.textoCorN}"` +
                 `class="textoEditavel">${usurImg}<strong>${usurName}</strong>: ${text}</div><hr>`);
@@ -243,16 +243,17 @@ var sala = function () {
     }();
 
     var salvarFicha = function () {
+        alert('Você não pode salvar fichas aindas');
 
     };
 
     var carregarFicha = function () {
-
+        alert('Você não tem fichas salvas');
     };
 
-var abrirDados = function(){
-  
-};
+    var abrirDados = function () {
+
+    };
 
     return {
         adicionarMensagem: adicionarMensagem,
